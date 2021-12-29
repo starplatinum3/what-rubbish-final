@@ -7,7 +7,9 @@ import com.google.gson.Gson;
 
 public class Bus {
     //public static String packageName =  "com.example.smlj";
-    public static  int maxPoint=5;
+    //public static  int maxPoint=5;
+    public static  int maxPoint=50;
+    //public static  int maxPoint=30;
     public static String packageName =  "com.example.whatrubbish";
     public static User curUser;
     public static int stagesLen = 4;

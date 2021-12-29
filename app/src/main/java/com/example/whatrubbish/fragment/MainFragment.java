@@ -526,9 +526,14 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         //if (stageId == null) {
         //    stageId = 0;
         //}
-        if (pointCnt > 5) {
-            pointCnt = 5;
+        //if (pointCnt > 5) {
+        //    pointCnt = 5;
+        //}
+
+        if (pointCnt > Bus.maxPoint) {
+            pointCnt =  Bus.maxPoint;
         }
+
         //double progress = pointCnt * 100.0 / Bus.maxPoint;
         double progress = pointCnt * 100.0 / Bus.maxPoint;
         binding.donutProgress.setProgress((int) progress);
