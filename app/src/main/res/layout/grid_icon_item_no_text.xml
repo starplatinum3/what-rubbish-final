@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    android:background="@drawable/sp_fillet_green_al"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    android:layout_width="100pt"
+    android:layout_height="100pt"
+    android:background="@color/gray"
+    android:background="@drawable/sp_fillet_green"
+    <!--    android:layout_width="100dp"-->
+    <!--    android:layout_height="100dp"-->
+    <!--    android:background="#312f2f"-->
+    <!--    不要颜色-->
+
+    <!--    app:srcCompat="@mipmap/ic_category_0"-->
+    <!--    android:layout_width="60dp"-->
+    <!--    android:layout_height="75dp"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:layout_width="100dp"-->
+    <!--    android:layout_height="100dp"-->
+    <!--    安卓长宽 相等 画出来的 是长方形-->
+    <!--    安卓 imageview 正方形-->
+    android:layout_width="100pt"
+    android:layout_height="100pt"
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:layout_gravity="center"
+
+        android:foregroundGravity="center"
+        app:srcCompat="@drawable/miku_fang" />
+
+
+</LinearLayout>

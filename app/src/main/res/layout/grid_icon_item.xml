@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_gravity="center"
+    android:id="@+id/layout"
+    android:padding="5dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+<!--    android:background="#312f2f"-->
+<!--    不要颜色-->
+
+<!--    app:srcCompat="@mipmap/ic_category_0"-->
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="60dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/miku_fang" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+</LinearLayout>

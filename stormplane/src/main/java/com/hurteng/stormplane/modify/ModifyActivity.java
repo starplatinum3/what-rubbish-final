@@ -1,0 +1,42 @@
+package com.hurteng.stormplane.modify;
+
+
+import android.app.Activity;
+import android.content.Intent;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.R;
+//import com.facebook.stetho.Stetho;
+
+//import en.edu.zucc.pb.loginapplication.activity.BookkeepingActivity;
+
+public class ModifyActivity extends Activity implements
+        View.OnClickListener {
+
+//    Button btnToHome;
+//    LinearLayout main_content;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_modify);
+        Log.e("tag", "finished");
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+        }
+    }
+}

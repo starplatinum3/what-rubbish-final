@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+    <!--    android:background="@color/green_bg"-->
+    <!--    android:background="@android:color/holo_green_dark"-->
+    <!---->
+
+    <!--    安卓 页面背景-->
+    <!--    android:layout_marginStart="40dp"-->
+    <!--    android:layout_marginEnd="40dp"-->
+    <!--    android:layout_marginStart="62dp"-->
+    <!--    android:layout_marginEnd="62dp"-->
+    android:layout_marginStart="48dp"
+    android:layout_marginTop="131dp"
+    android:layout_marginEnd="48dp"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="131dp"
+            android:layout_marginEnd="48dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="146dp"
+                android:layout_height="92dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="选择"
+                    android:textColor="@color/gray"
+                    android:textSize="40dp"></TextView>
+
+                <!--        这个东西太高了。。。-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <!--            android:layout_height="50dp"-->
+                    <!--            android:layout_width="match_parent"-->
+                    android:textSize="30dp"
+                    android:layout_weight="3"
+                    146 -20-10
+                    android:layout_width="116dp"
+                    android:layout_width="116dp"
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginStart="20dp"
+
+                        android:gravity="center"
+                        android:text="您的地区"
+                        android:textColor="@color/gray"
+                        android:textSize="20dp"></TextView>
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+
+                    <ImageView
+                        android:id="@+id/ivSearchPopUp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/popup_down"></ImageView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--        fragment 填充 安卓-->
+            <!--        <androidx.fragment.app.FragmentContainerView-->
+            <!--            android:name="com.example.whatrubbish.ui.regionSettingSlide.RegionSettingSlideFragment"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="400dp">-->
+
+            <!--        </androidx.fragment.app.FragmentContainerView>-->
+
+
+            <!--        android:id="@+id/RegionSettingSlideFragment"-->
+            <!--        好像是因为他没有id 。。-->
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/RegionSettingSlideFragment"
+                android:name="com.example.whatrubbish.ui.regionSettingSlide.RegionSettingSlideFragment"
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
+
+            </androidx.fragment.app.FragmentContainerView>
+            288+ 57 48
+            393
+
+            <!--        安卓 设置 gone-->
+            <!--        <androidx.fragment.app.FragmentContainerView-->
+            <!--            android:id="@+id/RegionInputFragment"-->
+            <!--            android:name="com.example.whatrubbish.ui.regionInput.RegionInputFragment"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="400dp"-->
+            <!--            android:visibility="gone">-->
+
+            <!--        </androidx.fragment.app.FragmentContainerView>-->
+
+            <!--        <ImageView-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="100dp"></ImageView>-->
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="100dp"-->
+            <!--            android:orientation="horizontal">-->
+            <!--            &lt;!&ndash;            android:layout_height="24.48dp"&ndash;&gt;-->
+            <!--            <ImageView-->
+            <!--                android:layout_width="24.48dp"-->
+            <!--                android:layout_height="48.97dp"-->
+
+            <!--                android:src="@drawable/miku_fang"></ImageView>-->
+
+            <!--            <TextView-->
+            <!--                android:layout_width="72dp"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:layout_marginStart="98.52dp"-->
+            <!--                android:layout_marginEnd="98.52dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:text="北京"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:textSize="30dp"></TextView>-->
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="24.48dp"-->
+            <!--                android:layout_height="48.97dp"-->
+            <!--                android:src="@drawable/miku_fang"></ImageView>-->
+
+            <!--        </LinearLayout>-->
+
+            android:layout_marginTop="97dp"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+
+<!--            <Button-->
+<!--                android:id="@+id/btnComplete"-->
+<!--                android:layout_width="145dp"-->
+<!--                android:layout_height="44dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:background="@drawable/sp_fillet_green"-->
+<!--                android:text="完成"-->
+<!--                android:textColor="@color/white"></Button>-->
+
+            <!--<Button-->
+            <!--    android:layout_width="match_parent"-->
+            <!--    android:layout_height="match_parent"></Button>-->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnComplete"
+        android:layout_width="145dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/sp_fillet_green"
+        android:layout_marginBottom="99dp"
+        android:text="完成"
+        android:textColor="@color/white"></Button>
+
+    <!--<TableLayout-->
+    <!--    android:layout_width=""-->
+    <!--    android:layout_height=""-->
+    <!--    <android.support.design.widget.TabLayout-->
+    <!--    <TableLayout-->
+    <!--    <com.google.android.material.tabs.TabLayout-->
+    <!--        android:id="@+id/mTabLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:tabBackground="@android:color/white"-->
+    <!--        app:tabIndicatorColor="#ff0000"-->
+    <!--        app:tabIndicatorHeight="2dp"-->
+    <!--        app:tabMode="fixed"-->
+    <!--        app:tabSelectedTextColor="#ff0000"-->
+    <!--        app:tabTextColor="#555555">-->
+
+    <!--    </com.google.android.material.tabs.TabLayout>-->
+
+    <!--    &lt;!&ndash;    <android.support.v4.view.ViewPager&ndash;&gt;-->
+    <!--    <androidx.viewpager.widget.ViewPager-->
+    <!--        android:id="@+id/mViewPager"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+</androidx.appcompat.widget.LinearLayoutCompat>

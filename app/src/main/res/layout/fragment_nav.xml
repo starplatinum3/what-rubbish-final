@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/bottomNav"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foregroundGravity="center"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@id/btnChangeImg">
+    android:layout_width="@dimen/dp_40"
+    ImageView src 的大小
+    android:scaleType="fitCenter"
+    android:scaleType="centerInside"
+    android:scaleType="centerCrop"
+    android:scaleType="fitCenter"
+    android:scaleType="fitCenter"
+    android:layout_width="@dimen/dp_80"
+    android:layout_height="@dimen/dp_40"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/progressFrag"
+    android:layout_marginTop="@dimen/dp_10"
+
+    <FrameLayout
+
+        android:id="@+id/nav1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/sp_fillet_green_al_nav_sel"
+        app:layout_constraintEnd_toStartOf="@id/nav2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        custom:donut_unfinished_color="@color/white"
+        custom:donut_background_color="@color/gray"
+        custom:donut_unfinished_color="@color/gray"
+        custom:donut_progress="30"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_40"
+        android:src="@mipmap/group_1"
+
+        <ImageView
+            android:id="@+id/nav1Img"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_40"
+            android:adjustViewBounds="true"
+            android:background="@drawable/sp_fillet_green_al_nav_sel"
+
+            app:layout_constraintEnd_toStartOf="@id/nav2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        android:background="@drawable/sp_fillet_green_al_nav_sel"
+        <ImageView
+            android:id="@+id/nav1Icon"
+            android:layout_width="@dimen/dp_19"
+            android:layout_height="@dimen/dp_19"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+
+            android:src="@mipmap/group_1"
+
+            app:layout_constraintEnd_toStartOf="@id/nav2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+    </FrameLayout>
+
+    <!--    <FrameLayout-->
+    <!--        android:layout_width=""-->
+    <!--        android:layout_height=""-->
+    <!--    <ImageView-->
+    <!--        android:adjustViewBounds="true"-->
+    <!--        android:background="@drawable/sp_fillet_green_al_nav_sel"-->
+    <!--        android:id="@+id/nav1"-->
+    <!--        android:layout_width="@dimen/dp_80"-->
+    <!--        android:layout_height="@dimen/dp_40"-->
+    <!--        android:src="@mipmap/group_1"-->
+
+    <!--        app:layout_constraintEnd_toStartOf="@id/nav2"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+
+    <ImageView
+        android:id="@+id/nav2"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:src="@drawable/miku_fang"
+        app:layout_constraintEnd_toStartOf="@id/nav3"
+        app:layout_constraintStart_toEndOf="@id/nav1"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <ImageView
+        android:id="@+id/nav3"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:src="@drawable/miku_fang"
+        app:layout_constraintEnd_toStartOf="@id/nav4"
+        app:layout_constraintStart_toEndOf="@id/nav2"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <ImageView
+        android:id="@+id/nav4"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:src="@drawable/miku_fang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/nav3"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+</androidx.constraintlayout.widget.ConstraintLayout>

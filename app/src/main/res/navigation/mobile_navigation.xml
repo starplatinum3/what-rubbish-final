@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_main">
+    app:startDestination="@+id/navigation_home"
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_home"-->
+<!--        android:name="com.example.whatrubbish.ui.home.HomeFragment"-->
+<!--        android:label="@string/title_home"-->
+<!--        tools:layout="@layout/fragment_home" />-->
+    android:name="com.example.whatrubbish.fragment.MainFragment"
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.example.whatrubbish.fragment.MainHolderFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_main" />
+
+    android:name="com.example.whatrubbish.fragment.WikiFragment"
+    <fragment
+        android:id="@+id/navigation_wiki"
+        android:name="com.example.whatrubbish.fragment.WikiHolderFragment"
+        android:label="WikiFragment"
+        tools:layout="@layout/fragment_wiki" />
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/navigation_dashboard"-->
+    <!--        android:name="com.example.whatrubbish.ui.dashboard.DashboardFragment"-->
+    <!--        android:label="@string/title_dashboard"-->
+    <!--        tools:layout="@layout/fragment_dashboard" />-->
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/navigation_notifications"-->
+    <!--        android:name="com.example.whatrubbish.ui.notifications.NotificationsFragment"-->
+    <!--        android:label="@string/title_notifications"-->
+    <!--        tools:layout="@layout/fragment_notifications" />-->
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.smlj.fragment.MessagesFragment"
+        android:label="社交"
+        tools:layout="@layout/messages" />
+
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/navigation_personal"-->
+    <!--        android:name="com.example.whatrubbish.personal.PersonalFragment"-->
+    <!--        android:label="@string/title_notifications"-->
+    <!--        tools:layout="@layout/fragment_achievement" />-->
+    <fragment
+        android:id="@+id/navigation_personal"
+        android:name="com.example.smlj.fragment.AchievementFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/activity_achievement" />
+</navigation>

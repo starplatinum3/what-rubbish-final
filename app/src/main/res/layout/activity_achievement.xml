@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    android:paddingBottom="96dp"
+    <ImageView
+        android:id="@+id/setting"
+        android:onClick="tuichu"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/setting21"
+        app:layout_constraintBottom_toTopOf="@+id/avatar"
+        app:layout_constraintRight_toRightOf="@+id/tablayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+
+        android:id="@+id/avatar"
+        android:layout_width="123dp"
+        android:layout_height="123dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_outline"
+        android:padding="5dp"
+        android:src="@mipmap/touxiang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting"
+        app:layout_constraintBottom_toTopOf="@+id/container"/>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+
+        app:layout_constraintBottom_toTopOf="@id/tablayout"
+        app:layout_constraintTop_toBottomOf="@+id/avatar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:text="网友小郑"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!--        android:textSize="40dp"-->
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:text="积分:"
+                android:textColor="@color/fbutton_color_asbestos"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:text="10000"
+                android:textColor="@color/fbutton_color_asbestos"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/tablayout"
+        android:layout_width="347dp"
+        android:layout_height="50dp"
+        android:background="@drawable/gerenback"
+        app:layout_constraintBottom_toTopOf="@id/mViewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        app:tabIndicatorColor="@color/green_nav_text"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
+        app:tabSelectedTextColor="@color/weidu"
+        app:tabTextAppearance="@style/TabTextAppearance"
+        app:tabTextColor="@color/fbutton_color_asbestos" />
+
+    <TextView
+        android:id="@+id/linev2"
+        android:layout_width="1.5dp"
+        android:layout_height="35dp"
+        android:background="@color/fbutton_color_silver"
+        app:layout_constraintRight_toLeftOf="@+id/linev1"
+        app:layout_constraintBottom_toBottomOf="@+id/tablayout"
+        app:layout_constraintLeft_toLeftOf="@+id/tablayout"
+        app:layout_constraintTop_toTopOf="@+id/tablayout"/>
+    <TextView
+        android:id="@+id/linev1"
+        android:layout_width="1.5dp"
+        android:layout_height="35dp"
+        android:background="@color/fbutton_color_silver"
+        app:layout_constraintLeft_toRightOf="@+id/linev2"
+        app:layout_constraintBottom_toBottomOf="@+id/tablayout"
+        app:layout_constraintRight_toRightOf="@+id/tablayout"
+        app:layout_constraintTop_toTopOf="@+id/tablayout"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="347dp"
+        android:layout_height="399dp"
+        android:layout_gravity="center"
+        android:background="@drawable/greenback1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tablayout"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

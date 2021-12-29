@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"></ImageView>-->
+
+<!--    android:layout_weight="1"-->
+<!--    android:layout_marginStart="60dp"-->
+<!--    android:layout_marginEnd="60dp"-->
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:layout_gravity="center"-->
+<!--        android:id="@+id/viewPagerImage"-->
+
+<!--        android:layout_width="72dp"-->
+<!--        android:layout_height="50dp"-->
+<!--       >-->
+
+<!--    </androidx.viewpager.widget.ViewPager>-->
+    android:closeIcon=""
+    <SearchView
+        android:queryBackground="@null"
+        android:background="@drawable/sp_fillet_green_al"
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="请输入搜索内容" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+<!--    ————————————————-->
+<!--    版权声明：本文为CSDN博主「Airsaid」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+<!--    原文链接：https://blog.csdn.net/airsaid/article/details/51087226-->
+
+
+<!--    android:value="@+value/swipeSelector"-->
+<!--    <com.roughike.swipeselector.SwipeSelector-->
+<!--        android:id="@+id/swipeSelector"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" />-->
+
+</LinearLayout>

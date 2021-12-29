@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="1.0px" />
+<!--    <corners android:radius="1000px" />-->
+<!--    <stroke android:color="#ff0400" android:width="2px"/>-->
+<!--    2px-->
+<!--    5px-->
+<!--    <stroke android:color="@color/black" android:width="20dp"/>-->
+<!--    <stroke android:color="@color/black" android:width="1px"/>-->
+<!--    <stroke android:color="@color/black" android:width="5dp"/>-->
+    <stroke android:color="@color/green" android:width="5dp"/>
+    <solid android:color="@android:color/white" />
+
+</shape>
+<!--    ————————————————-->
+<!--    版权声明：本文为CSDN博主「醉墨重生」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+<!--    原文链接：https://blog.csdn.net/qq_24675479/article/details/78612222-->

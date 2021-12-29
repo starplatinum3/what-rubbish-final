@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.whatrubbish">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+<!--    android:theme="@style/Theme.WhatRubbish"-->
+<!--    android:theme="@style/QMUI.Compat"-->
+
+    <!--添加该权限，webview可以访问网页-->
+<!--    <uses-permission android:name="android.permission.INTERNET"></uses-permission>-->
+
+    之前okhttps 配置了 一下  android:networkSecurityConfig= 所以下面再    android:usesCleartextTraffic="true" 也没用
+<!--    需要在  android:networkSecurityConfig 里面配置   <base-config cleartextTrafficPermitted="true" />-->
+    tools:replace="android:icon"
+    tools:replace="android:theme"
+    tools:replace="android:theme|android:icon"
+    tools:replace="android:theme"
+    <application
+        android:name=".MyApplication"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+
+        tools:replace="android:icon,android:theme,android:roundIcon"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m"
+        android:theme="@style/Theme.WhatRubbish">
+<!--        <activity-->
+
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="true"-->
+<!--            android:label="@string/app_name"-->
+<!--          >-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+        <activity     android:name=".MainActivity"/>
+        <activity
+
+            android:name="com.example.smlj.logo"
+            android:exported="true"
+            android:label="@string/app_name"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+<!--        <activity-->
+<!--            android:name=".achievement.AchievementActivity"-->
+<!--          >-->
+<!--        </activity>-->
+
+        <activity
+            android:name=".achievement.AchievementActivitySelf"
+            >
+        </activity>
+
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".RegionSettingActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".achievement.AchievementActivity"/>
+        <activity android:name=".activity.PersonalSettingActivity"/>
+        <activity android:name="com.example.smlj.login"
+            android:windowSoftInputMode="adjustPan"/>
+
+
+        <activity android:name="com.example.smlj.yingdao"/>
+        <activity android:name="com.hrl.chaui.activity.SplashActivity"/>
+        <activity android:name="com.hrl.chaui.activity.ChatActivity"/>
+<!--        <activity android:name="com.example.smlj.achievementActivity"/>-->
+<!--        <activity-->
+<!--            android:name=".tabLayout.TabLayoutActivity"-->
+<!--            >-->
+<!--        </activity>-->
+        android:exported="false"
+        <activity
+            android:exported="false"
+            android:name=".activity.MyAppActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity=":MyAppActivity"
+            android:process=":MyAppActivity"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            tools:ignore="Instantiatable">
+
+            <!--<intent-filter android:order="1">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+<!--        <activity-->
+<!--            android:exported="false"-->
+<!--            android:name="com.example.smlj.logo"-->
+<!--            android:launchMode="singleInstance"-->
+<!--            android:taskAffinity=":MyAppActivity"-->
+<!--            android:process=":MyAppActivity"-->
+<!--            android:screenOrientation="sensorLandscape"-->
+<!--            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"-->
+<!--            tools:ignore="Instantiatable">-->
+
+<!--            &lt;!&ndash;<intent-filter android:order="1">-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>&ndash;&gt;-->
+<!--        </activity>-->
+
+    </application>
+
+</manifest>

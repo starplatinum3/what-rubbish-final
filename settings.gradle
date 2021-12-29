@@ -1,0 +1,60 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenLocal()
+//        mavenCentral()
+
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+//
+        maven { url 'https://jitpack.io' }
+
+        /**子模块含有aar:添加全局引用*/
+//        flatDir {
+//            // 由于Library module中引用了 fusion 库的 aar，在多 module 的情况下，
+//            // 其他的module编译会报错，所以需要在所有工程的repositories
+//            // 下把Library module中的libs目录添加到依赖关系中
+//            dirs project(':stormplane').file('libs')
+//        }
+    }
+
+//    versionCatalogs {
+//
+//        libs {
+//
+////            alias('retrofit').to('com.squareup.retrofit2:retrofit:2.9.0')
+//            alias('isRelease').to('true')
+//        }
+//    }
+//    isRelease true
+}
+rootProject.name = "WhatRubbish"
+include ':app'
+
+//isRelease =true
+//Caused by: groovy.lang.MissingPropertyException: Could not set unknown property 'isRelease' for settings 'WhatRubbish' of type org.gradle.initialization.DefaultSettings.
+//        at org.gradle.internal.metaobject.AbstractDynamicObject.setMissingProperty(AbstractDynamicObject.java:118)
+//at org.gradle.groovy.scripts.BasicScript$ScriptDynamicObject.setMissingProperty(BasicScript.java:167)
+//at org.gradle.internal.metaobject.AbstractDynamicObject.setProperty(AbstractDynamicObject.java:76)
+//at org.gradle.groovy.scripts.BasicScript.setProperty(BasicScript.java:71)
+
+
+//include ':CircleProgressBarStatus'
+//include ':circleprogressStatus'
+//**这里的test就是你即将引入的module在本工程的module name,但我们不能就这么完事了,不可能写句这样的代码就可以凭空引入一个叫test的module,下面就是告诉它这个test来自于哪里*/
+
+//project(':CircleProgressBarStatus').projectDir = new File('D:\\proj\\Android\\CircleProgressBarDemo')
+//include ':StormPlaneOutDir'
+//project(':StormPlaneOutDir').projectDir = new File('G:/project/waibao/StormPlane')
+//*这句话的意思个人理解是有一个叫<test>名的项目,目录地址是 new File('module path')*/
+//————————————————
+//版权声明：本文为CSDN博主「JarQ」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+//原文链接：https://blog.csdn.net/qjay_dev/article/details/50602435
+//include ':circleprogressStatus'
+//gradle include
+include ':stormplane'

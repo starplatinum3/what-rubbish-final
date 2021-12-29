@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:focusable="true"
+
+    android:focusableInTouchMode="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/green_bg"
+    android:foregroundGravity="center"
+    android:orientation="vertical"
+    app:layout_anchorGravity="center_vertical">
+
+    <LinearLayout
+        android:focusable="true"
+
+        android:focusableInTouchMode="true"
+        android:layout_width="@dimen/dp_290"
+
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/green_bg"
+        android:foregroundGravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+
+            android:id="@+id/llTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_38"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="@dimen/dp_111"
+
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+
+                android:text="修改"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_40"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWhatRub"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:text="个人信息"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRegister" />
+        </LinearLayout>
+
+
+        app:layout_constraintTop_toBottomOf="tvWhatRub"
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_38"
+
+            android:layout_marginBottom="@dimen/dp_5"
+            android:text="电话号码"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llTitle"
+            app:layout_goneMarginBottom="@dimen/dp_5" />
+        <!--        https://blog.csdn.net/u014714188/article/details/98501449-->
+        <!--                    android:col="@color/white"-->
+        <EditText
+
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+
+            android:layout_marginTop="@dimen/dp_5"
+            android:background="@drawable/round_corners_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPhone" />
+
+        <!--        android:layout_width="42dp"-->
+        <TextView
+            android:id="@+id/tvCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20"
+
+            android:layout_marginTop="@dimen/dp_18"
+
+            android:layout_marginBottom="@dimen/dp_5"
+            android:text="验证码"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPhone" />
+
+
+        只有下面这个是 app:layout_constraintTop_toBottomOf="@id/tvCode"
+        所以他的 android:layout_marginTop="@dimen/dp_5" 才会生效
+
+        <LinearLayout
+            android:id="@+id/llCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/dp_5"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCode">
+
+            <EditText
+
+                android:layout_width="@dimen/dp_180"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/round_corners_bg" />
+
+
+
+            <Button
+                android:layout_width="@dimen/dp_90"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginStart="@dimen/dp_14"
+                android:background="@drawable/sp_fillet"
+                android:text="发送验证码"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvNickName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:text="昵称"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llCode" />
+        <!--        https://blog.csdn.net/u014714188/article/details/98501449-->
+        <!--                    android:col="@color/white"-->
+        <EditText
+            android:id="@+id/edNickName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginTop="@dimen/dp_5"
+            android:background="@drawable/round_corners_bg"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNickName" />
+
+        <TextView
+            android:id="@+id/tvAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:text="地址"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+        <!--        https://blog.csdn.net/u014714188/article/details/98501449-->
+        <!--                    android:col="@color/white"-->
+        <EditText
+            android:id="@+id/etAddr"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginTop="@dimen/dp_5"
+            android:background="@drawable/round_corners_bg"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPasswordAgain" />
+
+        <!--        android:layout_marginStart="14dp"-->
+        android:layout_width="96dp"
+
+        <Button
+            android:focusable="true"
+
+            android:focusableInTouchMode="true"
+            android:id="@+id/btnUpdate"
+            android:layout_width="@dimen/dp_145"
+            android:layout_height="@dimen/dp_44"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_36"
+            android:layout_marginBottom="@dimen/dp_38"
+            android:background="@drawable/sp_fillet"
+            android:text="确认修改"
+            android:textColor="@color/white"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPasswordAgain" />
+        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_20"
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:foregroundGravity="center"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnRegister">
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:foregroundGravity="center_vertical"
+
+            <TextView
+                android:id="@+id/tvQueHave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:text="已有账号?"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="@dimen/dp_38"
+
+            TextView 粗体
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/allReadyHave"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="返回登录"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvQueHave"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:focusable="true"
+
+            android:focusableInTouchMode="true"
+            android:id="@+id/btnGetRank"
+            android:layout_width="@dimen/dp_145"
+            android:layout_height="@dimen/dp_44"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_36"
+            android:layout_marginBottom="@dimen/dp_38"
+            android:background="@drawable/sp_fillet"
+            android:text="获取rank"
+            android:textColor="@color/white"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPasswordAgain" />
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <item-->
+<!--        android:id="@+id/navigation_home"-->
+<!--        android:icon="@drawable/ic_home_black_24dp"-->
+<!--        android:title="@string/title_home" />-->
+    android:icon="@drawable/ic_home_black_24dp"
+    android:title="@string/title_home"
+    <item
+        android:id="@+id/navigation_main"
+        android:icon="@mipmap/group_1"
+        android:title="首页" />
+
+    <!--    <item-->
+    <!--        android:id="@+id/navigation_dashboard"-->
+    <!--        android:icon="@drawable/ic_dashboard_black_24dp"-->
+    <!--        android:title="@string/title_dashboard" />-->
+    <!--    <item-->
+    <!--        android:id="@+id/navigation_wiki"-->
+    <!--        android:icon="@drawable/ic_dashboard_black_24dp"-->
+    <!--        android:title="@string/title_dashboard" />-->
+    item 设置 icon 大小
+    android:iconTint=""
+    <item
+        android:id="@+id/navigation_wiki"
+        android:icon="@mipmap/group_2"
+        android:title="百科" />
+
+    <!--    <item-->
+    <!--        android:id="@+id/navigation_notifications"-->
+    <!--        android:icon="@drawable/ic_notifications_black_24dp"-->
+    <!--        android:title="@string/title_notifications" />-->
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@mipmap/group_3"
+        android:title="消息" />
+
+    android:alphabeticModifiers=""
+    <!--    <item-->
+
+    <!--        android:id="@+id/navigation_personal"-->
+    <!--        android:icon="@drawable/ic_notifications_black_24dp"-->
+    <!--        android:title="个人" />-->
+
+    <item
+        android:id="@+id/navigation_personal"
+        android:icon="@mipmap/group_4"
+        android:title="个人" />
+
+</menu>

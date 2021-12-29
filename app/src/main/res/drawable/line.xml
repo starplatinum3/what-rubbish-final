@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- This is the line -->
+    <!-- left 和right是左右边距 -->
+    <item
+        android:left="1dp"
+        android:right="1dp">
+        <shape>
+            <solid android:color="@color/black" />
+        </shape>
+    </item>
+    <!--bottom是横线高度 -->
+    <item android:bottom="2dp">
+        <shape>
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+
+</layer-list>
+<!--    ————————————————-->
+<!--    版权声明：本文为CSDN博主「大白菜打番茄」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+<!--    原文链接：https://blog.csdn.net/qq_38373150/article/details/79941019-->

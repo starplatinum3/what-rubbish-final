@@ -1,0 +1,29 @@
+<resources>
+<!--    <string name="app_name">Kiwi Kiwi</string>-->
+    <string name="game_name">Kiwi Kiwi</string>
+    <string name="worker_name">Neil and Kyle</string>
+    <string name="startBtn">Start</string>
+    <string name="scoreTag">Score: </string>
+    <string name="score">0</string>
+    <string name="YouScore">Your score is: </string>
+    <string name="showList">Show No.</string>
+    <string name="top">Top 5 Score</string>
+    <string name="restart">Restart</string>
+
+    <string name="title1">Kiwi Bird</string>
+    <string name="title2">Hitting</string>
+    <string name="title3">Rank</string>
+
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="done">Done</string>
+
+    <string name="description1">Fling the kiwi bird to make it fly, you only have 3 kiwi birds, do not waste them</string>
+    <string name="description2">Hitting the kiwi fruit to get 3 points, hitting the box slowly make it broken and get 1 points, fling very fast the destroy the box directly get 1 points</string>
+    <string name="description3">The top 5 rank will be recorded in the list</string>
+
+    <string name="app_name">WhatRubbish</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

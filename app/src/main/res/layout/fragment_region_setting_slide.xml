@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="100dp"></ImageView>-->
+
+    <!--    android:layout_weight="1"-->
+    <!--    android:layout_marginStart="60dp"-->
+    <!--    android:layout_marginEnd="60dp"-->
+    android:layout_width="72dp"
+    android:layout_height="50dp"
+    android:background="@color/orange"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerImage"
+        android:layout_width="373dp"
+
+        android:layout_height="288dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="57dp"
+     >
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <!--            android:layout_height="24.48dp"-->
+        <ImageView
+            android:id="@+id/leftButton"
+            android:layout_width="24.48dp"
+            android:layout_height="48.97dp"
+            android:layout_weight="1"
+
+            android:src="@drawable/arrow_left"></ImageView>
+
+        <!--        private  ViewPager mViewPager;-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:layout_gravity="center"-->
+        <!--        android:id="@+id/discover_pager"-->
+        <!--        />-->
+
+        <!--        android:layout_marginStart="98.52dp"-->
+        <!--        android:layout_marginEnd="98.52dp"-->
+        <!--        android:layout_marginStart="80dp"-->
+        <!--        android:layout_marginEnd="80dp"-->
+        <!--        android:layout_marginStart="60dp"-->
+        <!--        android:layout_marginEnd="60dp"-->
+        android:background="@color/green_bg"
+        <androidx.viewpager.widget.ViewPager
+
+            android:id="@+id/mViewPager"
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_weight="1"
+          >
+
+        </androidx.viewpager.widget.ViewPager>
+
+
+        <!--        <androidx.viewpager.widget.ViewPager-->
+        <!--            android:id="@+id/mViewPager"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent" />-->
+        <!--        ————————————————-->
+        <!--        版权声明：本文为CSDN博主「不知 不知」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+        <!--        原文链接：https://blog.csdn.net/qq_41858698/article/details/105452276-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="72dp"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:layout_marginStart="98.52dp"-->
+        <!--            android:layout_marginEnd="98.52dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="北京"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="30dp"></TextView>-->
+
+        <ImageView
+            android:id="@+id/rightButton"
+            android:layout_width="24.48dp"
+            android:layout_height="48.97dp"
+            android:layout_weight="1"
+            android:src="@drawable/arrow_right"></ImageView>
+
+    </LinearLayout>
+
+    <!--    android:value="@+value/swipeSelector"-->
+    <!--    <com.roughike.swipeselector.SwipeSelector-->
+    <!--        android:id="@+id/swipeSelector"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+</LinearLayout>

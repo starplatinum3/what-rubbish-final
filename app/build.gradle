@@ -1,0 +1,270 @@
+plugins {
+    id 'com.android.application'
+
+}
+
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.whatrubbish"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+    implementation project(path: ':stormplane')
+//    implementation fileTree(dir: 'D:\\proj\\Android\\CircleProgressBarDemo', include: ['*.aar', '*.jar'], exclude: [])
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation'com.jakewharton:butterknife:10.2.1'
+
+    annotationProcessor'com.jakewharton:butterknife-compiler:10.2.1'
+
+//    作者：DannyStone
+//    链接：https://www.jianshu.com/p/a46089b27875
+//    来源：简书
+//    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+    compileOnly "org.projectlombok:lombok:1.18.12"
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    implementation 'com.android.support:design:28.0.0'
+
+//    https://www.icode9.com/content-4-222125.html
+    implementation 'com.qmuiteam:qmui:1.1.2'
+
+//    compile 'com.roughike:swipe-selector:1.0.6'
+    implementation 'com.roughike:swipe-selector:1.0.6'
+
+    // 添加依赖库
+        implementation 'com.gitee.chinasoft_ohos:DynamicGrid:1.0.0'
+
+    implementation 'info.hoang8f:fbutton:1.0.5'
+
+    implementation 'com.royrodriguez:transitionbutton:0.2.0'
+
+    implementation 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+
+//    implementation 'com.dd.ohos:morphingbutton:1.0.1'
+//    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+//    implementation 'com.github.lzyzsd:circleprogress:1.2.1@aar'
+    implementation 'com.github.lzyzsd:circleprogress:1.2.0'
+
+    //朋友圈图片加载
+//    implementation project(':circleprogressStatus')
+
+    def latestMaterialSearchViewVesion=1.0
+//    It looks like you are trying to substitute a version variable, but using single quotes ('). For Groovy string interpolation you must use double quotes (").
+//    implementation "com.github.leoncydsilva:MaterialSearchView:$latestMaterialSearchViewVesion"
+    implementation "com.github.leoncydsilva:MaterialSearchView:$latestMaterialSearchViewVesion"
+//    implementation 'com.github.leoncydsilva:MaterialSearchView:$latestMaterialSearchViewVesion'
+
+    //Room
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp:1.5.1'
+    implementation 'com.facebook.stetho:stetho-urlconnection:1.5.1'
+
+//    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+//    implementation 'com.squareup.okio:okio:1.17.5'
+
+    implementation 'com.ejlchina:okhttps:3.2.0'
+
+    implementation 'com.ejlchina:okhttps-gson:3.2.0'
+
+//    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation 'com.squareup.okio:okio:1.13.0'
+//    implementation ':stormplane'
+
+    api 'com.github.bumptech.glide:glide:4.9.0'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+
+//<<<<<<< HEAD
+//    implementation 'com.gitee.mengpeng920223:MAnim:V1.1.0'
+//=======
+    implementation 'com.gitee.mengpeng920223:MAnim:V1.1.0'
+
+    implementation 'org.jsoup:jsoup:1.10.1'
+
+//    爬虫
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:0.6.2'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.2'
+//    implementation 'com.android.support:appcompat-v7:24.2.1'
+//    implementation 'com.android.support:design:24.2.1'
+//    implementation 'com.android.support:support-v4:24.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.facebook.fresco:fresco:0.14.1'
+    implementation 'com.facebook.fresco:animated-gif:0.14.1'
+    implementation 'com.commit451:NativeStackBlur:1.0.2'
+    implementation 'com.squareup:otto:1.3.8'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.6.2'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.2'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.2'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-x86:0.6.2'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.6.2'
+    implementation 'com.facebook.fresco:animated-webp:0.14.1'
+//    implementation 'com.android.support:cardview-v7:24.2.1'
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'org.litepal.android:core:1.4.1'
+    implementation 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
+    implementation 'org.jsoup:jsoup:1.10.1'
+//    testcompile 'junit:junit:4.12'
+//>>>>>>> 51a83abe22d6b2ef81bd4baf8c8752ebf5e0759e
+
+    // annotationProcessor 'com.android.support:design:25.3.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+//    implementation fileTree(dir: 'D:\\proj\\Android\\CircleProgressBarDemo', include: ['*.aar', '*.jar'], exclude: [])
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation'com.jakewharton:butterknife:10.2.1'
+
+    annotationProcessor'com.jakewharton:butterknife-compiler:10.2.1'
+
+
+    compileOnly "org.projectlombok:lombok:1.18.12"
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    //  implementation 'com.android.support:design:28.0.0'
+
+//    https://www.icode9.com/content-4-222125.html
+    implementation 'com.qmuiteam:qmui:1.1.2'
+
+//    compile 'com.roughike:swipe-selector:1.0.6'
+    implementation 'com.roughike:swipe-selector:1.0.6'
+
+    // 添加依赖库
+    implementation 'com.gitee.chinasoft_ohos:DynamicGrid:1.0.0'
+
+    implementation 'info.hoang8f:fbutton:1.0.5'
+
+    implementation 'com.royrodriguez:transitionbutton:0.2.0'
+
+    implementation 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+
+//    implementation 'com.dd.ohos:morphingbutton:1.0.1'
+//    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+//    implementation 'com.github.lzyzsd:circleprogress:1.2.1@aar'
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+
+    //朋友圈图片加载
+//    implementation project(':circleprogressStatus')
+
+//    def latestMaterialSearchViewVesion=1.0
+////    It looks like you are trying to substitute a version variable, but using single quotes ('). For Groovy string interpolation you must use double quotes (").
+////    implementation "com.github.leoncydsilva:MaterialSearchView:$latestMaterialSearchViewVesion"
+//    implementation "com.github.leoncydsilva:MaterialSearchView:$latestMaterialSearchViewVesion"
+////    implementation 'com.github.leoncydsilva:MaterialSearchView:$latestMaterialSearchViewVesion'
+//
+//    //Room
+//    def room_version = "2.2.5"
+//    implementation "androidx.room:room-runtime:$room_version"
+//    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp:1.5.1'
+    implementation 'com.facebook.stetho:stetho-urlconnection:1.5.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+    implementation 'com.jakewharton:butterknife:9.0.0-rc1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    implementation 'com.google.android.material:material:1.0.0'
+    //implementation 'com.nbsp:library:1.8'
+    //  implementation 'com.nbsp:materialfilepicker:1.9.1'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    configurations { all*.exclude group: 'com.android.support', module: 'support-v4' }
+
+
+//    compile('com.kevin:crop:1.0.2') {
+//
+//        exclude group: 'com.android.support', module: 'appcompat-v7'
+//
+//    }
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'com.github.fornewid:neumorphism:0.3.0'
+    implementation 'com.airbnb.android:lottie:3.7.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

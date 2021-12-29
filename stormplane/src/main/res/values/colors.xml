@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="main_key_board_line_color">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="purple">#673AB7</color>
+    <color name="blue">#00BCD4</color>
+    <color name="green">#4CAF50</color>
+    <color name="orange">#FFC125</color>
+    <color name="dark_orange">#EEB422</color>
+    <color name="pink">#D81B60</color>
+    <color name="red">#EE0000</color>
+    <color name="gray">#D1D1D1</color>
+    <color name="dark_gray">#8B8B7A</color>
+</resources>

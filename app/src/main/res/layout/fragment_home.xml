@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        <TextView
+            android:id="@+id/text_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/btnToAchievement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="去成就"
+            app:layout_constraintTop_toBottomOf="@+id/text_home"></Button>
+
+        <Button
+            android:id="@+id/btnToAchievementSelf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="去成就用activity做界面"
+            app:layout_constraintTop_toBottomOf="@+id/btnToAchievement"></Button>
+
+        <Button
+            android:id="@+id/btnToTabLayoutTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tablayout 测试"
+            app:layout_constraintTop_toBottomOf="@+id/btnToAchievementSelf"></Button>
+
+        <Button
+            android:id="@+id/btnToRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="去注册页"
+            app:layout_constraintTop_toBottomOf="@+id/btnToTabLayoutTest" />
+        <Button
+            android:id="@+id/btnStartWeb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开网页"
+            app:layout_constraintTop_toBottomOf="@+id/btnToRegister"></Button>
+
+        <Button
+            android:id="@+id/btnToRegionSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="去地区选择"
+            app:layout_constraintTop_toBottomOf="@+id/btnStartWeb" />
+
+
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:src="@mipmap/jindu_1"
+        <!--        布局 height 变大 也是没用的-->
+        android:src="@mipmap/yingdao_3"
+        android:src="@mipmap/yingdao_1_2"
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_400"
+            android:src="@mipmap/yingdao_4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnToRegionSetting">
+
+        </ImageView>
+
+
+        <Button
+            android:id="@+id/btnChangeImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="改变图片"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+        <Button
+            android:id="@+id/btnToGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="去玩游戏把"
+            app:layout_constraintTop_toBottomOf="@+id/btnToRegionSetting" />
+        <Button
+            android:id="@+id/btnToPlaneGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="去玩游戏 飞机"
+            app:layout_constraintTop_toBottomOf="@+id/btnToGame" />
+        <Button
+            android:id="@+id/btnToCollectRub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="去玩游戏 收集垃圾"
+            app:layout_constraintTop_toBottomOf="@+id/btnToPlaneGame" />
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/bottomNav"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:foregroundGravity="center"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/btnChangeImg">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/nav1"-->
+<!--                android:layout_width="@dimen/dp_40"-->
+<!--                android:layout_height="@dimen/dp_40"-->
+<!--                android:src="@drawable/miku_fang"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/nav2"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/nav2"-->
+<!--                android:layout_width="@dimen/dp_40"-->
+<!--                android:layout_height="@dimen/dp_40"-->
+<!--                android:src="@drawable/miku_fang"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/nav3"-->
+<!--                app:layout_constraintStart_toEndOf="@id/nav1"-->
+<!--                app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/nav3"-->
+<!--                android:layout_width="@dimen/dp_40"-->
+<!--                android:layout_height="@dimen/dp_40"-->
+<!--                android:src="@drawable/miku_fang"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/nav4"-->
+<!--                app:layout_constraintStart_toEndOf="@id/nav2"-->
+<!--                app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/nav4"-->
+<!--                android:layout_width="@dimen/dp_40"-->
+<!--                android:layout_height="@dimen/dp_40"-->
+<!--                android:src="@drawable/miku_fang"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@id/nav3"-->
+<!--                app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

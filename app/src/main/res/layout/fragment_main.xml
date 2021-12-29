@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="30dp"
+    tools:context=".fragment.MainFragment">
+
+
+    <FrameLayout
+        android:id="@+id/progressFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toTopOf="@id/li"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        custom:donut_unfinished_color="@color/white"
+        custom:donut_background_color="@color/gray"
+        custom:donut_unfinished_color="@color/gray"
+        custom:donut_progress="30"
+
+        <com.github.lzyzsd.circleprogress.DonutProgress
+            android:id="@+id/donut_progress"
+            android:layout_width="@dimen/dp_186"
+            android:layout_height="@dimen/dp_186"
+            android:layout_gravity="center"
+
+            custom:donut_finished_color="@color/green_bg"
+            custom:donut_finished_stroke_width="@dimen/dp_27"
+            custom:donut_progress="30"
+            custom:donut_unfinished_color="@color/green_nav_bg"
+            custom:donut_unfinished_stroke_width="@dimen/dp_27" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:src="@drawable/avatar"></ImageView>
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/li"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressFrag">
+
+        <TextView
+            android:id="@+id/tvRecommend"
+            android:layout_width="@dimen/dp_248"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:text="今日推荐"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/viewPager"
+
+            app:layout_constraintStart_toStartOf="@id/viewPager"
+            app:layout_constraintTop_toBottomOf="@+id/progressFrag"></TextView>
+
+        android:paddingBottom="@dimen/dp_40"
+        android:paddingBottom="@dimen/dp_60"
+        android:paddingBottom="@dimen/dp_80"
+        android:paddingBottom="@dimen/dp_120"
+        android:paddingBottom="@dimen/dp_80"
+        android:paddingTop="@dimen/dp_120"
+        android:paddingTop="@dimen/dp_80"
+        android:paddingTop="@dimen/dp_70"
+        android:paddingBottom="@dimen/dp_70"
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingStart="@dimen/dp_40"
+
+            android:paddingTop="@dimen/dp_20"
+            android:paddingEnd="@dimen/dp_40"
+            android:paddingBottom="@dimen/dp_50" />
+
+<!--        <Button-->
+<!--            android:text="朋友"-->
+<!--            android:id="@+id/btnToFriend"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

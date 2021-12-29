@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="40dp"
+            android:text="注册"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"></TextView>
+        <TextView
+            android:textSize="30dp"
+            android:text="什么垃圾"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"></TextView>
+<!--        <EditText-->
+<!--            android:id="@+id/room_name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:background="@drawable/round_corners_bg"-->
+<!--            android:hint="@string/chat_room_name"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:textSize="10sp" />-->
+
+<!--        android:textSize="30dp"-->
+        <TextView
+            android:text="电话号码"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+<!--        https://blog.csdn.net/u014714188/article/details/98501449-->
+        <EditText
+            android:background="@drawable/round_corners_bg"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"></EditText>
+    </LinearLayout>
+
+
+<!--<TableLayout-->
+<!--    android:layout_width=""-->
+<!--    android:layout_height=""-->
+<!--    <android.support.design.widget.TabLayout-->
+<!--    <TableLayout-->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/mTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabBackground="@android:color/white"
+        app:tabIndicatorColor="#ff0000"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#ff0000"
+        app:tabTextColor="#555555">
+
+    </com.google.android.material.tabs.TabLayout>
+
+<!--    <android.support.v4.view.ViewPager-->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

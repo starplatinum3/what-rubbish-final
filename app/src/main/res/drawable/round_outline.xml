@@ -1,0 +1,9 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <corners android:radius="10dp" />
+
+    <stroke android:color="@color/green_nav_text" android:width="5dp"/>
+    <solid android:color="@android:color/white" />
+</shape>
+
+<!--    设置ImageView的background，src即可-->

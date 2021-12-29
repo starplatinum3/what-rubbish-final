@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FirstFragment"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/gameBackground">
+
+<!--    This lottieAnimationView is used to put the animation icon to the page, and make some setting to the icon.-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/arrow"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_scale="0.5"
+        app:lottie_rawRes="@raw/blue_bird" />
+
+<!--    This TextView is used to put the title to the page-->
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textColor="@color/textColor"
+        android:fontFamily="@font/gotham_bold"
+        android:text="@string/title1"/>
+
+<!--    This TextView is used to put the introduction to the page-->
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:lineSpacingExtra="10dp"
+        android:fontFamily="@font/gotham_medium"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="8dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="@string/description1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+<!--        This TextView is used to put the text button to the bottom end of the page-->
+        <TextView
+            android:id="@+id/slideOneNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:gravity="bottom|end"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/gotham_bold"
+            android:text="@string/next"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+</LinearLayout>
