@@ -93,6 +93,7 @@
         <activity android:name="com.example.smlj.yingdao"/>
         <activity android:name="com.hrl.chaui.activity.SplashActivity"/>
         <activity android:name="com.hrl.chaui.activity.ChatActivity"/>
+        <activity android:name=".activity.TestActivity"/>
 <!--        <activity android:name="com.example.smlj.achievementActivity"/>-->
 <!--        <activity-->
 <!--            android:name=".tabLayout.TabLayoutActivity"-->

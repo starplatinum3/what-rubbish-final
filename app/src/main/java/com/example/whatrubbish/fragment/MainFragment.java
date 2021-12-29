@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.LoginActivity;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.activity.TestActivity;
 import com.example.whatrubbish.card.CardItem;
 import com.example.whatrubbish.card.CardPagerAdapter;
 import com.example.whatrubbish.card.ShadowTransformer;
@@ -421,6 +422,9 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         Log.d("listener", "onCreateView: "+listener);
         //这里 set的 listener 是空的
         //testSet();
+        binding.iconTool.setOnClickListener(v->{
+            ActivityUtil.startActivity(activity, TestActivity.class);
+        });
         return root;
     }
 
