@@ -16,6 +16,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.databinding.ActivityMainBinding;
 import com.example.whatrubbish.databinding.ActivityTestBinding;
+import com.example.whatrubbish.databinding.FragmentTestHolderBinding;
+import com.example.whatrubbish.test.TestHolderFragment;
 
 import lombok.SneakyThrows;
 import lombok.val;
@@ -95,8 +97,10 @@ public class TestActivity extends AppCompatActivity {
 //        CircleImageView
         binding = ActivityTestBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        //holder
 
-
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.holder,new TestHolderFragment()).addToBackStack(null).commit();
 
     }
 

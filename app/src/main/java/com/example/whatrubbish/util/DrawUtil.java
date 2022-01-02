@@ -13,6 +13,7 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
@@ -37,11 +38,57 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
 //import com.example.myapplication.R;
 
 
 //https://blog.csdn.net/xiaohanluo/article/details/52945791
+@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class DrawUtil {
+
+   //static Canvas mCanvas;
+   // static Paint mPaint;
+    private  static PaintFlagsDrawFilter pfd = new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG);
+    public synchronized static Bitmap scaleImageCanvas(boolean isApplyRadio,Bitmap bm, int newWidth, int newHeight,int iconScaleRadio,Canvas mCanvas,Paint mPaint) {
+        //应用图标缩放
+        if(isApplyRadio&&iconScaleRadio!=1f){
+            newWidth= (int) (newWidth*iconScaleRadio);
+            newHeight= (int) (newHeight*iconScaleRadio);
+        }
+        if (bm == null) {
+            return null;
+        }
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        Bitmap newbm = Bitmap.createBitmap(newWidth, newWidth,
+                Bitmap.Config.ARGB_8888);
+        mCanvas.setBitmap(newbm);
+        mPaint.setXfermode(null);
+        mPaint.setAntiAlias(true);
+        mCanvas.save();
+        mCanvas.scale(scaleWidth, scaleHeight);
+        //保证图标不失真
+        mCanvas.setDrawFilter(pfd);
+        mCanvas.drawBitmap(bm,0,0,null);
+        mCanvas.restore();
+        if (bm != null & !bm.isRecycled()) {
+            bm.recycle();
+            bm = null;
+        }
+        return newbm;
+    }
+    //————————————————
+//        版权声明：本文为CSDN博主「重播」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+//        原文链接：https://blog.csdn.net/xufeifandj/article/details/52171389
+//
 
     //    加载网络图片圆角
     public static  void loadImageRoundedCorners(Context context, String path, ImageView imageView) {

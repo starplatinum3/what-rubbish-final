@@ -1,6 +1,7 @@
 <resources>
 <!--    <string name="app_name">Kiwi Kiwi</string>-->
-    <string name="game_name">Kiwi Kiwi</string>
+<!--    <string name="game_name">Kiwi Kiwi</string>-->
+    <string name="game_name">Catch The Rubbish!</string>
     <string name="worker_name">Neil and Kyle</string>
     <string name="startBtn">Start</string>
     <string name="scoreTag">Score: </string>

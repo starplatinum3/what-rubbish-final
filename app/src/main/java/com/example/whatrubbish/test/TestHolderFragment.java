@@ -13,12 +13,15 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.compx202_finalproject.MainActivity;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.databinding.FragmentMainHolderBinding;
 import com.example.whatrubbish.databinding.FragmentTestHolderBinding;
 import com.example.whatrubbish.databinding.FragmentTextBinding;
 import com.example.whatrubbish.fragment.FriendFragment;
 import com.example.whatrubbish.fragment.MainFragment;
+import com.example.whatrubbish.fragment.WebFragment;
+import com.example.whatrubbish.util.ActivityUtil;
 //import okhttp3.FormBody;
 //import okhttp3.FormBody;
 
@@ -95,14 +98,21 @@ public class TestHolderFragment extends Fragment {
         //        replace(R.id.holder, mainFragment).addToBackStack(null).commit();
         //getChildFragmentManager().beginTransaction().
         //        replace(R.id.mainHolder, mainFragment).addToBackStack(null).commit();
-        getChildFragmentManager().beginTransaction().
-                replace(R.id.mainHolder, new MainFragment()).addToBackStack(null).commit();
+        //getChildFragmentManager().beginTransaction().
+        //        replace(R.id.mainHolder, new MainFragment()).addToBackStack(null).commit();
         //getFragmentManager()
+        getChildFragmentManager().beginTransaction().
+                replace(R.id.mainHolder, new WebFragment("https://www.baidu.com")).addToBackStack(null).commit();
         binding.btnToFriend.setOnClickListener(v->{
             Log.d("btnToFriend", "onCreateView: btnToFriend");
             getChildFragmentManager().beginTransaction().
                     replace(R.id.mainHolder, new FriendFragment()).addToBackStack(null).commit();
         });
+        binding.btnToBird.setOnClickListener(v->{
+            //ActivityUtil.startActivity(activity, MainActivity.class);
+            ActivityUtil.startActivity(activity, com.example.compx202_finalproject.MainActivity.class);
+        });
+
         //MainFragment.Listener
         return root;
     }

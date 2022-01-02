@@ -97,10 +97,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 <!--            Add the animation to the rank bar-->
+            app:lottie_rawRes="@raw/top"
+            app:lottie_rawRes="@raw/delete"
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="0dp"
                 android:layout_height="186dp"
-                app:lottie_rawRes="@raw/top"
+
+                app:lottie_rawRes="@raw/green_flower"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 android:layout_weight="2" />

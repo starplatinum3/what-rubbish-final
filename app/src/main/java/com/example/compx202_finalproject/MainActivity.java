@@ -12,7 +12,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_bird_game);
 
         // Make this page full screen
         int uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY

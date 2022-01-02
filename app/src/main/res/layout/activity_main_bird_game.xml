@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/gameBackground">
+
+<!--        This text view is used to layout the title of the app-->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+
+            android:text="@string/game_name"
+            android:fontFamily="@font/gotham_bold"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:textColor="@color/textColor"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/gif" />
+
+<!--        This LottieAnimationView is used to layout the animation icon-->
+    app:lottie_rawRes="@raw/waiting"
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/gif"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_marginTop="20dp"
+            app:lottie_rawRes="@raw/green_leafs_loader" />
+
+<!--        This TextView is used to layout the worker's name-->
+        <TextView
+            android:id="@+id/workerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:textColor="@color/textColor"
+            android:text="@string/worker_name"
+            android:textSize="20sp"
+            android:fontFamily="@font/gotham_medium"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gif" />
+
+<!--        This button is used to use the onClick function and it is transparent-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:onClick="onclickStart"
+            android:alpha="0"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf ="@id/workerName" />
+
+<!--        This soup is used to make the softUI effect-->
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/startBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf ="@id/workerName">
+
+<!--            Set the text to the button-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:text="@string/startBtn"
+                    android:fontFamily="@font/gotham_medium"
+                    android:textColor="@color/textColor"
+                    android:textSize="25sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp" />
+            </LinearLayout>
+        </soup.neumorphism.NeumorphCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

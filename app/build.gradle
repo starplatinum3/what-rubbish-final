@@ -67,7 +67,7 @@ dependencies {
     compileOnly "org.projectlombok:lombok:1.18.12"
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-    implementation 'com.android.support:design:28.0.0'
+//    implementation 'com.android.support:design:28.0.0'
 
 //    https://www.icode9.com/content-4-222125.html
     implementation 'com.qmuiteam:qmui:1.1.2'

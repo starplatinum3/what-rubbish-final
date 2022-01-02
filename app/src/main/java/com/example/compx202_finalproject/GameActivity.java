@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.whatrubbish.R;
 
 import java.util.Random;
+
+import lombok.Data;
 
 public class GameActivity extends AppCompatActivity {
     int scoreNumber = 0;
@@ -42,6 +45,7 @@ public class GameActivity extends AppCompatActivity {
 
         //  Make the class of the kiwi bird, which include all the attributes of the bird
         //创建wiki鸟的类，该类包含该鸟的所有属性
+        @Data
         class Bird {
             boolean hasSpeed;
             private float x;
@@ -55,6 +59,7 @@ public class GameActivity extends AppCompatActivity {
             Bitmap bitmap;
             Matrix birdMatrix;
             private float rotation;
+            int deadRes;
 
             //  Set the position of the bird, and make the speed equals 0
             //设置鸟的位置，使速度等于0
@@ -69,6 +74,27 @@ public class GameActivity extends AppCompatActivity {
                 this.birdMatrix = new Matrix();
                 paint.setARGB(255, new Random().nextInt(255), new Random().nextInt(255), new Random().nextInt(255));
                 bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.kiwi);
+            }
+
+            public Bird(int width, int height,int imgRes) {
+                this.hasSpeed = true;
+                this.birdSpeed = 0;
+                speedX = 0;
+                speedY = 0;
+                this.width = width;
+                this.height = height;
+                //需要的 ，
+                paint = new Paint();
+                this.birdMatrix = new Matrix();
+                paint.setARGB(255, new Random().nextInt(255), new Random().nextInt(255), new Random().nextInt(255));
+                //bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.kiwi);
+                bitmap = BitmapFactory.decodeResource(getResources(), imgRes);
+                //图片原来的大小
+                Log.d("bitmap", "Bird: "+bitmap);
+                Log.d(" bitmap.getWidth();", "Bird: "+ bitmap.getWidth());
+                Log.d(" bitmap.getHeight();", "Bird: "+ bitmap.getHeight());
+                deadRes=imgRes;
+
             }
         }
 
@@ -138,13 +164,40 @@ public class GameActivity extends AppCompatActivity {
 
             // Add the bird, boxes and kiwi fruit to the game page, set the size of these elements
             //将鸟、盒子和猕猴桃添加到游戏页面，设置这些元素的大小
-            bird1 = new Bird(150, 120);
-            bird2 = new Bird(150, 120);
-            bird3 = new Bird(150, 120);
+            //bird1 = new Bird(150, 120);
+            //bird2 = new Bird(150, 120);
+            //bird3 = new Bird(150, 120);
+
+            //扔出去垃圾桶
+            //bird1 = new Bird(150, 120,R.mipmap.recycle);
+            //bird2 = new Bird(150, 120,R.mipmap.harmful_waste);
+            //bird3 = new Bird(150, 120,R.mipmap.dry_garbage);
+
+
+            //bird1 = new Bird(150, 120,R.drawable.recycle);
+            //bird1 = new Bird(150, 120,R.mipmap.recycle150x120);
+            //1500 -> 150 SCR 0.1
+            //with/ imgSize
+            //bird1 = new Bird(150, 120,R.mipmap.xunzhang_6);
+            //bird1.setDeadRes(R.mipmap.xunzhang_6);
+            bird1 = new Bird(150, 120,R.drawable.recycle);
+            bird2 = new Bird(150, 120,R.drawable.harmful_waste);
+            bird3 = new Bird(150, 120,R.drawable.dry_garbage);
+            //小图片放大 安卓
+
             fruit1 = new Kiwi_Fruit(120, 120);
-            box_normal1 = new Box_normal(120, 120);
-            box_normal2 = new Box_normal(120, 120);
-            box_normal3 = new Box_normal(120, 120);
+            //box_normal1 = new Box_normal(120, 120);
+            //box_normal2 = new Box_normal(120, 120);
+            //box_normal3 = new Box_normal(120, 120);
+
+            //box_normal1 = new Box_normal(120, 120,R.mipmap.recycle);
+            //box_normal2 = new Box_normal(120, 120,R.mipmap.harmful_waste);
+            //box_normal3 = new Box_normal(120, 120,R.mipmap.dry_garbage);
+
+            box_normal1 = new Box_normal(120, 120,R.mipmap.xunzhang_3);
+            box_normal2 = new Box_normal(120, 120,R.mipmap.xunzhang_5);
+            box_normal3 = new Box_normal(120, 120,R.mipmap.xunzhang_6);
+
             gestureDetector = new GestureDetector(context, new MyGestureListener());
 
             // When the game is over, show the pop-ups to remind user enter next page
@@ -168,6 +221,45 @@ public class GameActivity extends AppCompatActivity {
                 }
             });
         }
+
+        void rotate(Bird bird,Bird bird2,Canvas canvas){
+            if(!bird.hasSpeed) {
+                //bird2.birdMatrix.setScale(0.1f, 0.1f);
+                bird2.birdMatrix.setScale(1f, 1f);
+                bird2.birdMatrix.postTranslate(bird2.x, bird2.y);
+                if(bird2.speedX != 0 || bird2.speedY != 0) {
+                    // Set the bird's rotation angle and center of rotation
+                    //设置鸟的旋转角度和旋转中心
+                    bird2.rotation += 2f;
+                    bird2.birdMatrix.postRotate(bird2.rotation, bird2.x + 77, bird2.y + 63);
+                }
+                canvas.drawBitmap(bird2.bitmap, bird2.birdMatrix, bird2.paint);
+            }
+        }
+
+        void rotate(Bird bird,Canvas canvas){
+
+                //bird2.birdMatrix.setScale(0.1f, 0.1f);
+                //bird.birdMatrix.setScale(1f, 1f);
+            //太大的图片 好像没有变小
+            float scaleX= (float) (bird.width*1.0/bird.bitmap.getWidth());
+            float scaleY= (float) (bird.height*1.0/bird.bitmap.getHeight());
+                //bird.birdMatrix.setScale((float) (bird.width*1.0/bird.bitmap.getWidth()), (float) (bird.height*1.0/bird.bitmap.getHeight()));
+            Log.d("scaleX", "rotate: scaleX  "+scaleX);
+            Log.d("scaleY", "rotate: scaleY  "+scaleY);
+            //没有开始起飞的时候 还没有算术
+                bird.birdMatrix.setScale(scaleX,scaleY);
+
+                bird.birdMatrix.postTranslate(bird.x, bird.y);
+                if(bird.speedX != 0 || bird.speedY != 0) {
+                    // Set the bird's rotation angle and center of rotation
+                    //设置鸟的旋转角度和旋转中心
+                    bird.rotation += 2f;
+                    bird.birdMatrix.postRotate(bird.rotation, bird.x + 77, bird.y + 63);
+                }
+                canvas.drawBitmap(bird.bitmap, bird.birdMatrix, bird.paint);
+        }
+
 
         @Override
         protected void onDraw(Canvas canvas) {
@@ -203,46 +295,57 @@ public class GameActivity extends AppCompatActivity {
 
             // Call the collision function of each bird and the wall
             //调用每只鸟与墙的碰撞函数
-            collision_wall(bird1);
-            collision_wall(bird2);
-            collision_wall(bird3);
+            //collision_wall(bird1);
+            //collision_wall(bird2);
+            //collision_wall(bird3);
 
+            collision_wall(bird1,bird1.deadRes);
+            collision_wall(bird2,bird2.deadRes);
+            collision_wall(bird3,bird3.deadRes);
             // Use a matrix to make the bird rotate while flying
             //使用矩阵使鸟在飞行时旋转
-            bird1.birdMatrix.setScale(0.1f, 0.1f);
-            bird1.birdMatrix.postTranslate(bird1.x, bird1.y);
-            if(bird1.speedX != 0 || bird1.speedY != 0) {
-                // Set the bird's rotation angle and center of rotation
-                //设置鸟的旋转角度和旋转中心
-                bird1.rotation += 2f;
-                bird1.birdMatrix.postRotate(bird1.rotation, bird1.x + 77, bird1.y + 63);
-            }
-            canvas.drawBitmap(bird1.bitmap, bird1.birdMatrix, bird1.paint);
+            //bird1.birdMatrix.setScale(0.1f, 0.1f);
+            //bird1.birdMatrix.setScale(1f, 1f);
+            //bird1.birdMatrix.postTranslate(bird1.x, bird1.y);
+            //if(bird1.speedX != 0 || bird1.speedY != 0) {
+            //    // Set the bird's rotation angle and center of rotation
+            //    //设置鸟的旋转角度和旋转中心
+            //    bird1.rotation += 2f;
+            //    bird1.birdMatrix.postRotate(bird1.rotation, bird1.x + 77, bird1.y + 63);
+            //}
+            rotate(bird1,canvas);
+            //canvas.drawBitmap(bird1.bitmap, bird1.birdMatrix, bird1.paint);
             // When the first bird has died, set the second bird's data
             //当第一只鸟死后，设置第二只鸟的数据
             if(!bird1.hasSpeed) {
-                bird2.birdMatrix.setScale(0.1f, 0.1f);
-                bird2.birdMatrix.postTranslate(bird2.x, bird2.y);
-                if(bird2.speedX != 0 || bird2.speedY != 0) {
-                    // Set the bird's rotation angle and center of rotation
-                    //设置鸟的旋转角度和旋转中心
-                    bird2.rotation += 2f;
-                    bird2.birdMatrix.postRotate(bird2.rotation, bird2.x + 77, bird2.y + 63);
-                }
-                canvas.drawBitmap(bird2.bitmap, bird2.birdMatrix, bird2.paint);
+                rotate(bird2,canvas);
+                //bird2.birdMatrix.setScale(0.1f, 0.1f);
+                //bird2.birdMatrix.setScale(1f, 1f);
+                //bird2.birdMatrix.postTranslate(bird2.x, bird2.y);
+                //if(bird2.speedX != 0 || bird2.speedY != 0) {
+                //    // Set the bird's rotation angle and center of rotation
+                //    //设置鸟的旋转角度和旋转中心
+                //    bird2.rotation += 2f;
+                //    bird2.birdMatrix.postRotate(bird2.rotation, bird2.x + 77, bird2.y + 63);
+                //}
+                //canvas.drawBitmap(bird2.bitmap, bird2.birdMatrix, bird2.paint);
             }
             // When the second bird has died, set the second bird's data
             //第二只鸟死后，设置第二只鸟的数据
             if(!bird2.hasSpeed) {
-                bird3.birdMatrix.setScale(0.1f, 0.1f);
-                bird3.birdMatrix.postTranslate(bird3.x, bird3.y);
-                if(bird3.speedX != 0 || bird3.speedY != 0) {
-                    // Set the bird's rotation angle and center of rotation
-                    //设置鸟的旋转角度和旋转中心
-                    bird3.rotation += 2f;
-                    bird3.birdMatrix.postRotate(bird3.rotation, bird3.x + 77, bird3.y + 63);
-                }
-                canvas.drawBitmap(bird3.bitmap, bird3.birdMatrix, bird3.paint);
+                rotate(bird3,canvas);
+                //bird3.birdMatrix.setScale(0.1f, 0.1f);
+                //bird3.birdMatrix.setScale(1f, 1f);
+                ////不设置缩放的话 就是按照原来的大小
+                //bird3.birdMatrix.postTranslate(bird3.x, bird3.y);
+                //if(bird3.speedX != 0 || bird3.speedY != 0) {
+                //    // Set the bird's rotation angle and center of rotation
+                //    //设置鸟的旋转角度和旋转中心
+                //    bird3.rotation += 2f;
+                //    bird3.birdMatrix.postRotate(bird3.rotation, bird3.x + 77, bird3.y + 63);
+                //}
+                //canvas.drawBitmap(bird3.bitmap, bird3.birdMatrix, bird3.paint);
+                //anvas.drawBitmap 可以放大
             }
 
             // If the fruit exist, call the function of every collision of boxes.
@@ -318,6 +421,41 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
+        protected void collision_wall(Bird bird,int imgRes) {
+            //  When the bird touch the ground, the picture of bird will changed, and the speed change to 0
+            //当鸟触地时，鸟的图片会改变，速度变为0
+            if(bird.y > getHeight() - 120) {
+                //屏幕高度 -120 的位置  大概就是 地面吧
+                bird.y = getHeight() - 120;
+                //bird.bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.kiwi_dead);
+                bird.bitmap = BitmapFactory.decodeResource(getResources(),imgRes);
+                bird.hasSpeed = false;
+            }
+
+            // When the bird touch the right border of the screen, the bird will rebound.
+            //当鸟碰到屏幕的右边框时，鸟会反弹。
+            if(bird.x > getWidth() - 150) {
+                //getWidth() - 150 是右边墙的 位置
+                //bird.speedY = (float) (bird.speedX * Math.tan(Math.acos(bird.speedX / (Math.sqrt(Math.pow(bird.speedY, 2) + Math.pow(bird.speedX, 2))))));
+                //Math.pow(bird.speedY, 2) + Math.pow(bird.speedX, 2);
+                //bird.speedY = (float) (bird.speedX * Math.tan(Math.acos(bird.speedX / (Math.sqrt()))));
+                Log.d(" bird.speedY before ", "collision_wall:  bird.speedY  "+ bird.speedY);
+                double angle = Math.acos(bird.speedX / obliqueVelocity(bird.speedX, bird.speedY));
+                //bird.speedY = (float) (bird.speedX * Math.tan(Math.acos(bird.speedX / obliqueVelocity(bird.speedX,bird.speedY))));
+                bird.speedY = (float) (bird.speedX * Math.tan(angle));
+                //y 的方向 可能是正的也可能是反的  但是数字大小都是一样的
+                Log.d(" bird.speedY after", "collision_wall:  bird.speedY  "+ bird.speedY);
+                //他y 的速度本来没有吗
+                bird.speedX = -bird.speedX;
+                //x 来个反方向
+            }
+
+            // Limit the position of the bird so that he cannot go out of the left edge of the screen
+            else if(bird.x < 0) {
+                bird.x = 0;
+            }
+        }
+
         /**
          * 调整鸟的速度
          * Adjust the speed of bird
@@ -366,6 +504,8 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
+        int imgResBroken;
+
         /**
          * The collision method of bird and box
          * 鸟与箱的碰撞方法
@@ -395,7 +535,8 @@ public class GameActivity extends AppCompatActivity {
                     // If the speed lower than 100, the box will show broken and the bird will rebound
                     //如果速度低于100，箱子将显示破损，鸟将反弹
                     if(bird.birdSpeed < 100) {
-                        box_normal.bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.box_broken);
+                        //box_normal.bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.box_broken);
+                        //box_normal.bitmap = BitmapFactory.decodeResource(getResources(), box_normal);
                         box_normal.isBroken = true;
                         bird.speedY = (float) (bird.speedX * Math.tan(Math.acos(bird.speedX / (Math.sqrt(Math.pow(bird.speedX, 2) + Math.pow(bird.speedY, 2))))));
                         bird.speedX = -bird.speedX;

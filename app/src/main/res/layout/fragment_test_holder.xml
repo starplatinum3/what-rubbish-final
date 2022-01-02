@@ -5,9 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="30dp"
+
     android:orientation="vertical"
     tools:context=".fragment.MainFragment">
+    android:paddingBottom="30dp"
     android:id="@+id/holder"
 
     android:layout_height="match_parent"
@@ -17,9 +18,10 @@
     android:layout_height="@dimen/dp_300"
     android:layout_height="@dimen/dp_500"
     android:layout_height="match_parent"
+    android:layout_height="@dimen/dp_500"
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainHolder"
-        android:layout_height="@dimen/dp_500"
+        android:layout_height="@dimen/dp_400"
 
         android:layout_width="match_parent">
 
@@ -32,4 +34,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     app:navGraph="@navigation/mobile_navigation"
+
+    <Button
+        android:text="游戏鸟儿"
+        android:id="@+id/btnToBird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

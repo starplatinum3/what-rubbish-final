@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 
+import com.example.whatrubbish.MainActivity;
 import com.example.whatrubbish.R;
 import com.hrl.chaui.activity.SplashActivity;
 
@@ -22,7 +23,8 @@ public class logo extends Activity {
         TimerTask task = new TimerTask(){
             @Override
             public void run() {
-                Intent intent = new Intent(logo.this, yingdao.class);
+                //Intent intent = new Intent(logo.this, yingdao.class);
+                Intent intent = new Intent(logo.this, MainActivity.class);
                 startActivity(intent);
                 logo.this.finish();
             }

@@ -27,7 +27,7 @@ import com.example.whatrubbish.RegionSettingActivity;
 import com.example.whatrubbish.RegisterActivity;
 import com.example.whatrubbish.achievement.AchievementActivity;
 import com.example.whatrubbish.achievement.AchievementActivitySelf;
-import com.example.whatrubbish.activity.MyAppActivity;
+//import com.example.whatrubbish.activity.MyAppActivity;
 import com.example.whatrubbish.constant.MoveConstant;
 import com.example.whatrubbish.databinding.FragmentHomeBinding;
 import com.example.whatrubbish.fragment.CollectRubFragment;
@@ -135,9 +135,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         //         .translationXY(2000, floatArrayOf(0f, 360f, 0f), floatArrayOf(0f, 120f, 0f))
         //         .start();
 
-        binding.btnToGame.setOnClickListener(v -> {
-            ActivityUtil.startActivity(activity, MyAppActivity.class);
-        });
+        //binding.btnToGame.setOnClickListener(v -> {
+        //    ActivityUtil.startActivity(activity, MyAppActivity.class);
+        //});
         binding.btnToPlaneGame.setOnClickListener(v -> {
             ActivityUtil.startActivity(activity, com.hurteng.stormplane.MainActivity.class);
             //ActivityUtil.startActivity(activity,  com.hurteng.stormplane.MainActivity.class);
