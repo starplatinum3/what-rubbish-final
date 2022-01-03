@@ -41,7 +41,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
 
-        android:layout_height="@dimen/dp_319"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
         android:layout_width="294dp"
@@ -61,7 +61,7 @@
         <ImageView
             android:id="@+id/headImg"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0"
+            android:layout_height="@dimen/dp_200"
             android:layout_gravity="center_horizontal"
 
             android:layout_weight="132"

@@ -270,11 +270,11 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         //int leftRightPadding=80;
         //int bottomPadding=150;
         //int bottomPadding=180;
-        int bottomPadding = 200;
+        int bottomPadding = 0;
         //int topPadding=100;
         if (config.smallestScreenWidthDp <= 360) {
             //binding.viewPager.setPadding(80,80,50,20);
-            binding.viewPager.setPadding(leftRightPadding, 80, leftRightPadding, bottomPadding);
+            binding.viewPager.setPadding(leftRightPadding, 80, leftRightPadding, 0);
         } else {
             //binding.viewPager.setPadding(leftRightPadding,80,leftRightPadding,50);
             binding.viewPager.setPadding(leftRightPadding, 80, leftRightPadding, 90);
@@ -422,9 +422,9 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         Log.d("listener", "onCreateView: "+listener);
         //这里 set的 listener 是空的
         //testSet();
-        binding.iconTool.setOnClickListener(v->{
-            ActivityUtil.startActivity(activity, TestActivity.class);
-        });
+        //binding.iconTool.setOnClickListener(v->{
+        //    ActivityUtil.startActivity(activity, TestActivity.class);
+        //});
         binding.ivAvatar.setOnClickListener(v->{
             ActivityUtil.startActivity(activity, TestActivity.class);
         });

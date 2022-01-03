@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,8 +14,9 @@
         android:id="@+id/iconTool"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="@dimen/dp_22"
+       android:layout_marginStart="@dimen/dp_22"
         android:layout_marginTop="@dimen/dp_30"
+        app:layout_constraintBottom_toTopOf="@id/progressFrag"
         android:src="@mipmap/unknown13"
         android:layout_width="@dimen/dp_20"
         android:layout_height="@dimen/dp_16"/>
@@ -63,7 +65,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressFrag">
+       >
+        app:layout_constraintTop_toBottomOf="@+id/progressFrag"
 
         <TextView
             android:id="@+id/tvRecommend"
@@ -91,16 +94,19 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="420dp"
             android:clipToPadding="false"
             android:overScrollMode="never"
             android:paddingStart="@dimen/dp_40"
 
             android:paddingTop="@dimen/dp_20"
             android:paddingEnd="@dimen/dp_40"
-            android:paddingBottom="@dimen/dp_50" />
-
-<!--        <Button-->
+            />
+        android:layout_height="@dimen/dp_422"
+        android:paddingBottom="@dimen/dp_50"
+        android:layout_height="450dp"
+        android:layout_height="480dp"
+        <!--        <Button-->
 <!--            android:text="朋友"-->
 <!--            android:id="@+id/btnToFriend"-->
 <!--            android:layout_width="wrap_content"-->
