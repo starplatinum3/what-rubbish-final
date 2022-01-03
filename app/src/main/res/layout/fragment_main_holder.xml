@@ -23,7 +23,12 @@
         android:layout_width="match_parent">
 
     </androidx.fragment.app.FragmentContainerView>
-
+    <Button
+        android:id="@+id/btnToCollectRub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="去玩游戏 收集垃圾"
+        app:layout_constraintTop_toBottomOf="@+id/btnToPlaneGame" />
 
 <!--    <Button-->
 <!--        android:text="朋友"-->

@@ -425,6 +425,9 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         binding.iconTool.setOnClickListener(v->{
             ActivityUtil.startActivity(activity, TestActivity.class);
         });
+        binding.ivAvatar.setOnClickListener(v->{
+            ActivityUtil.startActivity(activity, TestActivity.class);
+        });
         return root;
     }
 

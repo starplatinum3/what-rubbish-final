@@ -116,7 +116,8 @@ public class GameActivity extends AppCompatActivity {
                 this.shouldShow = true;
                 paint = new Paint();
                 paint.setARGB(255, new Random().nextInt(255), new Random().nextInt(255), new Random().nextInt(255));
-                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.kiwi_fruit);
+                //bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.kiwi_fruit);
+                bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.xunzhang_8);
             }
         }
 

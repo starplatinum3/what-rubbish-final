@@ -18,6 +18,7 @@ import com.example.whatrubbish.R;
 import com.example.whatrubbish.databinding.FragmentMainHolderBinding;
 import com.example.whatrubbish.databinding.FragmentTestHolderBinding;
 import com.example.whatrubbish.databinding.FragmentTextBinding;
+import com.example.whatrubbish.fragment.CollectRubFragment;
 import com.example.whatrubbish.fragment.FriendFragment;
 import com.example.whatrubbish.fragment.MainFragment;
 import com.example.whatrubbish.fragment.WebFragment;
@@ -112,6 +113,18 @@ public class TestHolderFragment extends Fragment {
             //ActivityUtil.startActivity(activity, MainActivity.class);
             ActivityUtil.startActivity(activity, com.example.compx202_finalproject.MainActivity.class);
         });
+
+        //replace getSupportFragmentManager 下面还有之前的
+        binding.btnToCollectRub.setOnClickListener(v -> {
+            getChildFragmentManager().beginTransaction().
+                    replace(R.id.mainHolder,new CollectRubFragment()).addToBackStack(null).commit();
+            //会重叠 因为 这里是用了activity.getSupportFragmentManager()，而前面用的是getChildFragmentManager()
+            //是不一样的fragment 管理器
+            //activity.getSupportFragmentManager().beginTransaction().
+            //        replace(R.id.mainHolder, new CollectRubFragment()).
+            //        addToBackStack(null).commit();
+        });
+
 
         //MainFragment.Listener
         return root;

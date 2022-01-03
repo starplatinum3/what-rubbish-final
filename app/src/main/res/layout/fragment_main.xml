@@ -45,6 +45,7 @@
             custom:donut_unfinished_stroke_width="@dimen/dp_27" />
 
         <ImageView
+            android:id="@+id/ivAvatar"
             android:layout_width="@dimen/dp_70"
             android:layout_height="@dimen/dp_70"
             android:layout_gravity="center"

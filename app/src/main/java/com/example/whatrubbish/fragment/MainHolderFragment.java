@@ -101,6 +101,13 @@ public class MainHolderFragment extends Fragment {
         //            replace(R.id.mainHolder, new FriendFragment()).addToBackStack(null).commit();
         //});
         //MainFragment.Listener
+
+        //binding.btnToCollectRub.setOnClickListener(v -> {
+        //    activity.getSupportFragmentManager().beginTransaction().
+        //            replace(R.id.mainHolder, new CollectRubFragment()).
+        //            addToBackStack(null).commit();
+        //});
+
         return root;
     }
 
