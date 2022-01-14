@@ -3,7 +3,6 @@ package com.example.whatrubbish.fragment;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,10 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 
 import androidx.annotation.NonNull;
@@ -27,59 +23,26 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.ejlchina.okhttps.GsonMsgConvertor;
-import com.ejlchina.okhttps.HTTP;
-import com.example.whatrubbish.Bus;
-import com.example.whatrubbish.LoginActivity;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.constant.MoveConstant;
 import com.example.whatrubbish.databinding.FragmentCollectRubBinding;
-import com.example.whatrubbish.databinding.FragmentWikiBinding;
 import com.example.whatrubbish.db.Repository;
-import com.example.whatrubbish.dbo.RubbishInfoDbo;
-import com.example.whatrubbish.dto.RubbishInfoDto;
-import com.example.whatrubbish.dto.TbAdmin;
 import com.example.whatrubbish.entity.RubbishInfo;
 import com.example.whatrubbish.entity.RubbishType;
-import com.example.whatrubbish.gridIcons.GridIcons;
-import com.example.whatrubbish.gridIcons.IconButton;
-import com.example.whatrubbish.service.RubbishInfoService;
-import com.example.whatrubbish.util.ActivityUtil;
 import com.example.whatrubbish.util.DpPxSpTool;
-import com.example.whatrubbish.util.HttpUtil;
-import com.example.whatrubbish.util.PropertiesUtil;
-import com.example.whatrubbish.util.ThreadPoolManager;
 import com.example.whatrubbish.util.ToastUtil;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.FutureTask;
-import java.util.stream.Collectors;
-
-import lombok.SneakyThrows;
 //import okhttp3.FormBody;
 //import okhttp3.FormBody;
 
 //@EqualsAndHashCode(callSuper = true)
 //@Data
 //@Builder
-public class CollectRubFragment extends Fragment {
+public class ProblemFragment extends Fragment {
     Map<Integer, Integer> picMap=new HashMap<>();
 
     public Map<Integer, Integer> getPicMap() {
@@ -90,10 +53,10 @@ public class CollectRubFragment extends Fragment {
         this.picMap = picMap;
     }
 
-    public CollectRubFragment() {
+    public ProblemFragment() {
     }
 
-    public CollectRubFragment(SendValue sendValue) {
+    public ProblemFragment(SendValue sendValue) {
         this.sendValue = sendValue;
     }
 

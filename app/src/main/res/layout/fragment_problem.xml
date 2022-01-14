@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+android:layout_gravity="center"
+    tools:context=".fragment.CollectRubFragment">
+
+    <TextView
+        android:text="问题"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="A"
+            android:id="@+id/candidateA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="B"
+            android:id="@+id/candidateB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="C"
+            android:id="@+id/candidateC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/candidateD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/person"
+        android:src="@drawable/miku_fang"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50" />
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnWidth="@dimen/dp_80"
+        android:numColumns="3"
+        android:stretchMode="spacingWidthUniform" />
+    414-40-40
+    <!--    ————————————————-->
+    <!--    版权声明：本文为CSDN博主「强强强子」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+    <!--    原文链接：https://blog.csdn.net/sinat_25926481/article/details/70880047-->
+
+    <!--    <org.askerov.dynamicgrid.DragGridView-->
+    <!--        ohos:id="$+id:my_gridView"-->
+    <!--        ohos:height="match_parent"-->
+    <!--        ohos:width="match_parent"-->
+    <!--        >-->
+    <!--    </org.askerov.dynamicgrid.DragGridView>-->
+
+
+    <!--    android:layout_marginBottom="152dp"-->
+    <!--    <androidx.viewpager.widget.ViewPager-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"></androidx.viewpager.widget.ViewPager>-->
+
+
+    <!--    <TextView-->
+    <!--        android:text="TextView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"></TextView>-->
+
+</LinearLayout>
