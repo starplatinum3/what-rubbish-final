@@ -178,7 +178,7 @@ public class HttpUtil {
 //        System.out.println(jsonString);
 //        String post = httpUtil.post(listUrl, jsonString);
 //        content
-        Log.d("res", "post: res  " + res);
+//        Log.d("res", "post: res  " + res);
         JsonObject jsonObject = gson.fromJson(res, JsonObject.class);
         return jsonObject;
 

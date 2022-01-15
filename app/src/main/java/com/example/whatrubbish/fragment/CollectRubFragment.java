@@ -2,12 +2,16 @@ package com.example.whatrubbish.fragment;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +36,7 @@ import com.ejlchina.okhttps.HTTP;
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.LoginActivity;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.activity.ProblemActivity;
 import com.example.whatrubbish.constant.MoveConstant;
 import com.example.whatrubbish.databinding.FragmentCollectRubBinding;
 import com.example.whatrubbish.databinding.FragmentWikiBinding;
@@ -80,7 +85,7 @@ import lombok.SneakyThrows;
 //@Data
 //@Builder
 public class CollectRubFragment extends Fragment {
-    Map<Integer, Integer> picMap=new HashMap<>();
+    Map<Integer, Integer> picMap = new HashMap<>();
 
     public Map<Integer, Integer> getPicMap() {
         return picMap;
@@ -144,7 +149,38 @@ public class CollectRubFragment extends Fragment {
         repository = new Repository(activity);
     }
 
+    float personX;
+    float personY;
 
+    //private final Handler handler = new Handler(Looper.getMainLooper());
+
+    // 步骤1：（自定义）新创建Handler子类(继承Handler类) & 复写handleMessage（）方法
+    //public class MHandler extends Handler {
+    //    public MHandler(@NonNull Looper looper) {
+    //        super(looper);
+    //    }
+    //
+    //    // 通过复写handlerMessage() 从而确定更新UI的操作
+    //    @Override
+    //    public void handleMessage(Message msg) {
+    //        // 根据不同线程发送过来的消息，执行不同的UI操作
+    //        // 根据 Message对象的what属性 标识不同的消息
+    //        switch (msg.what) {
+    //            case 1:
+    //                mTextView.setText("执行了线程1的UI操作");
+    //                break;
+    //            case 2:
+    //                mTextView.setText("执行了线程2的UI操作");
+    //                break;
+    //        }
+    //    }
+    //}
+//————————————————
+//    版权声明：本文为CSDN博主「Carson带你学Android」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+//    原文链接：https://blog.csdn.net/carson_ho/article/details/80305411
+
+    //@SuppressLint("ClickableViewAccessibility")
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @SuppressLint("ClickableViewAccessibility")
     void initGrid() {
         String[] from = {"img", "text"};
@@ -152,53 +188,97 @@ public class CollectRubFragment extends Fragment {
         int[] to = {R.id.img, R.id.text};
 
         initData();
+        //binding.person.bringToFront();
+        //图片设置在最上面
 
 //        https://www.cnblogs.com/fanglongxiang/p/11910455.html
         SimpleAdapter adapter = new SimpleAdapter(getActivity(), dataList, R.layout.gridview_item, from, to);
         GridView gridView = binding.gridview;
+        //GridView 一个 item click
         gridView.setAdapter(adapter);
         //gridView 设置 上下间隔
         //gridView.  setHorizontalSpacing(   DpPxSpTool.Dp2Px(activity,65));
         gridView.setVerticalSpacing(DpPxSpTool.Dp2Px(activity, 65));
 
+        //gridView.setOnItemClickListener((parent, view, position, id) -> {
+        //
+        //});
+        int waitMs = 2000;
+        //设置了 setOnTouchListener 就不会 监听到 setOnItemClickListener
         gridView.setOnTouchListener((v, event) -> {
+            //v.performClick();
             //if()
+
+            //onTouch lambda should call View#performClick when a click is detected
             //event.getAction()
             //MotionEvent 当触摸
             Log.d("TAG", "initGrid:setOnTouchListener ");
 
-            switch (event.getAction()){
+            float rawX = event.getRawX();
+            Log.d("rawX", "initGrid: "+rawX);
+            Log.d("event", "initGrid: "+event);
+            switch (event.getAction()) {
                 case MotionEvent.ACTION_BUTTON_PRESS:
                     break;
                 case MotionEvent.ACTION_DOWN:
                     //int waitMs=3000;
-                    int waitMs = 2000;
-                    ObjectAnimator.ofFloat(binding.person, MoveConstant.translationX, event.getRawX()).setDuration(waitMs).start();
-                    ObjectAnimator.ofFloat(binding.person, MoveConstant.translationY, event.getRawY()).setDuration(waitMs).start();
+                    //int waitMs = 2000;
+                    //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationX, event.getRawX()).setDuration(waitMs).start();
+                    //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationY, event.getRawY()).setDuration(waitMs).start();
 
+                    //binding.person.setImageResource();
+                    //image view 剪切 部分
+                    //binding.person.setLeftTopRightBottom(20,20,20,20);
+                    //int boundsInt=100;
+                    //int boundsInt=200;
+                    ////binding.person.setLeftTopRightBottom(posNum,posNum,posNum,posNum);
+                    //Drawable drawable = binding.person.getDrawable();
+                    //drawable.setBounds(new Rect(boundsInt,boundsInt,boundsInt,boundsInt));
+                    //drawable.
+                    //binding.person.setImageDrawable(drawable);
+                    binding.personWalk.start();
+                    ObjectAnimator.ofFloat(binding.personWalk, MoveConstant.x, event.getRawX()).setDuration(waitMs).start();
+                    ObjectAnimator.ofFloat(binding.personWalk, MoveConstant.y,event.getRawY()-DpPxSpTool.getStatusBarHeight(binding.personWalk)).setDuration(waitMs).start();
+                    //ObjectAnimator.ofFloat(binding.personWalk, MoveConstant.y,event.getRawY()-DpPxSpTool.getStatusBarHeight(binding.person)).setDuration(waitMs).start();
+
+                    //ObjectAnimator.ofFloat(binding.person, MoveConstant.x, event.getRawX()).setDuration(waitMs).start();
+                    //ObjectAnimator.ofFloat(binding.person, MoveConstant.y,event.getRawY()-DpPxSpTool.getStatusBarHeight(binding.person)).setDuration(waitMs).start();
                     //打开一个答题程序
 
                     new Handler(message -> {
-                        //产生一个 碎片
-                        //ActivityUtil.startActivity(getActivity(), LoginActivity.class);
-                        //TextFragment textFragment = new TextFragment();
-                        //new   AlertDialog.Builder(activity).setPositiveButton("确定",(dialog, which) -> {}).setNegativeButton()
-                        Log.d("TAG", "initGrid: AlertDialog");
-                        new AlertDialog.Builder(activity).setTitle("恭喜获得碎片").setMessage("恭喜获得碎片").
-                                setPositiveButton("确定", (dialog, which) -> {
-                                }).
-                                setNegativeButton("取消", ((dialog, which) -> {
-                                })).show();
-//                        HttpUtil.post()
+                        binding.personWalk.stop();
                         return false;
                     }).sendEmptyMessageDelayed(0, waitMs); // 延迟3秒
 
+//                    new Handler(message -> {
+//                        //FraMa
+//                        //产生一个 碎片
+//                        //ActivityUtil.startActivity(getActivity(), LoginActivity.class);
+//                        //TextFragment textFragment = new TextFragment();
+//                        //new   AlertDialog.Builder(activity).setPositiveButton("确定",(dialog, which) -> {}).setNegativeButton()
+//                        Log.d("TAG", "initGrid: AlertDialog");
+//                        new AlertDialog.Builder(activity).setTitle("恭喜获得碎片").setMessage("恭喜获得碎片").
+//                                setPositiveButton("确定", (dialog, which) -> {
+//                                }).
+//                                setNegativeButton("取消", ((dialog, which) -> {
+//                                })).show();
+////                        HttpUtil.post()
+//                        return false;
+//                    }).sendEmptyMessageDelayed(0, waitMs); // 延迟3秒
+
+                    break;
+                default:
                     break;
 
             }
+            Log.d("performClick", "initGrid: ");
+            return v.performClick();
 
-            return true;
+
+            //return true;
         });
+
+
         //gridView.setOnTouchListener { v, event ->
         //        //在这里面拦截点击事件,并进行相应的操作
         //
@@ -206,6 +286,61 @@ public class CollectRubFragment extends Fragment {
         //}
 
         gridView.setOnItemClickListener((adapterView, view, position, id) -> {
+            Log.d("adapterView", "initGrid: " + adapterView);
+            Log.d("view", "initGrid: " + view);
+            Log.d("position", "initGrid: " + position);
+            Log.d("id", "initGrid: " + id);
+            //int waitMs = 2000;
+            float x = view.getX();
+            float y = view.getY();
+            //view.getLeft();
+            //view.gex
+            //gridView.setOnItemClickListener 获取 位置
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationX, x).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationY, y).setDuration(waitMs).start();
+
+            Log.d("x", "initGrid: "+x);
+            Log.d("y", "initGrid: "+y);
+            int left = view.getLeft();
+            int right = view.getRight();
+            Log.d("left", "initGrid: "+left);
+            Log.d("right", "initGrid: "+right);
+            float leftAndX = view.getLeft() + x;
+            Log.d("leftAndX", "initGrid: "+leftAndX);
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationX, view.getLeft()+x).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationY,view.getTop()+y).setDuration(waitMs).start();
+
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationX, x-personX).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationY,y-personY).setDuration(waitMs).start();
+            //personX=x;
+            //personY=y;
+
+            Log.d("binding.person.getX()", "initGrid: binding.person.getX(  "+binding.person.getX());
+            //Log.d("binding.person.getX()", "initGrid: binding.person.getX(  "+binding.person.getX());
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationX, x-binding.person.getX()).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.x, x+view.getLeft()).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.x, x).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.y, y+view.getTop()).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat(binding.person, MoveConstant.translationY,y-binding.person.getY()).setDuration(waitMs).start();
+            //ObjectAnimator.ofFloat 的单位 和 view.getX 的单位
+            new Handler(message -> {
+                //FraMa
+                //产生一个 碎片
+                //ActivityUtil.startActivity(getActivity(), LoginActivity.class);
+                //TextFragment textFragment = new TextFragment();
+                //new   AlertDialog.Builder(activity).setPositiveButton("确定",(dialog, which) -> {}).setNegativeButton()
+                Log.d("TAG", "initGrid: AlertDialog");
+                //new AlertDialog.Builder(activity).setTitle("恭喜获得碎片").setMessage("恭喜获得碎片").
+                //        setPositiveButton("确定", (dialog, which) -> {
+                //        }).
+                //        setNegativeButton("取消", ((dialog, which) -> {
+                //        })).show();
+//                        HttpUtil.post()
+//                startActivity 传入 listener
+                ActivityUtil.startActivity(activity, ProblemActivity.class);
+                return false;
+            }).sendEmptyMessageDelayed(0, waitMs); // 延迟3秒
+
 
 
         });
@@ -215,6 +350,10 @@ public class CollectRubFragment extends Fragment {
 
 
 //
+    }
+
+    void showProblemFragment() {
+
     }
 
     private void showNormalDialog() {
@@ -250,7 +389,8 @@ public class CollectRubFragment extends Fragment {
 
     List<RubbishInfo> rubbishInfoLst;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    //@RequiresApi(api = Build.VERSION_CODES.N)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -261,13 +401,34 @@ public class CollectRubFragment extends Fragment {
         binding = FragmentCollectRubBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
+        binding.person.bringToFront();
+        //personX= binding.person.getX();
+        //personY= binding.person.getY();
+        //int posNum=100;
+        //int posNum=200;
+        //binding.person.setLeftTopRightBottom(posNum,posNum,posNum,posNum);
+        //binding.person.setLeftTopRightBottom(20,20,20,20);
+        //Object itemAtPosition = binding.gridview.getItemAtPosition(0);
+        //itemAtPosition.
+        //binding.gridview.item
+        //binding.personWalk.run();
+        //binding.personWalk.drawFrame();
+        //binding.personWalk.doDraw();
+        binding.personWalk.pause();
+        //binding.personWalk.start();
+        //binding.personWalk.stop();
         initGrid();
 
         return root;
     }
     //public
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        binding.personWalk.pause();
+    }
 
     public interface SendValue {
         void onItemClickListener(RubbishType rubbishType);
@@ -293,8 +454,6 @@ public class CollectRubFragment extends Fragment {
             }
         }
     };
-
-
 
 
     List<RubbishType> rubbishTypes = new ArrayList<>();

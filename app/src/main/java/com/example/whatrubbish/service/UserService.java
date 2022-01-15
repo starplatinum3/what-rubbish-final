@@ -1,8 +1,10 @@
 package com.example.whatrubbish.service;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.example.whatrubbish.Bus;
+import com.example.whatrubbish.activity.ProblemActivity;
 import com.example.whatrubbish.db.AppDatabase;
 import com.example.whatrubbish.db.BaseDao;
 import com.example.whatrubbish.db.BaseRepository;
@@ -12,6 +14,7 @@ import com.example.whatrubbish.entity.Article;
 import com.example.whatrubbish.entity.CardGame;
 import com.example.whatrubbish.entity.RubbishInfo;
 import com.example.whatrubbish.util.HttpUtil;
+import com.example.whatrubbish.util.ToastUtil;
 import com.google.gson.JsonObject;
 
 import java.io.IOException;
@@ -25,10 +28,30 @@ public class UserService {
     }
 
 
+    public UserService(Activity activity) {
+        this.activity = activity;
+    }
+
     void  registerHttp(){
 
     }
 
+    //void userAddPoint(){
+    //    if(   Bus.curUser==null){
+    //        ToastUtil.show(activity,"没有登录 请登录");
+    //        return;
+    //    }
+    //    try {
+    //        Bus.curUser.addPoint(1);
+    //        JsonObject post = HttpUtil.post(Bus.baseDbUrl + Bus.userSave, Bus.curUser);
+    //        Log.d("post", "onAnsRightListener: " + post);
+    //        //finishActivity(1);
+    //        finish();
+    //        //ActivityUtil.startActivity(this, CollectRubFragment);
+    //    } catch (Exception e) {
+    //        e.printStackTrace();
+    //    }
+    //}
 
     void sendMessage(){
 //        Message message = new Message();
@@ -44,7 +67,33 @@ public class UserService {
 
     }
     //api 拿到数据之后要 保存
-   public static JsonObject save(RubbishInfo rubbishInfo) throws IOException {
+//   public  JsonObject save(RubbishInfo rubbishInfo) throws IOException {
+////        HTTP http = HTTP.builder()
+//////                .baseUrl("http://api.tianapi.com/lajifenlei/index?key="+keyRubbish+"&word=")
+////                .baseUrl(Bus.baseDbUrl)
+////                .addMsgConvertor(new GsonMsgConvertor())
+////                .build();
+//        //Bus.httpDb.async()
+//        //JsonObject post = HttpUtil.post(Bus.baseDbUrl+"/rubbishInfo/save", rubbishInfo);
+//        //return post;
+//
+//       if(   Bus.curUser==null){
+//           ToastUtil.show(activity,"没有登录 请登录");
+//           return;
+//       }
+//       try {
+//           Bus.curUser.addPoint(1);
+//           JsonObject post = HttpUtil.post(Bus.baseDbUrl + Bus.userSave, Bus.curUser);
+//           Log.d("post", "onAnsRightListener: " + post);
+//           //finishActivity(1);
+//          //activity. finish();
+//           //ActivityUtil.startActivity(this, CollectRubFragment);
+//       } catch (Exception e) {
+//           e.printStackTrace();
+//       }
+//    }
+
+    public static JsonObject save(RubbishInfo rubbishInfo) throws IOException {
 //        HTTP http = HTTP.builder()
 ////                .baseUrl("http://api.tianapi.com/lajifenlei/index?key="+keyRubbish+"&word=")
 //                .baseUrl(Bus.baseDbUrl)
@@ -54,6 +103,7 @@ public class UserService {
         JsonObject post = HttpUtil.post(Bus.baseDbUrl+"/rubbishInfo/save", rubbishInfo);
         return post;
     }
+
 
     public static JsonObject save(RubbishInfoDbo rubbishInfoDbo) throws IOException {
 //        HTTP http = HTTP.builder()

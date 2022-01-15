@@ -1,41 +1,41 @@
 package com.example.whatrubbish.fragment;
 
-import android.animation.ObjectAnimator;
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.SimpleAdapter;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager.widget.ViewPager;
 
+import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.R;
-import com.example.whatrubbish.constant.MoveConstant;
-import com.example.whatrubbish.databinding.FragmentCollectRubBinding;
+import com.example.whatrubbish.databinding.FragmentProblemBinding;
 import com.example.whatrubbish.db.Repository;
-import com.example.whatrubbish.entity.RubbishInfo;
+import com.example.whatrubbish.dto.Problem;
 import com.example.whatrubbish.entity.RubbishType;
-import com.example.whatrubbish.util.DpPxSpTool;
+import com.example.whatrubbish.util.HttpUtil;
+import com.example.whatrubbish.util.ThreadPoolManager;
 import com.example.whatrubbish.util.ToastUtil;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+//import ViewGroup.LayoutParams
+
+import lombok.SneakyThrows;
 //import okhttp3.FormBody;
 //import okhttp3.FormBody;
 
@@ -43,63 +43,38 @@ import java.util.Map;
 //@Data
 //@Builder
 public class ProblemFragment extends Fragment {
-    Map<Integer, Integer> picMap=new HashMap<>();
-
-    public Map<Integer, Integer> getPicMap() {
-        return picMap;
-    }
-
-    public void setPicMap(Map<Integer, Integer> picMap) {
-        this.picMap = picMap;
-    }
 
     public ProblemFragment() {
     }
 
-    public ProblemFragment(SendValue sendValue) {
-        this.sendValue = sendValue;
+    Problem problem;
+
+    Listener listener;
+
+    public Listener getListener() {
+        return listener;
     }
 
-    SendValue sendValue;
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
     //WikiHolderFragment w
     //FragmentWikiBinding binding;
-    FragmentCollectRubBinding binding;
+    //FragmentCollectRubBinding binding;
+    FragmentProblemBinding binding;
     int imgId;
 
     //Activity activity;
     FragmentActivity activity;
 
-    public int getImgId() {
-        return imgId;
-    }
-
-    public void setImgId(int imgId) {
-        this.imgId = imgId;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initRubType();
-        //binding.person.setOnClickListener(v->{
-        //    //int id = v.getId();
-        //    //Integer picId = picMap.get(id);
-        //
-        //
-        //    //map.put(控件id,图片id);
-        //    //Fragment fragment = new Fragment();
-        //});
-
-        //CollectRubFragment collectRubFragment = new CollectRubFragment();
-        //Map<Integer, Integer>map=new HashMap<>();
-        //map.put(控件id,图片id);
-        //collectRubFragment.setPicMap(map);
 
     }
-
-
-    private ViewPager mViewPager;
-
 
     Repository repository;
 
@@ -107,112 +82,39 @@ public class ProblemFragment extends Fragment {
         repository = new Repository(activity);
     }
 
+    public Problem getProblem() {
+        return problem;
+    }
 
-    @SuppressLint("ClickableViewAccessibility")
-    void initGrid() {
-        String[] from = {"img", "text"};
+    public void setProblem(Problem problem) {
+        this.problem = problem;
+    }
 
-        int[] to = {R.id.img, R.id.text};
+    void initProblems() throws IOException {
+        JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/problem/list", new Problem());
+        int code = post.get("code").getAsInt();
+        if(code==200){
+            //post.get("data").getAsJsonObject().get("content")
+            //post.get("data").getAsJsonObject().get(Bus.contentMark)
+            //JsonObject asJsonObject = post.get(Bus.dataMark).getAsJsonObject().get(Bus.contentMark).getAsJsonObject();
+            JsonArray asJsonArray = post.get(Bus.dataMark).getAsJsonObject().get(Bus.contentMark).getAsJsonArray();
+            //Problem problem = Bus.gson.fromJson(asJsonObject, Problem.class);
+            Problem[] problems = Bus.gson.fromJson(asJsonArray, Problem[].class);
+            Log.d("problems", "wasteTimeInit: "+ Arrays.toString(problems));
+        }
+    }
 
-        initData();
-
-//        https://www.cnblogs.com/fanglongxiang/p/11910455.html
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(), dataList, R.layout.gridview_item, from, to);
-        GridView gridView = binding.gridview;
-        gridView.setAdapter(adapter);
-        //gridView 设置 上下间隔
-        //gridView.  setHorizontalSpacing(   DpPxSpTool.Dp2Px(activity,65));
-        gridView.setVerticalSpacing(DpPxSpTool.Dp2Px(activity, 65));
-
-        gridView.setOnTouchListener((v, event) -> {
-            //if()
-            //event.getAction()
-            //MotionEvent 当触摸
-            Log.d("TAG", "initGrid:setOnTouchListener ");
-
-            switch (event.getAction()){
-                case MotionEvent.ACTION_BUTTON_PRESS:
-                    break;
-                case MotionEvent.ACTION_DOWN:
-                    //int waitMs=3000;
-                    int waitMs = 2000;
-                    ObjectAnimator.ofFloat(binding.person, MoveConstant.translationX, event.getRawX()).setDuration(waitMs).start();
-                    ObjectAnimator.ofFloat(binding.person, MoveConstant.translationY, event.getRawY()).setDuration(waitMs).start();
-
-                    //打开一个答题程序
-
-                    new Handler(message -> {
-                        //产生一个 碎片
-                        //ActivityUtil.startActivity(getActivity(), LoginActivity.class);
-                        //TextFragment textFragment = new TextFragment();
-                        //new   AlertDialog.Builder(activity).setPositiveButton("确定",(dialog, which) -> {}).setNegativeButton()
-                        Log.d("TAG", "initGrid: AlertDialog");
-                        new AlertDialog.Builder(activity).setTitle("恭喜获得碎片").setMessage("恭喜获得碎片").
-                                setPositiveButton("确定", (dialog, which) -> {
-                                }).
-                                setNegativeButton("取消", ((dialog, which) -> {
-                                })).show();
-//                        HttpUtil.post()
-                        return false;
-                    }).sendEmptyMessageDelayed(0, waitMs); // 延迟3秒
-
-                    break;
-
+    void wasteTimeInit() throws IOException {
+        Thread thread = new Thread(() -> {
+            try {
+                initProblems();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            return true;
         });
-        //gridView.setOnTouchListener { v, event ->
-        //        //在这里面拦截点击事件,并进行相应的操作
-        //
-        //        true
-        //}
-
-        gridView.setOnItemClickListener((adapterView, view, position, id) -> {
-
-
-        });
-//————————————————
-//        版权声明：本文为CSDN博主「强强强子」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-//        原文链接：https://blog.csdn.net/sinat_25926481/article/details/70880047
-
-
-//
+        ThreadPoolManager.run(thread);
     }
-
-    private void showNormalDialog() {
-        /* @setIcon 设置对话框图标
-         * @setTitle 设置对话框标题
-         * @setMessage 设置对话框消息提示
-         * setXXX方法返回Dialog对象，因此可以链式设置属性
-         */
-        //new   AlertDialog.Builder(activity).
-        final AlertDialog.Builder normalDialog =
-                new AlertDialog.Builder(activity);
-        //normalDialog.setIcon(R.drawable.icon_dialog);
-        normalDialog.setTitle("我是一个普通Dialog");
-        normalDialog.setMessage("你要点击哪一个按钮呢?");
-        normalDialog.setPositiveButton("确定",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //...To-do
-                    }
-                });
-        normalDialog.setNegativeButton("关闭",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //...To-do
-                    }
-                });
-        // 显示
-        normalDialog.show();
-    }
-
-
-    List<RubbishInfo> rubbishInfoLst;
-
+    @SneakyThrows
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Nullable
     @Override
@@ -221,41 +123,110 @@ public class ProblemFragment extends Fragment {
         activity = getActivity();
         initDatabase();
 
-        binding = FragmentCollectRubBinding.inflate(inflater, container, false);
+        binding = FragmentProblemBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-
-        initGrid();
-
+        //binding.
+        //wasteTimeInit();
+        setUpData();
         return root;
     }
     //public
+    List<RadioButton>radioButtons=new ArrayList<>();
 
 
-    public interface SendValue {
-        void onItemClickListener(RubbishType rubbishType);
+    void setUpData(){
+
+        List<String> candidates = problem.getCandidates();
+        int i=0;
+        for (int j = 0; j < 4; j++) {
+            radioButtons.add(new RadioButton(activity));
+        }
+        //for (int j = 0; j <radioButtons.size() ; j++) {
+        //
+        //}
+
+        LayoutParams layoutParams = new LayoutParams(400,LayoutParams.WRAP_CONTENT);
+
+        for (RadioButton radioButton : radioButtons) {
+            radioButton.setText(candidates.get(i++));
+            binding.radiogroup1.addView(radioButton,layoutParams);
+        }
+
+        //radioButtons.add(new RadioButton(activity));
+        //radioButtons.add(new RadioButton(activity));
+        //radioButtons.add(new RadioButton(activity));
+        //java 代码 生成 view
+        //LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+        //binding.radiogroup1.addView(new RadioButton(activity), ViewGroup.LayoutParams.MATCH_PARENT);
+        //int
+
+        //binding.radiogroup1
+        //binding.radiobutton1.setText(candidates.get(i++));
+        //binding.radiobutton2.setText(candidates.get(i++));
+        //binding.radiobutton3.setText(candidates.get(i++));
+        //binding.radiobutton4.setText(candidates.get(i++));
+        //多个 radiobutton4    循环
+        binding.tvTitle.setText(problem.getTitle());
+        binding.btnConfirm.setOnClickListener(v->{
+            //binding.radiobutton1.isChecked()
+            //binding.radiogroup1.getCheckedRadioButtonId()
+            //for
+
+            List<Integer> ansNums = problem.getAnsNums();
+            Integer rightAnsNum = ansNums.get(0);
+
+            int idx=0;
+            boolean isRight=false;
+            for (RadioButton radioButton : radioButtons) {
+                if(radioButton.isChecked()){
+
+                    if(rightAnsNum.equals(idx)){
+                        //ToastUtil.show(activity,"答对了");
+
+
+                        isRight=true;
+                        if(listener!=null){
+                            listener.onAnsRightListener();
+                        }
+                        break;
+                    }
+                    //String  text = radioButton.getText().toString();
+                }
+                idx++;
+            }
+            if(isRight==false){
+                ToastUtil.show(activity,"答错了");
+            }
+            //int checkedRadioButtonId = binding.radiogroup1.getCheckedRadioButtonId();
+            //binding.radiogroup1.getCheckedRadioButtonId()
+        });
+    }
+
+    public interface Listener {
+        //void onItemClickListener(RubbishType rubbishType);
+        void onAnsRightListener();
     }
 
 
-    final static int REQUEST_SUCCESS = 200;
-    final static int REQUEST_FAIL = 500;
-    private Handler requestHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case REQUEST_SUCCESS:
-//                    Toast.makeText(MainActivity.this, "SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                    ToastUtil.show(activity, "REQUEST_SUCCESS");
-                    break;
-                case REQUEST_FAIL:
-                    ToastUtil.show(activity, "REQUEST_FAIL");
-//                    Toast.makeText(MainActivity.this, "request failed", Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    super.handleMessage(msg);
-            }
-        }
-    };
+    //final static int REQUEST_SUCCESS = 200;
+    //final static int REQUEST_FAIL = 500;
+//    private Handler requestHandler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            switch (msg.what) {
+//                case REQUEST_SUCCESS:
+////                    Toast.makeText(MainActivity.this, "SUCCESSFUL", Toast.LENGTH_SHORT).show();
+//                    ToastUtil.show(activity, "REQUEST_SUCCESS");
+//                    break;
+//                case REQUEST_FAIL:
+//                    ToastUtil.show(activity, "REQUEST_FAIL");
+////                    Toast.makeText(MainActivity.this, "request failed", Toast.LENGTH_SHORT).show();
+//                    break;
+//                default:
+//                    super.handleMessage(msg);
+//            }
+//        }
+//    };
 
 
 

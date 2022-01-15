@@ -4,23 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
     android:orientation="vertical"
-
+    android:background="@color/blue"
     tools:context=".fragment.CollectRubFragment">
 
     <ImageView
         android:id="@+id/person"
-        android:src="@drawable/miku_fang"
         android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_50" />
+        android:layout_height="@dimen/dp_50"
+        android:src="@drawable/miku_fang" />
+
     <GridView
         android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:columnWidth="@dimen/dp_80"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="true"
         android:numColumns="3"
         android:stretchMode="spacingWidthUniform" />
+    android:layout_height="80dp"
+    48
+    app:offset_per_second="@dimen/dp_32"
+    <com.example.whatrubbish.util.SpriteAnimationView
+        android:id="@+id/personWalk"
+        app:frame_count="4"
+        app:offset_per_second="@dimen/dp_32"
+        app:frame_height="@dimen/dp_48"
+        app:frame_width="@dimen/dp_32"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        app:sprite_sheet="@mipmap/miku_walk_left_to_right_whole_nb" />
+
+<!--    <com.example.whatrubbish.util.SpriteAnimationView-->
+<!--        android:id="@+id/personWalk"-->
+<!--        app:frame_count="4"-->
+<!--        app:offset_per_second="@dimen/dp_60"-->
+<!--        app:frame_height="@dimen/dp_70"-->
+<!--        app:frame_width="@dimen/dp_60"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dp_70"-->
+<!--        app:sprite_sheet="@mipmap/miku_walk_left_to_right_no_back" />-->
+
+<!--    <com.example.whatrubbish.util.SpriteAnimationView-->
+<!--        android:id="@+id/personWalk"-->
+<!--        app:frame_count="4"-->
+<!--        app:offset_per_second="@dimen/dp_200"-->
+<!--        app:frame_height="@dimen/dp_200"-->
+<!--        app:frame_width="@dimen/dp_200"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dp_200"-->
+<!--        app:sprite_sheet="@mipmap/miku_walk_left_to_right_no_back" />-->
+
+
+    <!--    <com.example.whatrubbish.util.SpriteAnimationView-->
+<!--        android:id="@+id/personWalk"-->
+<!--        app:frame_count="4"-->
+<!--        app:offset_per_second="32px"-->
+<!--        app:frame_height="48px"-->
+<!--        app:frame_width="32px"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48px"-->
+<!--        app:sprite_sheet="@mipmap/miku_walk_left_to_right_no_back" />-->
+    app:sprite_sheet="@mipmap/miku_walk"
+
     414-40-40
     <!--    ————————————————-->
     <!--    版权声明：本文为CSDN博主「强强强子」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->

@@ -3,6 +3,7 @@ package com.example.whatrubbish.entity;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -10,14 +11,19 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User implements Cloneable{
+    @NonNull
+    @Override
+    public User clone() throws CloneNotSupportedException {
+        return (User)super.clone();
+    }
+
     public static final String TABLE_NAME = "User";
     @PrimaryKey(autoGenerate = true)
     Long id;

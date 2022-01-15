@@ -107,7 +107,14 @@ public class login extends Activity {
                         username(username).password(Security.md5(password)).build();
                 JsonObject listRes = HttpUtil.post(Bus.baseDbUrl + "/user/list",userForm);
                 Log.d("listRes", "loginHttp: listRes "+listRes);
-                JsonArray asJsonArray = listRes.get(Bus.contentMark).getAsJsonArray();
+                int code = listRes.get("code").getAsInt();
+                if(code!=Bus.codeSuccess){
+                    ToastUtil.show(login.this,"登录失败 后端出错");
+                    return;
+                }
+                JsonObject asJsonObject = listRes.get(Bus.dataMark).getAsJsonObject();
+                //JsonArray asJsonArray = listRes.get(Bus.contentMark).getAsJsonArray();
+                JsonArray asJsonArray = asJsonObject.get(Bus.contentMark).getAsJsonArray();
                 Log.d("asJsonArray", "loginHttp: asJsonArray "+asJsonArray);
                 runOnUiThread(()->{
                     //ToastUtil.show(this,"登录错误 请检查账号密码");
@@ -137,8 +144,9 @@ public class login extends Activity {
 
 
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
+                ToastUtil.show(login.this,"登录失败 "+e.getMessage());
             }
         }),null),null);
 
