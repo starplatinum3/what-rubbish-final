@@ -29,6 +29,8 @@ import android.text.Spanned;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
@@ -37,6 +39,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -52,6 +57,57 @@ import lombok.NonNull;
 //@NoArgsConstructor
 public class DrawUtil {
 
+    //https://blog.csdn.net/ybf326/article/details/83186206
+    public static @Nullable
+    Bitmap loadBitmapFromRawResource(@NonNull Context context, @RawRes int id) {
+        InputStream inputStream = null;
+        try {
+            inputStream = context.getResources().openRawResource(id);
+            Bitmap rawBitmap = BitmapFactory.decodeStream(inputStream);
+            return rawBitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+            } catch (IOException e) {
+            }
+        }
+        return null;
+    }
+
+//    void clipPic(){
+//        //实现对图片的剪切的类，是一个匿名内部类
+//        BitmapFactory.Options factory = new BitmapFactory.Options();
+//        factory.inJustDecodeBounds  = true; //如果设置为true,允许查询图片不是按照像素分配的内存
+//        Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri), null, factory);
+//        //对图片的宽度和高度对应手机的屏幕进行匹配
+//
+//        int hRatio = (int)Math.ceil(factory.outHeight/(float)dh);
+//        //如果大于1，表示图片的高度大于手机屏幕的高度
+//
+//        int wRatio = (int)Math.ceil(factory.outWidth/(float)dw);
+//        //如果大于1，表示图片的宽度大于手机屏幕的高度
+//
+//        //缩放到1/radio的尺寸和1/radio^2的像素
+//        if(hRatio > 1 || wRatio > 1){
+//            if(hRatio > wRatio){
+//                factory.inSampleSize = hRatio;
+//            }else {
+//                factory.inSampleSize = wRatio;
+//            }
+//        }
+//        factory.inJustDecodeBounds = false;
+//        //使用BitmapFactory对图片进行适合屏幕的操作
+//        bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri),null,factory);
+//        //imageView.setImageBitmap(bitmap);
+//
+////————————————————
+////        版权声明：本文为CSDN博主「途途途」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+////        原文链接：https://blog.csdn.net/u013556056/article/details/21649029
+//    }
    //static Canvas mCanvas;
    // static Paint mPaint;
     private  static PaintFlagsDrawFilter pfd = new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG);

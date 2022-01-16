@@ -33,6 +33,16 @@
         android:id="@+id/btnToFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <Button
+        android:text="去compose"
+        android:id="@+id/btnToCompose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="去compose holder"
+        android:id="@+id/btnToComposeHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     app:navGraph="@navigation/mobile_navigation"
 
     <Button

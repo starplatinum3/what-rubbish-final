@@ -26,9 +26,9 @@ public class Bus {
     public static final String rubClsLocApi =String.format("https://lajifenleiapp.com/sk/%s?l=%s",whatRubMark,locMark);
     //public static final String rubClsLocApi ="https://lajifenleiapp.com/sk/{what}?l={loc}";
     public static final String keyRubbish = "keyRubbish";
-//    public static final String dbIp = "10.0.2.2";
-    //public static final String dbIpLocal = "10.0.2.2";
-    public static final String dbIp = "139.196.8.79";
+    public static final String dbIp = "10.0.2.2";
+    public static final String dbIpLocal = "10.0.2.2";
+    //public static final String dbIp = "139.196.8.79";
     //        String url="http://"+ip+":8889/tbAdmin/find?id=1";
 //        String url = "http://" + ip + ":8889/rubbishInfo/save";
 //    String baseDbUrl = "http://" + dbIp + ":8889/rubbishInfo/list";
@@ -48,7 +48,12 @@ public class Bus {
 
     public static final   int SUCCESS=1000;
     public static final  int ERROR=400;
+
+    public static final int codeSuccess = 200;
+    public static final int codeError = 400;
+
     public static final  String  contentMark="content";
+    public static final  String  dataMark="data";
 
     public static  final Gson gson = new Gson();
     public static  final String  userSave = "/user/save";

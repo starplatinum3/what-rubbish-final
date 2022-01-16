@@ -1,12 +1,28 @@
 package com.example.whatrubbish.util;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.TypedValue;
+import android.view.View;
+
+import lombok.val;
 
 //import net.lucode.hackware.magicindicator.buildins.UIUtil;
 //导入依赖的package包/类
 public class DpPxSpTool {
 
+    /**
+     * 方式二：通过getWindowVisibleDisplayFrame方法获取状态栏高度
+     */
+    public static int getStatusBarHeight(View view) {
+        //val outRect = Rect()
+        Rect outRect=new Rect();
+        view.getWindowVisibleDisplayFrame(outRect);
+        return outRect.top;
+    }
+//————————————————
+//    版权声明：本文为CSDN博主「Mars-xq」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+//    原文链接：https://blog.csdn.net/sinat_31057219/article/details/105795422
 
     public static int Dp2Px(Context con, int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, dp,

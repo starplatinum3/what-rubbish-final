@@ -1,5 +1,6 @@
 package com.example.whatrubbish.test;
 
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.compose.ComposeActivity;
 import com.example.compx202_finalproject.MainActivity;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.databinding.FragmentMainHolderBinding;
@@ -109,6 +111,19 @@ public class TestHolderFragment extends Fragment {
             getChildFragmentManager().beginTransaction().
                     replace(R.id.mainHolder, new FriendFragment()).addToBackStack(null).commit();
         });
+        binding.btnToCompose.setOnClickListener(v->{
+            Log.d("btnToCompose", "onCreateView: ComposeActivity");
+            ActivityUtil.startActivity(activity, ComposeActivity.class);
+            //getChildFragmentManager().beginTransaction().
+            //        replace(R.id.mainHolder, new FriendFragment()).addToBackStack(null).commit();
+        });
+        binding.btnToComposeHolder.setOnClickListener(v->{
+            Log.d("btnToCompose", "onCreateView: ComposeActivity");
+            //ActivityUtil.startActivity(activity, ComposeActivity.class);
+            getChildFragmentManager().beginTransaction().
+                    replace(R.id.mainHolder, new ComposeHolderFragment()).addToBackStack(null).commit();
+        });
+
         binding.btnToBird.setOnClickListener(v->{
             //ActivityUtil.startActivity(activity, MainActivity.class);
             ActivityUtil.startActivity(activity, com.example.compx202_finalproject.MainActivity.class);

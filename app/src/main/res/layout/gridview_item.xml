@@ -5,6 +5,8 @@
     android:layout_gravity="center"
     android:background="@drawable/sp_fillet_green_al"
     android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:clickable="false"
     android:gravity="center">
 
     android:layout_width="wrap_content"
@@ -18,7 +20,8 @@
         android:layout_width="@dimen/dp_80"
         android:layout_height="@dimen/dp_80"
 
-        android:src="@drawable/miku_fang" />
+        android:src="@drawable/miku_fang"
+       />
 
     android:layout_height="wrap_content"
 
