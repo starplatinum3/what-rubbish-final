@@ -116,6 +116,7 @@ public class ChatUiHelper {
                 //最后一页的数据
                 List<EmojiBean> lastPageList = mListEmoji.subList(index * EVERY_PAGE_SIZE, mListEmoji.size());
                 entranceAdapter = new EmojiAdapter(lastPageList, index, EVERY_PAGE_SIZE);
+//                选择表情
             } else {
                 entranceAdapter = new EmojiAdapter(mListEmoji.subList(index * EVERY_PAGE_SIZE, (index + 1) * EVERY_PAGE_SIZE), index, EVERY_PAGE_SIZE);
             }
