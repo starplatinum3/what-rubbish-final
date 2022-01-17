@@ -146,7 +146,10 @@ public class login extends Activity {
 
             } catch (Exception e) {
                 e.printStackTrace();
-                ToastUtil.show(login.this,"登录失败 "+e.getMessage());
+                login.this.runOnUiThread(()->{
+                    ToastUtil.show(login.this,"登录失败 "+e.getMessage());
+
+                });
             }
         }),null),null);
 
