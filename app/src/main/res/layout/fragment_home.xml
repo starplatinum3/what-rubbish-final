@@ -117,6 +117,32 @@
             android:layout_height="wrap_content"
             android:text="去玩游戏 收集垃圾"
             app:layout_constraintTop_toBottomOf="@+id/btnToPlaneGame" />
+        <Button
+            android:id="@+id/btnToSuperMaria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="超级玛丽"
+            app:layout_constraintTop_toBottomOf="@+id/btnToCollectRub" />
+
+        <Button
+            android:id="@+id/btnToWxSorting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToWxSorting"
+            app:layout_constraintTop_toBottomOf="@+id/btnToSuperMaria" />
+        <Button
+            android:id="@+id/btnToNoBottomNavActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToNoBottomNavActivity"
+            app:layout_constraintTop_toBottomOf="@+id/btnToWxSorting" />
+        <Button
+            android:id="@+id/btnToHitBall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToHitBall"
+            app:layout_constraintTop_toBottomOf="@+id/btnToNoBottomNavActivity" />
+
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->

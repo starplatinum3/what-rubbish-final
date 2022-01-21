@@ -73,6 +73,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.smlj.logo"/>
+        <activity android:name=".activity.NoBottomNavActivity"/>
+        <activity android:name="com.richard.hitball.MainActivity"/>
 
 
         <!--        <activity android:name=".MainActivity" />-->
@@ -89,6 +91,8 @@
 <!--        </activity>-->
 
         <activity android:name="com.example.compose.ComposeActivity" />
+        <activity android:name="com.suramire.androidgame25.MainActivity"
+            android:screenOrientation="landscape" />
 
 
 

@@ -5,11 +5,13 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-//@AllArgsConstructor
+@Builder
 public class RubbishType {
     @PrimaryKey(autoGenerate = true)
     Long id;

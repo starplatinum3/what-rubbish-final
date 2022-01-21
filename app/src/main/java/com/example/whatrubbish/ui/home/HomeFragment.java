@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,12 +29,15 @@ import com.example.whatrubbish.RegisterActivity;
 import com.example.whatrubbish.achievement.AchievementActivity;
 import com.example.whatrubbish.achievement.AchievementActivitySelf;
 //import com.example.whatrubbish.activity.MyAppActivity;
+import com.example.whatrubbish.activity.NoBottomNavActivity;
 import com.example.whatrubbish.constant.MoveConstant;
 import com.example.whatrubbish.databinding.FragmentHomeBinding;
 import com.example.whatrubbish.fragment.CollectRubFragment;
+import com.example.whatrubbish.fragment.SplitDropRubFragment;
 import com.example.whatrubbish.neteasecloudmusictab.fragment.AchievementFragment;
 import com.example.whatrubbish.util.ActivityUtil;
 import com.hurteng.stormplane.object.GameGoods;
+import com.suramire.androidgame25.MainActivity;
 //import com.example.whatrubbish.tabLayout.TabLayoutActivity;
 
 import butterknife.ButterKnife;
@@ -51,6 +55,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         activity = getActivity();
+
 //        GameGoods 确实可以了
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
@@ -79,6 +84,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Log.v("btnToRegionSetting", "btnToRegionSetting");
         });
 
+        binding.btnToSuperMaria.setOnClickListener(v -> {
+            startActivity(MainActivity.class);
+            Log.v("btnToSuperMaria", "btnToSuperMaria");
+        });
+
         binding.btnChangeImg.setOnClickListener(v -> {
 //            可以的
             Log.v("setImageResource", "setImageResource");
@@ -92,6 +102,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     replace(R.id.nav_host_fragment_activity_main, new CollectRubFragment()).
                     addToBackStack(null).commit();
         });
+
+        binding.btnToWxSorting.setOnClickListener(v -> {
+            String url = "http://139.196.8.79:8890/";
+            activity.getSupportFragmentManager().beginTransaction().
+                    replace(R.id.nav_host_fragment_activity_main, new SplitDropRubFragment(url)).
+                    addToBackStack(null).commit();
+        });
+        binding.btnToNoBottomNavActivity.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, NoBottomNavActivity.class);
+
+        });
+
+        binding.btnToHitBall.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, com.richard.hitball.MainActivity.class);
+
+        });
+
+
+
 
         //平移动画:在x轴上平移
         //ObjectAnimator animator = ObjectAnimator.ofFloat(binding.btnToRegister, "translationX", 0, 200, -200,0);
