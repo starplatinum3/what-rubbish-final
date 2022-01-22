@@ -4,7 +4,11 @@
 文档：错误 程序包android.support.design.wi...
 链接：http://note.youdao.com/noteshare?id=e0525aebe47888e70c5fea891cb1670b&sub=CAC7FEC1D7474FABB943A4A987959933
 
-
+change log
+readme 改成大写
+2022年1月22日11:18:55
+尝试整合$ git clone https://gitee.com/starplatinum111/GameHall_Android.git
+之前
 
 最新的项目
 
