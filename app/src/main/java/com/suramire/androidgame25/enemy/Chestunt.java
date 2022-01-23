@@ -20,6 +20,9 @@ public class Chestunt extends Enemy {
         super(bitmaps);
     }
 
+    public Chestunt() {
+    }
+
     @Override
     public void logic() {
         super.logic();

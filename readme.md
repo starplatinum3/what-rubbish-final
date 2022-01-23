@@ -10,6 +10,7 @@ readme 改成大写
 2022年1月22日11:18:55
 尝试整合$ git clone https://gitee.com/starplatinum111/GameHall_Android.git
 之前
+超级玛丽增加不同的垃圾，不是正确的垃圾踩到会扣血
 
 
 BmobSDK_V3.4.5_1111

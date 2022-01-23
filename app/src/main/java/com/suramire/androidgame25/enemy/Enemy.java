@@ -32,6 +32,10 @@ public class Enemy extends Sprite {
     public Enemy(List<Bitmap> bitmaps) {
         super( bitmaps);
     }
+
+    public Enemy() {
+    }
+
     @Override
     public void draw(Canvas canvas) {
         if(isMirror()){

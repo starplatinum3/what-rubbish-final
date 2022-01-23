@@ -178,8 +178,7 @@ public class Sprite {
         }
     }
 
-    public Sprite(List<Bitmap> bitmaps) {
-
+    public  void initWithBitmaps(List<Bitmap> bitmaps){
         mBitmaps = bitmaps;
         Bitmap bitmap = bitmaps.get(0);
         mWidth=bitmap.getWidth();
@@ -188,6 +187,34 @@ public class Sprite {
         for (int i = 0; i < mFrameSequence.length; i++) {
             mFrameSequence[i]=i;
         }
+    }
+
+    public  void initByMyBitmaps(){
+        //mBitmaps = bitmaps;
+        //Bitmap bitmap = bitmaps.get(0);
+        Bitmap bitmap = mBitmaps.get(0);
+        mWidth=bitmap.getWidth();
+        mHeight = bitmap.getHeight();
+        mFrameSequence = new int[mBitmaps.size()];
+        for (int i = 0; i < mFrameSequence.length; i++) {
+            mFrameSequence[i]=i;
+        }
+    }
+
+    public Sprite() {
+    }
+
+    public Sprite(List<Bitmap> bitmaps) {
+
+        initWithBitmaps(bitmaps);
+        //mBitmaps = bitmaps;
+        //Bitmap bitmap = bitmaps.get(0);
+        //mWidth=bitmap.getWidth();
+        //mHeight = bitmap.getHeight();
+        //mFrameSequence = new int[mBitmaps.size()];
+        //for (int i = 0; i < mFrameSequence.length; i++) {
+        //    mFrameSequence[i]=i;
+        //}
     }
 
 

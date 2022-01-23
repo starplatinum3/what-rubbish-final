@@ -809,13 +809,15 @@ public class MyView2 extends SurfaceView implements Callback, Runnable {
             isEnemyShown1 = true;
 
         }
+        //第二个场景
         if (tiledLayer_peng01.getX() == -480 && !isEnemyShown2) {
-            for (int i = 0; i < 3; i++) {
-                Enemy enemy = new Chestunt(32, 32, chestuntBitmaps);
-                enemy.setVisiable(true);
-                enemy.setPosition(720 + 60 * i, 328);
-                chestunts.add(enemy);
-            }
+            //for (int i = 0; i < 3; i++) {
+            //    Enemy enemy = new Chestunt(32, 32, chestuntBitmaps);
+            //    enemy.setVisiable(true);
+            //    enemy.setPosition(720 + 60 * i, 328);
+            //    chestunts.add(enemy);
+            //}
+            initRubbish();
             for (int i = 0; i < 2; i++) {
                 Cannon cannon = new Cannon(40, 80, cannonBitmaps, mySoundPool);
                 cannon.setVisiable(true);
@@ -875,38 +877,101 @@ public class MyView2 extends SurfaceView implements Callback, Runnable {
         }
     }
 
+    int groudY=288;
     void initRubbish(){
         //Enemy rubbish = new Chestunt(64, 81, rubbishBitmaps);
         //Enemy rubbish = new VRubbish(64, 81, rubbishBitmaps);
         //Rubbish rubbishEntity = new Rubbish();
         //rubbishEntity.
         //HttpUtil.post(Bus.baseDbUrl+Bus.rub)
-        List<Bitmap> rubbishBitmaps = initRubbishBitmaps();
+        //List<Bitmap> rubbishBitmaps = initRubbishBitmaps();
 
 
         Rubbish build = Rubbish.builder().typeId(1L).build();
         Rubbish type2 = Rubbish.builder().typeId(2L).build();
         //哪里来的数据呢 数据库吗
-        Enemy rubbish = new VRubbish( rubbishBitmaps,build);
-        //rubbish.se
-        //rubbish.setVisiable(true);
-        //rubbish.setMirror(true);
-//            rubbish.setPosition(424, yFloor);
-//            rubbish.setPosition(424, 312);
-//            如果位置 太往下的话 就不会返回
-        rubbish.setPosition(424, 288);
-        rubbishes.add(rubbish);
+//        Enemy rubbish = new VRubbish( rubbishBitmaps,build);
+//        //rubbish.se
+//        //rubbish.setVisiable(true);
+//        //rubbish.setMirror(true);
+////            rubbish.setPosition(424, yFloor);
+////            rubbish.setPosition(424, 312);
+////            如果位置 太往下的话 就不会返回
+//        rubbish.setPosition(424, 288);
+//        //rubbish.setPosition(424, 288);
+//        rubbishes.add(rubbish);
+
+        VRubbish vRubbish = new VRubbish( type2, 424, groudY);
+        vRubbish.setRubbish(build);
+        vRubbish.setContext(context);
+        vRubbish.setTypeName(VRubbish.recycle);
+        //vRubbish.initWithBitmaps();
+        vRubbish.initRubbishBitmaps();
+        vRubbish.initByMyBitmaps();
+        //rubbishes.add(new VRubbish( rubbishBitmapsType2,type2,500,288));
+        rubbishes.add(vRubbish);
+
+
         //rubbishes.add(new VRubbish( rubbishBitmaps,type2,450,288));
 
-        List<Bitmap>  rubbishBitmapsType2 = new ArrayList<>();
+        //List<Bitmap>  rubbishBitmapsType2 = new ArrayList<>();
         //Bitmap rubbishBitmap = getBitmap("enemy/rubbish/foam_lunch_box.png");
         //Bitmap rubbishBitmap = getBitmap("enemy/rubbish/harmful/harmful_2.png");
         //rubbishBitmapsType2.add(rubbishBitmap);
-        rubbishBitmapsType2.add(getBitmap("enemy/rubbish/harmful/harmful_2.png"));
+        //rubbishBitmapsType2.add(getBitmap("enemy/rubbish/harmful/harmful_2.png"));
 
-        rubbishes.add(new VRubbish( rubbishBitmapsType2,type2,500,288));
+        //VRubbish vRubbish = new VRubbish(rubbishBitmapsType2, type2, 500, 288);
+        VRubbish vRubbish2 = new VRubbish( type2, 500, 288);
+        vRubbish2.setRubbish(type2);
+        vRubbish2.setContext(context);
+        vRubbish2.setTypeName("harmful");
+        //vRubbish.initWithBitmaps();
+        vRubbish2.initRubbishBitmaps();
+        vRubbish2.initByMyBitmaps();
+        //rubbishes.add(new VRubbish( rubbishBitmapsType2,type2,500,288));
+        rubbishes.add(vRubbish2);
 
     }
+
+
+//    void initRubbish(){
+//        //Enemy rubbish = new Chestunt(64, 81, rubbishBitmaps);
+//        //Enemy rubbish = new VRubbish(64, 81, rubbishBitmaps);
+//        //Rubbish rubbishEntity = new Rubbish();
+//        //rubbishEntity.
+//        //HttpUtil.post(Bus.baseDbUrl+Bus.rub)
+//        List<Bitmap> rubbishBitmaps = initRubbishBitmaps();
+//
+//
+//        Rubbish build = Rubbish.builder().typeId(1L).build();
+//        Rubbish type2 = Rubbish.builder().typeId(2L).build();
+//        //哪里来的数据呢 数据库吗
+//        Enemy rubbish = new VRubbish( rubbishBitmaps,build);
+//        //rubbish.se
+//        //rubbish.setVisiable(true);
+//        //rubbish.setMirror(true);
+////            rubbish.setPosition(424, yFloor);
+////            rubbish.setPosition(424, 312);
+////            如果位置 太往下的话 就不会返回
+//        rubbish.setPosition(424, 288);
+//        rubbishes.add(rubbish);
+//        //rubbishes.add(new VRubbish( rubbishBitmaps,type2,450,288));
+//
+//        List<Bitmap>  rubbishBitmapsType2 = new ArrayList<>();
+//        //Bitmap rubbishBitmap = getBitmap("enemy/rubbish/foam_lunch_box.png");
+//        //Bitmap rubbishBitmap = getBitmap("enemy/rubbish/harmful/harmful_2.png");
+//        //rubbishBitmapsType2.add(rubbishBitmap);
+//        rubbishBitmapsType2.add(getBitmap("enemy/rubbish/harmful/harmful_2.png"));
+//
+//        VRubbish vRubbish = new VRubbish(rubbishBitmapsType2, type2, 500, 288);
+//        vRubbish.setContext(context);
+//        vRubbish.setTypeName("harmful");
+//        //rubbishes.add(new VRubbish( rubbishBitmapsType2,type2,500,288));
+//        rubbishes.add(vRubbish);
+//
+//    }
+
+
     /**
      * 处理移动与跳跃的逻辑
      */
@@ -969,10 +1034,26 @@ public class MyView2 extends SurfaceView implements Callback, Runnable {
     List<Sprite>  rubbishes;
 
     List<Bitmap> initRubbishBitmaps(){
+        //这是一个垃圾的不同的帧数时候的图片
         List<Bitmap>  rubbishBitmaps = new ArrayList<>();
-        Bitmap rubbishBitmap = getBitmap("enemy/rubbish/foam_lunch_box.png");
+        //餐盒子
+     String   typeName="dry";
+        //Bitmap rubbishBitmap = getBitmap("enemy/rubbish/foam_lunch_box.png");
+        String  fileName= String.format("enemy/rubbish/%s/%s_0.png",typeName,typeName );
+        //Bitmap rubbishBitmap = getBitmap("enemy/rubbish/typeName/foam_lunch_box.png");
+        Bitmap rubbishBitmap = getBitmap(fileName);
         rubbishBitmaps.add(rubbishBitmap);
+        rubbishBitmaps.add(getTypeBitmap("harmful"));
+        rubbishBitmaps.add(getTypeBitmap("recycle"));
+        rubbishBitmaps.add(getTypeBitmap("wet"));
         return rubbishBitmaps;
+    }
+
+    Bitmap getTypeBitmap( String   typeName){
+        String  fileName= String.format("enemy/rubbish/%s/%s_0.png",typeName,typeName );
+        //Bitmap rubbishBitmap = getBitmap("enemy/rubbish/typeName/foam_lunch_box.png");
+        Bitmap rubbishBitmap = getBitmap(fileName);
+        return rubbishBitmap;
     }
     private void init() {
         isTransferReady = false;
