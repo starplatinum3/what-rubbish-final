@@ -264,8 +264,13 @@ public class Sprite {
 			    canvas.drawBitmap(mBitmap, mSrc, mDest, paint);
 		    } else {
 		    	//采用单帧贴图
-			    canvas.drawBitmap(mBitmaps.get(mFrameSequence[mFrameSequenceIndex]),
-					    getX(), getY(), paint);
+                try{
+                    canvas.drawBitmap(mBitmaps.get(mFrameSequence[mFrameSequenceIndex]),
+                            getX(), getY(), paint);
+                }catch (Exception e){
+
+                }
+
 		    }
 	    }
     }

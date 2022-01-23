@@ -118,6 +118,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             ActivityUtil.startActivity(activity, com.richard.hitball.MainActivity.class);
 
         });
+        binding.btnToGameHall.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, com.example.androidteris.MainActivity.class);
+        });
+
+
 
 
 

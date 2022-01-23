@@ -967,10 +967,14 @@ public class GameViewMario extends SurfaceView implements Callback, Runnable {
         ArrayList<Bitmap> marioFireInvBitmaps = new ArrayList<>();
         ArrayList<Bitmap> marioSmallInvBitmaps = new ArrayList<>();
         ArrayList<Bitmap> marioBigInvincibleBitmaps = new ArrayList<>();
+
+        List<Bitmap> rubbishSmallInvBitmaps = new ArrayList<>();
+
         commonBricks = new ArrayList<>();
         List<Bitmap> commonbrickbitmaps = new ArrayList<>();
         bricks = new ArrayList<>();
         items = new ArrayList<>();
+        //context
         List<Bitmap> marioBigBitmaps = new ArrayList<>();
         List<Bitmap> marioFireBitmaps = new ArrayList<>();
         List<Bitmap> flowerBitmaps = new ArrayList<>();
@@ -994,6 +998,8 @@ public class GameViewMario extends SurfaceView implements Callback, Runnable {
             marioFireInvBitmaps.add(getBitmap("mario/fire/mario_inv_0" + i + ".png"));
             marioSmallInvBitmaps.add(getBitmap("mario/small/mario_inv_0" + i + ".png"));
             marioBigInvincibleBitmaps.add(getBitmap("mario/big/mario_inv_0" + i + ".png"));
+
+            //rubbishSmallInvBitmaps.add()
         }
 
         pipeBitmaps.add(pipeBitmap);
@@ -1129,6 +1135,7 @@ public class GameViewMario extends SurfaceView implements Callback, Runnable {
         List<Bitmap>bitmapsVTrashBin=new ArrayList<>();
         bitmapsVTrashBin.add(BitmapUtil.getBitmap(context,R.mipmap.recycle));
         vTrashBin = new VTrashBin(bitmapsVTrashBin);
+        //vTrashBin.bitmapsList
 
         //this.vTrashBin = new Mario(32, 32, marioSmallBitmaps);
         //this.vTrashBin.setVisiable(true);
@@ -1137,6 +1144,7 @@ public class GameViewMario extends SurfaceView implements Callback, Runnable {
         bitmapsList.add(marioSmallBitmaps);
         bitmapsList.add(marioBigBitmaps);
         bitmapsList.add(marioFireBitmaps);
+        //无敌的状态 前面有三个 所以 要+3
         bitmapsList.add(marioSmallInvBitmaps);
         bitmapsList.add(marioBigInvincibleBitmaps);
         bitmapsList.add(marioFireInvBitmaps);
@@ -1167,6 +1175,8 @@ public class GameViewMario extends SurfaceView implements Callback, Runnable {
 
 
     }
+
+
 
     private void myDraw() {
         try {
@@ -2012,7 +2022,7 @@ public class GameViewMario extends SurfaceView implements Callback, Runnable {
             //乌龟壳
         } else if (spriteActive.isVisiable() && spriteActive.isDead() && spritePassive.isVisiable() &&
                 !spritePassive.isDead() && spriteActive instanceof Turtle && !(spritePassive instanceof Turtle)) {
-            Log.e(TAG, "sptiteCollisionSprite: 龟壳碰撞");
+            //Log.e(TAG, "sptiteCollisionSprite: 龟壳碰撞");
             //0底部碰撞1
             if (spriteActive.siteCollisionWith(spritePassive, 下)) {
                 spriteActive.setJumping(false);

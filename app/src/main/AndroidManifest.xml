@@ -75,6 +75,7 @@
         <activity android:name="com.example.smlj.logo"/>
         <activity android:name=".activity.NoBottomNavActivity"/>
         <activity android:name="com.richard.hitball.MainActivity"/>
+        <activity android:name="com.example.androidteris.MainActivity"/>
 
 
         <!--        <activity android:name=".MainActivity" />-->

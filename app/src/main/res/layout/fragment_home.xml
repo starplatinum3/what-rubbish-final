@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:layout_marginBottom="@dimen/dp_56">
 
-
+    android:layout_marginBottom="@dimen/dp_100"
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -142,6 +143,12 @@
             android:layout_height="wrap_content"
             android:text="btnToHitBall"
             app:layout_constraintTop_toBottomOf="@+id/btnToNoBottomNavActivity" />
+        <Button
+            android:id="@+id/btnToGameHall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToGameHall"
+            app:layout_constraintTop_toBottomOf="@+id/btnToHitBall" />
 
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->

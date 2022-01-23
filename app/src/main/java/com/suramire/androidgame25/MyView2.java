@@ -579,7 +579,19 @@ public class MyView2 extends SurfaceView implements Callback, Runnable {
 //                Log.i(TAG, "spritesDraw: i "+i);
                 try {
                     Sprite sprite = sprites.get(i);
-                    sprite.draw(canvas);
+                    try{
+                        sprite.draw(canvas);
+                    }catch (Exception e){
+                        //获得一个抽象类实际的类型
+                        if(sprite instanceof  VRubbish){
+                            //String canonicalName = sprite.getClass().getCanonicalName();
+                            //sout
+                            Log.i(TAG, "spritesDraw: VRubbish 问题");
+                        }
+                        String canonicalName = sprite.getClass().getCanonicalName();
+                        Log.i(TAG, "spritesDraw: canonicalName "+canonicalName);
+                    }
+
                     //绘制普通砖块破碎效果
                     if (sprite instanceof CommonBrick) {
                         Broken broken = ((CommonBrick) sprite).getBroken();
@@ -1197,7 +1209,8 @@ public class MyView2 extends SurfaceView implements Callback, Runnable {
         bitmapsList.add(marioSmallInvBitmaps);
         bitmapsList.add(marioBigInvincibleBitmaps);
         bitmapsList.add(marioFireInvBitmaps);
-        this.vTrashBin.setBitmapsList(bitmapsList);
+        //this.vTrashBin.setBitmapsList(bitmapsList);
+        vTrashBin.initTrashBinBitmapList(context);
 
 
         //this.vTrashBin = new VTrashBin(32, 32, marioSmallBitmaps);

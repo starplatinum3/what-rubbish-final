@@ -180,6 +180,8 @@ public class Mario extends Sprite {
     }
 
 
+    int smallMarioWidth=32;
+    //int invincible=3;
 	/**
 	 * 状态变化(变身)
 	 * @param targetStatus 目标状态
@@ -190,16 +192,20 @@ public class Mario extends Sprite {
         }
 	    int value =0;
     	if(isInvincible()){
+    		//无敌 从三开始
     		value=3;
 	    }
 	    List<Bitmap> bitmaps = getBitmapsList().get(targetStatus+value);
 	    Bitmap bitmap = bitmaps.get(0);
 	    int width = bitmap.getWidth();
+	    //因为和原来的 素材大小不一样了吗
 	    int height = bitmap.getHeight();
 	    //状态变化才修正坐标
 	    if(targetStatus!=getStatus()){
 		    //坐标修正
 		    int y;
+			//y=getY();
+			//人变宽了 往下面去
 		    if(getWidth()>width){
 			    y =getY()+32;
 		    }else if(getWidth()<width){
@@ -290,6 +296,7 @@ public class Mario extends Sprite {
 	        //翻转画布 相当于翻转人物
 	        canvas.scale(-1,1,getX()+getWidth()/2,getY()+getHeight()/2);
             if(isZeroDamage()){
+				//标志是否处于免伤状态 被人碰到之后有一会
 	            super.draw(canvas,paint);
             }else{
 	            super.draw(canvas);
