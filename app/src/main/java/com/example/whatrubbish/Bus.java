@@ -1,13 +1,25 @@
 package com.example.whatrubbish;
 
+import android.content.Context;
+
 import com.ejlchina.okhttps.GsonMsgConvertor;
 import com.ejlchina.okhttps.HTTP;
+import com.example.whatrubbish.entity.Rubbish;
+import com.example.whatrubbish.entity.RubbishType;
 import com.example.whatrubbish.entity.User;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Bus {
     //public static String packageName =  "com.example.smlj";
     //public static  int maxPoint=5;
+    public static List<Rubbish> rubbishes;
+    public static   List<RubbishType>rubbishTypes;
+
+    public static Context context;
+
     public static  int maxPoint=50;
     //public static  int maxPoint=30;
     public static String packageName =  "com.example.whatrubbish";

@@ -1,0 +1,307 @@
+/**
+ * A spider with web
+ * 
+ * BTW Spiders have 8 eyes.
+ * 
+ * @author Lars Harmsen
+ * Copyright (c) <2014> <Lars Harmsen - Quchen>
+ */
+package com.quchen.flappycow.sprites;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.util.Log;
+
+import com.example.whatrubbish.Bus;
+import com.example.whatrubbish.R;
+import com.example.whatrubbish.entity.Rubbish;
+import com.quchen.flappycow.Game;
+import com.quchen.flappycow.GameView;
+import com.quchen.flappycow.MainActivity;
+import com.quchen.flappycow.Util;
+import com.snatik.matches.common.Shared;
+import com.snatik.matches.themes.Themes;
+
+public class ChRubbish extends Sprite {
+//public class ChRubbish extends PlayableCharacter {
+
+
+    boolean display=true;
+
+    public boolean isDisplay() {
+        return display;
+    }
+
+    public void setDisplay(boolean display) {
+        this.display = display;
+    }
+
+    private static final int POINTS_TO_SIR = 23;
+    private static final int POINTS_TO_COOL = 35;
+
+    /** Static bitmap to reduce memory usage. */
+    public static Bitmap globalBitmap;
+
+    /** The moo sound */
+    //private static int sound = -1;
+    public static int sound = -1;
+
+    /** sunglasses, hats and stuff */
+    //private Accessory accessory;
+    public Accessory accessory;
+
+    //public Cow(GameView view, Game game) {
+    //    super(view, game);
+    //    init();
+    //    //if(globalBitmap == null){
+    //    //    globalBitmap = Util.getScaledBitmapAlpha8(game, R.drawable.cow);
+    //    //}
+    //    //this.bitmap = globalBitmap;
+    //    //this.width = this.bitmap.getWidth()/(colNr = 8);    // The image has 8 frames in a row
+    //    //this.height = this.bitmap.getHeight()/4;            // and 4 in a column
+    //    //this.frameTime = 3;        // the frame will change every 3 runs
+    //    //this.y = game.getResources().getDisplayMetrics().heightPixels / 2;    // Startposition in in the middle of the screen
+    //    //
+    //    //if(sound == -1){
+    //    //    sound = Game.soundPool.load(game, R.raw.cow, 1);
+    //    //}
+    //    //
+    //    //this.accessory = new Accessory(view, game);
+    //}
+
+    //public Cow(GameView view, Game game,int imgRes) {
+    //    super(view, game);
+    //    init(imgRes);
+    //}
+
+    public void init(int imgRes){
+        if(globalBitmap == null){
+            //globalBitmap = Util.getScaledBitmapAlpha8(game, R.drawable.cow);
+            globalBitmap = Util.getScaledBitmapAlpha8(game,imgRes);
+        }
+        this.bitmap = globalBitmap;
+        this.width = this.bitmap.getWidth()/(colNr = 8);    // The image has 8 frames in a row
+        this.height = this.bitmap.getHeight()/4;            // and 4 in a column
+        this.frameTime = 3;        // the frame will change every 3 runs
+        //colNr = 8;
+        //他只有一列 一行
+        //colNr=1;
+        //this.width = this.bitmap.getWidth();    // The image has 8 frames in a row
+        ////this.height = this.bitmap.getHeight()/4;            // and 4 in a column
+        //this.height = this.bitmap.getHeight();          // and 4 in a column
+        //this.frameTime = 3;        // the frame will change every 3 runs
+
+        this.y = game.getResources().getDisplayMetrics().heightPixels / 2;    // Startposition in in the middle of the screen
+
+        if(sound == -1){
+            sound = Game.soundPool.load(game, R.raw.cow, 1);
+        }
+
+        this.accessory = new Accessory(view, game);
+    }
+
+
+    void init(){
+        init( R.drawable.cow);
+        //if(globalBitmap == null){
+        //    globalBitmap = Util.getScaledBitmapAlpha8(game, R.drawable.cow);
+        //}
+        //this.bitmap = globalBitmap;
+        //this.width = this.bitmap.getWidth()/(colNr = 8);    // The image has 8 frames in a row
+        //this.height = this.bitmap.getHeight()/4;            // and 4 in a column
+        //this.frameTime = 3;        // the frame will change every 3 runs
+        //this.y = game.getResources().getDisplayMetrics().heightPixels / 2;    // Startposition in in the middle of the screen
+        //
+        //if(sound == -1){
+        //    sound = Game.soundPool.load(game, R.raw.cow, 1);
+        //}
+        //
+        //this.accessory = new Accessory(view, game);
+    }
+
+    private void playSound(){
+        Game.soundPool.play(sound, MainActivity.volume, MainActivity.volume, 0, 0, 1);
+    }
+
+    //@Override
+    //public void onTap(){
+    //    super.onTap();
+    //    playSound();
+    //}
+
+    /**
+     * Calls super.move
+     * and manages the frames. (flattering cape)
+     */
+    @Override
+    public void move(){
+        changeToNextFrame();
+        super.move();
+
+        // manage frames
+        //3 是死掉的那一行
+        //if(row != 3){
+        //    //其他行是 上飞 向下飞
+        //    // not dead
+        //    if(speedY > getTabSpeed() / 3 && speedY < getMaxSpeed() * 1/3){
+        //        row = 0;
+        //    }else if(speedY > 0){
+        //        row = 1;
+        //    }else{
+        //        row = 2;
+        //    }
+        //}
+
+        if(this.accessory != null){
+            this.accessory.moveTo(this.x, this.y);
+        }
+    }
+
+    //@Override
+    //public void draw(Canvas canvas) {
+    //    super.draw(canvas);
+    //    if(this.accessory != null && !isDead){
+    //        this.accessory.draw(canvas);
+    //    }
+    //}
+
+    /**
+     * Calls super.dead
+     * And changes the frame to a dead cow -.-
+     */
+    //@Override
+    //public void dead() {
+    //    this.row = 3;
+    //    this.frameTime = 3;
+    //    super.dead();
+    //}
+    //
+    //@Override
+    //public void revive() {
+    //    super.revive();
+    //    this.accessory.setBitmap(Util.getScaledBitmapAlpha8(game, R.drawable.accessory_scumbag));
+    //}
+
+    //@Override
+    //public void upgradeBitmap(int points) {
+    //    super.upgradeBitmap(points);
+    //    if(points == POINTS_TO_SIR){
+    //        this.accessory.setBitmap(Util.getScaledBitmapAlpha8(game, R.drawable.accessory_sir));
+    //    }else if(points == POINTS_TO_COOL){
+    //        this.accessory.setBitmap(Util.getScaledBitmapAlpha8(game, R.drawable.accessory_sunglasses));
+    //    }
+    //}
+
+    public Rubbish getRubbish() {
+        return rubbish;
+    }
+
+    public void setRubbish(Rubbish rubbish) {
+        this.rubbish = rubbish;
+    }
+
+    Rubbish rubbish;
+    /**
+     * Static bitmap to reduce memory usage.
+     */
+    //public static Bitmap globalBitmap;
+    Context context;
+
+    //@Override
+    //public void move() {
+    //    changeToNextFrame();
+    //    super.move();
+    //}
+
+    int getDrawableResourceId(String  stringUrl){
+        if (stringUrl.contains(Themes.URI_DRAWABLE)) {
+            String drawableResourceName = stringUrl.substring(Themes.URI_DRAWABLE.length());
+            //Bus.context
+            //int drawableResourceId = Shared.context.getResources().
+            //        getIdentifier(drawableResourceName, "drawable", Shared.context.getPackageName());
+
+            //cont
+            //int drawableResourceId = Bus.context.getResources().
+            //        getIdentifier(drawableResourceName, "drawable", Bus.context.getPackageName());
+            int drawableResourceId = context.getResources().
+                    getIdentifier(drawableResourceName, "drawable",context.getPackageName());
+
+            return drawableResourceId;
+            //Bitmap bitmap = Utils.scaleDown(drawableResourceId, size, size);
+            //return Utils.crop(bitmap, size, size);
+        }
+        return  -1;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    //dra
+    public ChRubbish(GameView view, Game game) {
+        //有不同的种类 和 img
+        super(view, game);
+        if(globalBitmap == null){
+            String imgUrl = rubbish.getImgUrl();
+            Log.i("imgUrl", "ChRubbish: "+imgUrl);
+            int drawableResourceId = getDrawableResourceId(imgUrl);
+            //globalBitmap = Util.getScaledBitmapAlpha8(game, R.drawable.spider_full);
+            //globalBitmap = Util.getScaledBitmapAlpha8(game, Integer.parseInt(imgUrl));
+            globalBitmap = Util.getScaledBitmapAlpha8(game, drawableResourceId);
+        }
+        this.bitmap = globalBitmap;
+        this.width = this.bitmap.getWidth();
+        this.height = this.bitmap.getHeight();
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        if(display){
+            super.draw(canvas);
+        }
+
+    }
+
+    public ChRubbish(GameView view, Game game, Rubbish rubbish) {
+        //有不同的种类 和 img
+        super(view, game);
+        this.rubbish=rubbish;
+        context=Bus.context;
+
+        String imgUrl = rubbish.getImgUrl();
+        Log.i("imgUrl", "ChRubbish: "+imgUrl);
+        int drawableResourceId = getDrawableResourceId(imgUrl);
+        //globalBitmap = Util.getScaledBitmapAlpha8(game, R.drawable.spider_full);
+        //globalBitmap = Util.getScaledBitmapAlpha8(game, Integer.parseInt(imgUrl));
+        //globalBitmap = Util.getScaledBitmapAlpha8(game, drawableResourceId);
+        this.bitmap =   Util.getScaledBitmapAlpha8(game, drawableResourceId);
+        //if(globalBitmap == null){
+        //    String imgUrl = rubbish.getImgUrl();
+        //    Log.i("imgUrl", "ChRubbish: "+imgUrl);
+        //    int drawableResourceId = getDrawableResourceId(imgUrl);
+        //    //globalBitmap = Util.getScaledBitmapAlpha8(game, R.drawable.spider_full);
+        //    //globalBitmap = Util.getScaledBitmapAlpha8(game, Integer.parseInt(imgUrl));
+        //    globalBitmap = Util.getScaledBitmapAlpha8(game, drawableResourceId);
+        //}
+        //this.bitmap = globalBitmap;
+        this.width = this.bitmap.getWidth();
+        this.height = this.bitmap.getHeight();
+    }
+
+
+    /**
+     * Sets the position
+     * @param x
+     * @param y
+     */
+    public void init(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+}

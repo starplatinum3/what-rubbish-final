@@ -10,6 +10,7 @@ import com.example.whatrubbish.databinding.ActivityRegisterBinding;
 import com.example.whatrubbish.db.Repository;
 import com.example.whatrubbish.entity.User;
 import com.example.whatrubbish.repository.UserRepository;
+import com.snatik.matches.common.Shared;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //AppAc
 
+        //Shared.context = getApplicationContext();
+        Bus.context=getApplicationContext();
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

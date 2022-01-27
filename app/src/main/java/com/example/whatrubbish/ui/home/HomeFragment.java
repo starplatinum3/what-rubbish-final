@@ -176,6 +176,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             ActivityUtil.startActivity(activity, com.hurteng.stormplane.MainActivity.class);
             //ActivityUtil.startActivity(activity,  com.hurteng.stormplane.MainActivity.class);
         });
+        binding.btnToMemoGame.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, com.snatik.matches.MainActivity.class);
+        });
+        binding.btnToFlappy.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, com.quchen.flappycow.MainActivity.class);
+        });
 
 
 //      ImageView image= activity.findViewById(R.id.image);

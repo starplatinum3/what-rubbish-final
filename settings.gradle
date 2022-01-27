@@ -58,3 +58,4 @@ include ':app'
 //include ':circleprogressStatus'
 //gradle include
 include ':stormplane'
+include ':BaseGameUtils'

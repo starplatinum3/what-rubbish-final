@@ -149,7 +149,18 @@
             android:layout_height="wrap_content"
             android:text="btnToGameHall"
             app:layout_constraintTop_toBottomOf="@+id/btnToHitBall" />
-
+        <Button
+            android:id="@+id/btnToMemoGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToMemoGame"
+            app:layout_constraintTop_toBottomOf="@+id/btnToGameHall" />
+        <Button
+            android:id="@+id/btnToFlappy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToFlappy"
+            app:layout_constraintTop_toBottomOf="@+id/btnToMemoGame" />
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->

@@ -39,6 +39,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.snatik.matches.themes.Themes;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,6 +57,26 @@ import lombok.NonNull;
 //@AllArgsConstructor
 //@NoArgsConstructor
 public class DrawUtil {
+
+    public static  int getDrawableResourceId(String  stringUrl,Context context){
+        if (stringUrl.contains(Themes.URI_DRAWABLE)) {
+            String drawableResourceName = stringUrl.substring(Themes.URI_DRAWABLE.length());
+            //Bus.context
+            //int drawableResourceId = Shared.context.getResources().
+            //        getIdentifier(drawableResourceName, "drawable", Shared.context.getPackageName());
+
+            //cont
+            //int drawableResourceId = Bus.context.getResources().
+            //        getIdentifier(drawableResourceName, "drawable", Bus.context.getPackageName());
+            int drawableResourceId = context.getResources().
+                    getIdentifier(drawableResourceName, "drawable",context.getPackageName());
+
+            return drawableResourceId;
+            //Bitmap bitmap = Utils.scaleDown(drawableResourceId, size, size);
+            //return Utils.crop(bitmap, size, size);
+        }
+        return  -1;
+    }
 
     //https://blog.csdn.net/ybf326/article/details/83186206
     public static @Nullable
