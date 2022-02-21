@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bn.tl.anzhi.BasketBall_Shot_Activity;
 import com.example.whatrubbish.LoginActivity;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.RegionSettingActivity;
@@ -121,7 +122,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btnToGameHall.setOnClickListener(v -> {
             ActivityUtil.startActivity(activity, com.example.androidteris.MainActivity.class);
         });
-
+        binding.btnToBasket.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, BasketBall_Shot_Activity.class);
+        });
 
 
 

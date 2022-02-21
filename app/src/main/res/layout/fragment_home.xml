@@ -161,6 +161,12 @@
             android:layout_height="wrap_content"
             android:text="btnToFlappy"
             app:layout_constraintTop_toBottomOf="@+id/btnToMemoGame" />
+        <Button
+            android:id="@+id/btnToBasket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToBasket"
+            app:layout_constraintTop_toBottomOf="@+id/btnToFlappy" />
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->
