@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <TextView
+        android:text="用户名"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <Button
+        android:id="@+id/btnModify"
+        android:text="修改"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
+
+<!--    android:layout_marginLeft="?attr/qmui_content_spacing_horizontal"-->
+<!--    android:layout_marginRight="?attr/qmui_content_spacing_horizontal"-->
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="圆形"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="10dp"
+
+        app:qmui_isRadiusAdjustBounds="true"/>
+
+
+</LinearLayout>

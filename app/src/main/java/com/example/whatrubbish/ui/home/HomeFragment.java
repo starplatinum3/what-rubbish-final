@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+//import com.android.soundrecorder.SoundRecorder;
 import com.bn.tl.anzhi.BasketBall_Shot_Activity;
 import com.example.whatrubbish.LoginActivity;
 import com.example.whatrubbish.R;
@@ -43,6 +44,7 @@ import com.suramire.androidgame25.MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+//import soundrecorder.SoundRecorder;
 //import cn.coderdream.anim.MAnim;
 
 //Fragment implements View.OnClickListener
@@ -240,6 +242,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btnStartWeb.setOnClickListener(v -> {
             startWeb();
         });
+        //binding.btnToSoundRecorder.setOnClickListener(v -> {
+        //    ActivityUtil.startActivity(activity, SoundRecorder.class);
+        //});
+
+
+
         return root;
     }
 

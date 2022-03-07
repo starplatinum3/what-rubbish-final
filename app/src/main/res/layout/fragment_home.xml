@@ -168,6 +168,13 @@
             android:text="btnToBasket"
             app:layout_constraintTop_toBottomOf="@+id/btnToFlappy" />
 
+        <Button
+            android:id="@+id/btnToSoundRecorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToSoundRecorder"
+            app:layout_constraintTop_toBottomOf="@id/btnToBasket" />
+
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->
 <!--            android:layout_width="match_parent"-->

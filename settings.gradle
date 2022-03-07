@@ -57,5 +57,5 @@ include ':app'
 //原文链接：https://blog.csdn.net/qjay_dev/article/details/50602435
 //include ':circleprogressStatus'
 //gradle include
-include ':stormplane'
+//include ':stormplane'
 include ':BaseGameUtils'

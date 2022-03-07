@@ -188,6 +188,7 @@
 <!--        </activity>-->
 
         <activity android:name="com.example.compose.ComposeActivity" />
+<!--        <activity android:name="com.android.soundrecorder.SoundRecorder" />-->
         <activity android:name="com.suramire.androidgame25.MainActivity"
             android:screenOrientation="landscape" />
 
@@ -212,10 +213,10 @@
             <!--            </intent-filter>-->
         </activity>
 
-
+        android:theme="@style/AppThemeQmui"
         <activity
             android:name="com.hurteng.stormplane.modify.ModifyActivity"
-            android:theme="@style/AppThemeQmui" />
+          />
         <activity android:name="com.hurteng.stormplane.MainActivity" />
         <activity android:name=".activity.ProblemActivity" />
 
