@@ -9,7 +9,7 @@ import android.graphics.Rect;
 
 import androidx.constraintlayout.solver.widgets.Rectangle;
 
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 
 public class Button {
     Bitmap bmp;

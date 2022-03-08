@@ -5,11 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
+import com.example.whatrubbish.R;
 import com.hurteng.stormplane.bullet.BigPlaneBullet;
 import com.hurteng.stormplane.bullet.Bullet;
 import com.hurteng.stormplane.constant.GameConstant;
 import com.hurteng.stormplane.factory.GameObjectFactory;
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 import com.hurteng.stormplane.object.GameObject;
 
 import java.util.ArrayList;

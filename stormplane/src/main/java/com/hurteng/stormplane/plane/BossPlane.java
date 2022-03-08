@@ -16,7 +16,7 @@ import com.hurteng.stormplane.bullet.Bullet;
 import com.hurteng.stormplane.constant.ConstantUtil;
 import com.hurteng.stormplane.constant.GameConstant;
 import com.hurteng.stormplane.factory.GameObjectFactory;
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 import com.hurteng.stormplane.object.GameObject;
 
 import java.util.ArrayList;

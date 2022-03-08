@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.hurteng.stormplane.MainActivity;
 import com.hurteng.stormplane.modify.ModifyActivity;
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 
 
 public class StartActivity extends Activity implements

@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 import com.hurteng.stormplane.object.GameObject;
 
 /**

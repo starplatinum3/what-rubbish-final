@@ -43,3 +43,6 @@ D:\什么垃圾
 
 文档：使用roomutil.note
 链接：http://note.youdao.com/noteshare?id=0d92f3c37f829b229623d78c57918d59&sub=3F552B1916C1450FB45E6EB8E9947FC7
+
+2022年3月8日19:13:12
+可以打包 release

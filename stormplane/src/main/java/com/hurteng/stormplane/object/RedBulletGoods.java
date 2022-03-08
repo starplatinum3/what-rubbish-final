@@ -3,7 +3,7 @@ package com.hurteng.stormplane.object;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 
 /**
  * 红色弹药物品

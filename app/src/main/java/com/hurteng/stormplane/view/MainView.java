@@ -15,11 +15,12 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 //import android.widget.Button;
 
+import com.example.whatrubbish.R;
 import com.hurteng.stormplane.constant.ConstantUtil;
 import com.hurteng.stormplane.constant.DebugConstant;
 import com.hurteng.stormplane.constant.GameConstant;
 import com.hurteng.stormplane.factory.GameObjectFactory;
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 import com.hurteng.stormplane.object.GameObject;
 import com.hurteng.stormplane.object.LifeGoods;
 import com.hurteng.stormplane.object.MissileGoods;

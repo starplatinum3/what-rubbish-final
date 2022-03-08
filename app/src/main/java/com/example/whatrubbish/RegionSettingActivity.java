@@ -53,6 +53,7 @@ public class RegionSettingActivity extends FragmentActivity {
     AppDatabase database;
 
     void initDatabase() {
+        //R.id.holder;
         repository = new Repository(this);
         database = AppDatabase.getDatabase(this);
     }

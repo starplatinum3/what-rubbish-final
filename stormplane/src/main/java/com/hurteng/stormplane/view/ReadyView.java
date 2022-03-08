@@ -11,7 +11,7 @@ import android.view.SurfaceHolder;
 import android.view.View;
 
 import com.hurteng.stormplane.constant.ConstantUtil;
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 import com.hurteng.stormplane.sounds.GameSoundPool;
 
 /**

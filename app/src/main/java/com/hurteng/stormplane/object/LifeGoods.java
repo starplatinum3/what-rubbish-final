@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 
 import com.example.whatrubbish.R;
 
-//import com.hurteng.stormplane.myplane.R;
+////import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 
 /**
  * 生命物品

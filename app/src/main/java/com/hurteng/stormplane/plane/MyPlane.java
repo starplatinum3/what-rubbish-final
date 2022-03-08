@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.os.SystemClock;
 
+import com.example.whatrubbish.R;
 import com.hurteng.stormplane.bullet.Bullet;
 import com.hurteng.stormplane.bullet.MyBlueBullet;
 import com.hurteng.stormplane.bullet.MyPurpleBullet;
@@ -15,7 +16,7 @@ import com.hurteng.stormplane.constant.DebugConstant;
 import com.hurteng.stormplane.constant.GameConstant;
 import com.hurteng.stormplane.factory.GameObjectFactory;
 import com.hurteng.stormplane.interfaces.IMyPlane;
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 import com.hurteng.stormplane.object.GameObject;
 import com.hurteng.stormplane.view.MainView;
 

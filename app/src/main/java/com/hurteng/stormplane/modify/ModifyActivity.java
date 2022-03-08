@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.whatrubbish.R;
 
-//import com.hurteng.stormplane.myplane.R;
+////import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 //import com.hurteng.stormplane.R;
 //import com.facebook.stetho.Stetho;
 

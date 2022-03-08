@@ -6,7 +6,6 @@ import static com.bn.tl.anzhi.Constant.*;
 
 import java.util.HashMap;
 
-import com.example.whatrubbish.R;
 //import com.fogo.spot.SpotManager;
 
 
@@ -14,7 +13,6 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ConfigurationInfo;
 import android.content.res.Resources;

@@ -6,7 +6,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 
 import com.hurteng.stormplane.MainActivity;
-import com.hurteng.stormplane.myplane.R;
+//import com.hurteng.stormplane.myplane.R; import com.example.whatrubbish.R;
 
 import java.util.HashMap;
 
