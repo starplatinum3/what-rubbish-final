@@ -14,8 +14,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-import com.example.trash_detective.Bean.Block;
 import com.example.trash_detective.Model.BlockDrawer;
+import com.example.trash_detective.Bean.Block;
 
 import java.util.ArrayList;
 

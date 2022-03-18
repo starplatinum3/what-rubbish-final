@@ -12,8 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trash_detective.Bean.Block;
-import com.example.trash_detective.Bean.Trash;
 import com.example.trash_detective.Model.DataFlow;
+//import com.example.whatrubbish.R;
+import com.example.trash_detective.Bean.Trash;
 import com.example.whatrubbish.R;
 
 import java.io.IOException;

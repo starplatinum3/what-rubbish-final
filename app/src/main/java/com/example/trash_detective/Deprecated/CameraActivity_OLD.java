@@ -1,4 +1,4 @@
-package com.example.trash_detective.Deprecated;//package com.zwk.trash_detective.Activity;
+//package com.zwk.trash_detective.Activity;
 //
 //import android.Manifest;
 //import android.annotation.SuppressLint;

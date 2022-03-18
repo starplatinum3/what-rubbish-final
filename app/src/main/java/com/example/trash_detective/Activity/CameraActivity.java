@@ -13,8 +13,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.camerakit.CameraKitView;
+import com.example.trash_detective.API.AdvancedGeneral;
 import com.example.trash_detective.Model.DataFlow;
 import com.example.whatrubbish.R;
+//import com.example.whatrubbish.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -116,19 +118,21 @@ public class CameraActivity extends AppCompatActivity implements View.OnTouchLis
                 Intent intent = null;
                 showToast("正在发送请求");
                 try {
-                    String json_data = DataFlow.sendData(capturedImage);
-                    showToast(DataFlow.getMessage());
-                    switch (DataFlow.getCode()) {
-                        case 1:
-                            intent = new Intent(context, ShowUpActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                            intent.putExtra("blocks", DataFlow.parseBlockData(json_data));
-                            break;
-                        case -1:
-                            break;
-                        case 0:
-                            break;
-                    }
+
+                    String json_data = AdvancedGeneral.advancedGeneral(capturedImage);
+                    showToast(json_data);
+
+                    intent = new Intent(context, ShowUpActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    intent.putExtra("blocks", DataFlow.parseBlockData(json_data));
+//                    switch (DataFlow.getCode()) {
+//                        case 1:
+//                            break;
+//                        case -1:
+//                            break;
+//                        case 0:
+//                            break;
+//                    }
                     LoadingDialog.dismiss();
                     if (intent != null) {
                         context.startActivity(intent);

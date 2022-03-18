@@ -14,6 +14,7 @@ public class ShowUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private mSurfaceView mSurfaceView;
     private ArrayList<Block> blocks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

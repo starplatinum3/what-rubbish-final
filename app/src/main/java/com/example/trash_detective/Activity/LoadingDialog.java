@@ -10,7 +10,7 @@ public abstract class LoadingDialog {
         try{
             mDialog = new ProgressDialog(context);
             mDialog.setMessage("正在加载...");
-            mDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            mDialog.setProgressStyle(android.app.ProgressDialog.STYLE_SPINNER);
             mDialog.setCanceledOnTouchOutside(false);
             mDialog.show();
         }finally {

@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ import java.util.Map;
 import java.util.TimeZone;
 
 public abstract class DataFlow {
-    private static final String Server_URL = "http://192.168.31.64:8080";
+    private static final String Server_URL = "https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general";
     private static final String TAG = "Data_request_response";
     private static HashMap<String,String> HEADER;
     private static int PIC_MAX_HEIGHT = 832;
