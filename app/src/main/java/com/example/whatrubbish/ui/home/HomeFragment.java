@@ -245,7 +245,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         //binding.btnToSoundRecorder.setOnClickListener(v -> {
         //    ActivityUtil.startActivity(activity, SoundRecorder.class);
         //});
-
+        binding.btnToTrashDetect.setOnClickListener(v -> {
+          ActivityUtil.startActivity(activity, com.example.trash_detective.Activity.MainActivity.class);
+        });
 
 
         return root;

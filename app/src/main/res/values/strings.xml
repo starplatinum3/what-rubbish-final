@@ -1,6 +1,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
+
+
 <!--    <string name="app_name" translatable="false">Flutter Cow</string>-->
     <string name="current_score">Your score is</string>
     <string name="best_score">Your best score is</string>
@@ -146,5 +148,13 @@
     <string name="error_mediadb_new_record">Couldn\'t save recorded audio.</string>
 
 
+<!--    <string name="app_name">Trash_detective</string>-->
+    <string name="title">欢迎使用垃圾识别</string>
+    <string name="button">Start</string>
+    <string name="camera_error">你的设备不支持</string>
+    <string name="picture">拍摄</string>
+    <string name="loading">正在加载</string>
+<!--    <string name="back">返回</string>-->
+    <string name="pic_showup_desc">展示</string>
 
 </resources>

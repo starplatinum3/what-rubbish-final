@@ -175,6 +175,13 @@
             android:text="btnToSoundRecorder"
             app:layout_constraintTop_toBottomOf="@id/btnToBasket" />
 
+        <Button
+            android:id="@+id/btnToTrashDetect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToTrashDetect"
+            app:layout_constraintTop_toBottomOf="@id/btnToSoundRecorder" />
+
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->
 <!--            android:layout_width="match_parent"-->

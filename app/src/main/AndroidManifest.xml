@@ -188,6 +188,8 @@
 <!--        </activity>-->
 
         <activity android:name="com.example.compose.ComposeActivity" />
+        <activity android:name="com.example.trash_detective.Activity.MainActivity" />
+        <activity android:name="com.example.trash_detective.Activity.CameraActivity" />
 <!--        <activity android:name="com.android.soundrecorder.SoundRecorder" />-->
         <activity android:name="com.suramire.androidgame25.MainActivity"
             android:screenOrientation="landscape" />

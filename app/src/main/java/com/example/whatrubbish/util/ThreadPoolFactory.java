@@ -14,6 +14,9 @@ public final class ThreadPoolFactory {
     private ThreadPoolFactory(){
     }
 
+    public static void main(String[] args) {
+        //ThreadPoolFactory.getExecutorService().execute();
+    }
     /**
      * 创建ExecutorService，单例模式（DCL）
      * @return
