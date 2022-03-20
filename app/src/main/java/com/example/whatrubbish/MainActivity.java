@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 //import androidx.navigation.NavController;
 //import androidx.navigation.Navigation;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -137,8 +138,8 @@ public class MainActivity extends AppCompatActivity {
 
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_main);
         //占位
-        val navController = navHostFragment.getNavController();
-
+        //val navController = navHostFragment.getNavController();
+       NavController  navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         getWH();

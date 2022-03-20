@@ -10,7 +10,7 @@ import java.util.Map;
 //import lombok.Data;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Builder
 public class ReturnT {
 //    private String port;
@@ -71,8 +71,37 @@ public class ReturnT {
 //    }
 
 
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
     public static ReturnT success(String msg, Object data) {
-        return ReturnT.builder().code(codeSuccess).msg(msg).data(data).build();
+        ReturnT returnT = new ReturnT();
+        returnT.setCode(codeSuccess);
+        returnT.setMsg(msg);
+        returnT.setData(data);
+        return returnT;
+        //return ReturnT.builder().code(codeSuccess).msg(msg).data(data).build();
     }
 
     public static ReturnT success(Object data) {
@@ -81,6 +110,12 @@ public class ReturnT {
 //        jsonObject.put("data",data);
 //        return  jsonObject;
 ////        return new ReturnT("200", msg, null);
+    }
+
+    public ReturnT(int code, String msg, Object data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
     }
 
     public static ReturnT error(String msg) {

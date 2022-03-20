@@ -28,6 +28,17 @@ public class FriendSearchResultAdapter extends BaseAdapter {
 		mContext0 = context;
 	}
 
+	int parseAge(Date birthday){
+		//int age;
+		if(birthday==null){
+			//int age =0;
+			return 0;
+		}else{
+		return  new Date().getYear() - birthday.getYear();
+		}
+		//return  age;
+
+	}
 	public View getView(int position, View convertView, ViewGroup root) {
 		ImageView avatarView;
 		TextView nameView;
@@ -37,7 +48,16 @@ public class FriendSearchResultAdapter extends BaseAdapter {
 		User user = mVector.get(position);
 		Bitmap photo = PhotoUtils.getBitmap(user.getPhoto());
 		String name = user.getUserName();
-		int age = new Date().getYear() - user.getBirthday().getYear();
+		Date birthday = user.getBirthday();
+		//int age;
+		//if(birthday==null){
+		//	int age =0;
+		//}else{
+		//	int age = new Date().getYear() - user.getBirthday().getYear();
+		//}
+
+		int age=parseAge(birthday);
+
 		int gender = user.getGender();
 
 		convertView = mInflater.inflate(R.layout.friend_search_result_item,

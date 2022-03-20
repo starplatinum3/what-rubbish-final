@@ -182,6 +182,32 @@
             android:text="btnToTrashDetect"
             app:layout_constraintTop_toBottomOf="@id/btnToSoundRecorder" />
 
+        <Button
+            android:id="@+id/btnToWelcomeActivityIm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToWelcomeActivityIm"
+            app:layout_constraintTop_toBottomOf="@id/btnToTrashDetect" />
+
+        <Button
+            android:id="@+id/btnToLoginActivityIm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToLoginActivityIm"
+            app:layout_constraintTop_toBottomOf="@id/btnToWelcomeActivityIm" />
+
+        <Button
+            android:id="@+id/btnToWsTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToWsTest"
+            app:layout_constraintTop_toBottomOf="@id/btnToLoginActivityIm" />
+        <Button
+            android:id="@+id/btnToWsLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToWsLogin"
+            app:layout_constraintTop_toBottomOf="@id/btnToWsTest" />
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->
 <!--            android:layout_width="match_parent"-->

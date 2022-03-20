@@ -8,7 +8,8 @@ import android.util.Log;
 public class NetConnect {
 
 	private Socket mClientSocket = null;
-	private static final String SERVER_IP = "192.168.1.161";
+	//private static final String SERVER_IP = "192.168.1.161";
+	private static final String SERVER_IP = "starplatinumora.top";
 	private static final int SERVER_PORT = 8399;
 	private boolean mIsConnected = false;
 

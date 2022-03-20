@@ -3,6 +3,7 @@ package com.sdust.im.network;
 import java.io.IOException;
 import java.net.Socket;
 
+import com.example.whatrubbish.util.ThreadPoolFactory;
 import com.sdust.im.bean.TranObject;
 
 import android.content.Context;
@@ -18,7 +19,9 @@ public class NetService {
 	private boolean mIsConnected = false;
 	private Context mContext = null;
 
+	//设置服务器和 port 在哪里
 	private NetService() {
+		//这是空的 怎么设置
 
 	}
 
@@ -56,7 +59,14 @@ public class NetService {
 	}
 
 	public void send(TranObject t) throws IOException {
-		mClientSendThread.sendMessage(t);
+		ThreadPoolFactory.getExecutorService().execute(()->{
+			try {
+				mClientSendThread.sendMessage(t);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+
 	}
 
 	public void closeConnection() {

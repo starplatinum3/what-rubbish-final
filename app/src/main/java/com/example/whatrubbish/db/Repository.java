@@ -2,6 +2,7 @@
 package com.example.whatrubbish.db;
 
 import android.content.Context;
+
 import com.example.whatrubbish.repository.ArticleRepository;
 import com.example.whatrubbish.repository.BasketRepository;
 import com.example.whatrubbish.repository.CardRepository;
@@ -32,51 +33,243 @@ public class Repository {
 
     Context context;
     AppDatabase database;
-    
-  ArticleRepository articleRepository;
 
-  BasketRepository basketRepository;
+    ArticleRepository articleRepository;
 
-  CardRepository cardRepository;
+    BasketRepository basketRepository;
 
-  CardGameRepository cardGameRepository;
+    CardRepository cardRepository;
 
-  CityRepository cityRepository;
+    CardGameRepository cardGameRepository;
 
-  ColeFragGameNowRepository coleFragGameNowRepository;
+    CityRepository cityRepository;
 
-  ColeFragGameStatRepository coleFragGameStatRepository;
+    ColeFragGameNowRepository coleFragGameNowRepository;
 
-  FriendshipRepository friendshipRepository;
+    ColeFragGameStatRepository coleFragGameStatRepository;
 
-  GameRepository gameRepository;
+    FriendshipRepository friendshipRepository;
 
-  GameHonorRepository gameHonorRepository;
+    GameRepository gameRepository;
 
-  GameRecordRepository gameRecordRepository;
+    GameHonorRepository gameHonorRepository;
 
-  PlaceRepository placeRepository;
+    GameRecordRepository gameRecordRepository;
 
-  PresentRepository presentRepository;
+    PlaceRepository placeRepository;
 
-  PsnExchgRecRepository psnExchgRecRepository;
+    PresentRepository presentRepository;
 
-  RubbishRepository rubbishRepository;
+    PsnExchgRecRepository psnExchgRecRepository;
 
-  RubbishTypeRepository rubbishTypeRepository;
+    RubbishRepository rubbishRepository;
 
-  RubTyCorespRepository rubTyCorespRepository;
+    RubbishTypeRepository rubbishTypeRepository;
 
-  ShootGameRepository shootGameRepository;
+    RubTyCorespRepository rubTyCorespRepository;
 
-  SignInHonorRepository signInHonorRepository;
+    ShootGameRepository shootGameRepository;
 
-  SignInStdRepository signInStdRepository;
+    SignInHonorRepository signInHonorRepository;
 
-  UserRepository userRepository;
+    SignInStdRepository signInStdRepository;
 
-  WikiHistoryRepository wikiHistoryRepository;
+    UserRepository userRepository;
 
+    WikiHistoryRepository wikiHistoryRepository;
+
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public AppDatabase getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(AppDatabase database) {
+        this.database = database;
+    }
+
+    public ArticleRepository getArticleRepository() {
+        return articleRepository;
+    }
+
+    public void setArticleRepository(ArticleRepository articleRepository) {
+        this.articleRepository = articleRepository;
+    }
+
+    public BasketRepository getBasketRepository() {
+        return basketRepository;
+    }
+
+    public void setBasketRepository(BasketRepository basketRepository) {
+        this.basketRepository = basketRepository;
+    }
+
+    public CardRepository getCardRepository() {
+        return cardRepository;
+    }
+
+    public void setCardRepository(CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
+    }
+
+    public CardGameRepository getCardGameRepository() {
+        return cardGameRepository;
+    }
+
+    public void setCardGameRepository(CardGameRepository cardGameRepository) {
+        this.cardGameRepository = cardGameRepository;
+    }
+
+    public CityRepository getCityRepository() {
+        return cityRepository;
+    }
+
+    public void setCityRepository(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
+    }
+
+    public ColeFragGameNowRepository getColeFragGameNowRepository() {
+        return coleFragGameNowRepository;
+    }
+
+    public void setColeFragGameNowRepository(ColeFragGameNowRepository coleFragGameNowRepository) {
+        this.coleFragGameNowRepository = coleFragGameNowRepository;
+    }
+
+    public ColeFragGameStatRepository getColeFragGameStatRepository() {
+        return coleFragGameStatRepository;
+    }
+
+    public void setColeFragGameStatRepository(ColeFragGameStatRepository coleFragGameStatRepository) {
+        this.coleFragGameStatRepository = coleFragGameStatRepository;
+    }
+
+    public FriendshipRepository getFriendshipRepository() {
+        return friendshipRepository;
+    }
+
+    public void setFriendshipRepository(FriendshipRepository friendshipRepository) {
+        this.friendshipRepository = friendshipRepository;
+    }
+
+    public GameRepository getGameRepository() {
+        return gameRepository;
+    }
+
+    public void setGameRepository(GameRepository gameRepository) {
+        this.gameRepository = gameRepository;
+    }
+
+    public GameHonorRepository getGameHonorRepository() {
+        return gameHonorRepository;
+    }
+
+    public void setGameHonorRepository(GameHonorRepository gameHonorRepository) {
+        this.gameHonorRepository = gameHonorRepository;
+    }
+
+    public GameRecordRepository getGameRecordRepository() {
+        return gameRecordRepository;
+    }
+
+    public void setGameRecordRepository(GameRecordRepository gameRecordRepository) {
+        this.gameRecordRepository = gameRecordRepository;
+    }
+
+    public PlaceRepository getPlaceRepository() {
+        return placeRepository;
+    }
+
+    public void setPlaceRepository(PlaceRepository placeRepository) {
+        this.placeRepository = placeRepository;
+    }
+
+    public PresentRepository getPresentRepository() {
+        return presentRepository;
+    }
+
+    public void setPresentRepository(PresentRepository presentRepository) {
+        this.presentRepository = presentRepository;
+    }
+
+    public PsnExchgRecRepository getPsnExchgRecRepository() {
+        return psnExchgRecRepository;
+    }
+
+    public void setPsnExchgRecRepository(PsnExchgRecRepository psnExchgRecRepository) {
+        this.psnExchgRecRepository = psnExchgRecRepository;
+    }
+
+    public RubbishRepository getRubbishRepository() {
+        return rubbishRepository;
+    }
+
+    public void setRubbishRepository(RubbishRepository rubbishRepository) {
+        this.rubbishRepository = rubbishRepository;
+    }
+
+    public RubbishTypeRepository getRubbishTypeRepository() {
+        return rubbishTypeRepository;
+    }
+
+    public void setRubbishTypeRepository(RubbishTypeRepository rubbishTypeRepository) {
+        this.rubbishTypeRepository = rubbishTypeRepository;
+    }
+
+    public RubTyCorespRepository getRubTyCorespRepository() {
+        return rubTyCorespRepository;
+    }
+
+    public void setRubTyCorespRepository(RubTyCorespRepository rubTyCorespRepository) {
+        this.rubTyCorespRepository = rubTyCorespRepository;
+    }
+
+    public ShootGameRepository getShootGameRepository() {
+        return shootGameRepository;
+    }
+
+    public void setShootGameRepository(ShootGameRepository shootGameRepository) {
+        this.shootGameRepository = shootGameRepository;
+    }
+
+    public SignInHonorRepository getSignInHonorRepository() {
+        return signInHonorRepository;
+    }
+
+    public void setSignInHonorRepository(SignInHonorRepository signInHonorRepository) {
+        this.signInHonorRepository = signInHonorRepository;
+    }
+
+    public SignInStdRepository getSignInStdRepository() {
+        return signInStdRepository;
+    }
+
+    public void setSignInStdRepository(SignInStdRepository signInStdRepository) {
+        this.signInStdRepository = signInStdRepository;
+    }
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public WikiHistoryRepository getWikiHistoryRepository() {
+        return wikiHistoryRepository;
+    }
+
+    public void setWikiHistoryRepository(WikiHistoryRepository wikiHistoryRepository) {
+        this.wikiHistoryRepository = wikiHistoryRepository;
+    }
 
     public Repository(Context context) {
         this.context = context;
@@ -87,94 +280,94 @@ public class Repository {
         if (database == null) {
             database = AppDatabase.getDatabase(context);
         }
-        
-   if (articleRepository == null) {
-        articleRepository = new ArticleRepository(database.articleDao());
-    }
 
-   if (basketRepository == null) {
-        basketRepository = new BasketRepository(database.basketDao());
-    }
+        if (articleRepository == null) {
+            articleRepository = new ArticleRepository(database.articleDao());
+        }
 
-   if (cardRepository == null) {
-        cardRepository = new CardRepository(database.cardDao());
-    }
+        if (basketRepository == null) {
+            basketRepository = new BasketRepository(database.basketDao());
+        }
 
-   if (cardGameRepository == null) {
-        cardGameRepository = new CardGameRepository(database.cardGameDao());
-    }
+        if (cardRepository == null) {
+            cardRepository = new CardRepository(database.cardDao());
+        }
 
-   if (cityRepository == null) {
-        cityRepository = new CityRepository(database.cityDao());
-    }
+        if (cardGameRepository == null) {
+            cardGameRepository = new CardGameRepository(database.cardGameDao());
+        }
 
-   if (coleFragGameNowRepository == null) {
-        coleFragGameNowRepository = new ColeFragGameNowRepository(database.coleFragGameNowDao());
-    }
+        if (cityRepository == null) {
+            cityRepository = new CityRepository(database.cityDao());
+        }
 
-   if (coleFragGameStatRepository == null) {
-        coleFragGameStatRepository = new ColeFragGameStatRepository(database.coleFragGameStatDao());
-    }
+        if (coleFragGameNowRepository == null) {
+            coleFragGameNowRepository = new ColeFragGameNowRepository(database.coleFragGameNowDao());
+        }
 
-   if (friendshipRepository == null) {
-        friendshipRepository = new FriendshipRepository(database.friendshipDao());
-    }
+        if (coleFragGameStatRepository == null) {
+            coleFragGameStatRepository = new ColeFragGameStatRepository(database.coleFragGameStatDao());
+        }
 
-   if (gameRepository == null) {
-        gameRepository = new GameRepository(database.gameDao());
-    }
+        if (friendshipRepository == null) {
+            friendshipRepository = new FriendshipRepository(database.friendshipDao());
+        }
 
-   if (gameHonorRepository == null) {
-        gameHonorRepository = new GameHonorRepository(database.gameHonorDao());
-    }
+        if (gameRepository == null) {
+            gameRepository = new GameRepository(database.gameDao());
+        }
 
-   if (gameRecordRepository == null) {
-        gameRecordRepository = new GameRecordRepository(database.gameRecordDao());
-    }
+        if (gameHonorRepository == null) {
+            gameHonorRepository = new GameHonorRepository(database.gameHonorDao());
+        }
 
-   if (placeRepository == null) {
-        placeRepository = new PlaceRepository(database.placeDao());
-    }
+        if (gameRecordRepository == null) {
+            gameRecordRepository = new GameRecordRepository(database.gameRecordDao());
+        }
 
-   if (presentRepository == null) {
-        presentRepository = new PresentRepository(database.presentDao());
-    }
+        if (placeRepository == null) {
+            placeRepository = new PlaceRepository(database.placeDao());
+        }
 
-   if (psnExchgRecRepository == null) {
-        psnExchgRecRepository = new PsnExchgRecRepository(database.psnExchgRecDao());
-    }
+        if (presentRepository == null) {
+            presentRepository = new PresentRepository(database.presentDao());
+        }
 
-   if (rubbishRepository == null) {
-        rubbishRepository = new RubbishRepository(database.rubbishDao());
-    }
+        if (psnExchgRecRepository == null) {
+            psnExchgRecRepository = new PsnExchgRecRepository(database.psnExchgRecDao());
+        }
 
-   if (rubbishTypeRepository == null) {
-        rubbishTypeRepository = new RubbishTypeRepository(database.rubbishTypeDao());
-    }
+        if (rubbishRepository == null) {
+            rubbishRepository = new RubbishRepository(database.rubbishDao());
+        }
 
-   if (rubTyCorespRepository == null) {
-        rubTyCorespRepository = new RubTyCorespRepository(database.rubTyCorespDao());
-    }
+        if (rubbishTypeRepository == null) {
+            rubbishTypeRepository = new RubbishTypeRepository(database.rubbishTypeDao());
+        }
 
-   if (shootGameRepository == null) {
-        shootGameRepository = new ShootGameRepository(database.shootGameDao());
-    }
+        if (rubTyCorespRepository == null) {
+            rubTyCorespRepository = new RubTyCorespRepository(database.rubTyCorespDao());
+        }
 
-   if (signInHonorRepository == null) {
-        signInHonorRepository = new SignInHonorRepository(database.signInHonorDao());
-    }
+        if (shootGameRepository == null) {
+            shootGameRepository = new ShootGameRepository(database.shootGameDao());
+        }
 
-   if (signInStdRepository == null) {
-        signInStdRepository = new SignInStdRepository(database.signInStdDao());
-    }
+        if (signInHonorRepository == null) {
+            signInHonorRepository = new SignInHonorRepository(database.signInHonorDao());
+        }
 
-   if (userRepository == null) {
-        userRepository = new UserRepository(database.userDao());
-    }
+        if (signInStdRepository == null) {
+            signInStdRepository = new SignInStdRepository(database.signInStdDao());
+        }
 
-   if (wikiHistoryRepository == null) {
-        wikiHistoryRepository = new WikiHistoryRepository(database.wikiHistoryDao());
-    }
+        if (userRepository == null) {
+            userRepository = new UserRepository(database.userDao());
+        }
+
+        if (wikiHistoryRepository == null) {
+            wikiHistoryRepository = new WikiHistoryRepository(database.wikiHistoryDao());
+        }
 
     }
 }

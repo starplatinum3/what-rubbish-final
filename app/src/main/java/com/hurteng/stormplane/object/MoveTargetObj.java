@@ -27,6 +27,38 @@ public class MoveTargetObj extends GameObject {
     float stepY;
     boolean moveDone=false;
 
+    public Bitmap getBmp() {
+        return bmp;
+    }
+
+    public void setBmp(Bitmap bmp) {
+        this.bmp = bmp;
+    }
+
+    public float getStepX() {
+        return stepX;
+    }
+
+    public void setStepX(float stepX) {
+        this.stepX = stepX;
+    }
+
+    public float getStepY() {
+        return stepY;
+    }
+
+    public void setStepY(float stepY) {
+        this.stepY = stepY;
+    }
+
+    public boolean isMoveDone() {
+        return moveDone;
+    }
+
+    public void setMoveDone(boolean moveDone) {
+        this.moveDone = moveDone;
+    }
+
     public MoveTargetObj(float object_x, float object_y, float object_width, float object_height) {
         super(object_x, object_y, object_width, object_height);
     }

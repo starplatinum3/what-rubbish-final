@@ -1,6 +1,5 @@
 package com.sdust.im.fragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.whatrubbish.R;
@@ -16,12 +15,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -53,8 +53,14 @@ public class FriendListFragment extends Fragment {
 
 	private void init() {
 		mFriendList = ApplicationData.getInstance().getFriendList();
-		adapter = new FriendListAdapter(mContext, mFriendList);
-		mFriendListView.setAdapter(adapter);
+		if(mFriendList==null){
+			Log.i("mFriendList", "init: 空的");
+			//return;
+		}else{
+			adapter = new FriendListAdapter(mContext, mFriendList);
+			mFriendListView.setAdapter(adapter);
+		}
+
 		handler = new Handler() {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {

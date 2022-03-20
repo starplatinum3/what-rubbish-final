@@ -100,7 +100,10 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.VH>{
 
     void addFriend(User user) throws IOException {
         //new Friendship()
-        Friendship build = Friendship.builder().someOneId(Bus.curUser.getId()).friendId(user.getId()).build();
+        Friendship build = new Friendship();
+        build.setSomeOneId(Bus.curUser.getId());
+        build.setFriendId(user.getId());
+        //Friendship build = Friendship.builder().someOneId(Bus.curUser.getId()).friendId(user.getId()).build();
         //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/friendship/list", build);
         //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/friendship/save", build);
         JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/friendship/addFriend", build);

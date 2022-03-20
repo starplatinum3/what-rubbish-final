@@ -222,7 +222,10 @@ public class RegionSettingSlideFragment extends Fragment implements View.OnClick
         Log.i("cities", "origin  " + cities + "  ");
         cities.forEach(o -> {
             Log.i("del it ", o + "  ");
-            repository.getCityRepository().delete(City.builder().id(o.getId()).build());
+            City city = new City();
+            city.setId(o.getId());
+            //repository.getCityRepository().delete(City.builder().id(o.getId()).build());
+            repository.getCityRepository().delete(city);
         });
         Log.i("delete", "all");
         //c

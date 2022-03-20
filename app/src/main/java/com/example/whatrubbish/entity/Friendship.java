@@ -20,4 +20,27 @@ public class Friendship {
     Long someOneId;
     Long friendId;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getSomeOneId() {
+        return someOneId;
+    }
+
+    public void setSomeOneId(Long someOneId) {
+        this.someOneId = someOneId;
+    }
+
+    public Long getFriendId() {
+        return friendId;
+    }
+
+    public void setFriendId(Long friendId) {
+        this.friendId = friendId;
+    }
 }

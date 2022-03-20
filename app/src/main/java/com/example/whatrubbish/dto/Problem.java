@@ -25,5 +25,43 @@ public class Problem {
 //    List<Answer >answers;
     String analysis;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<String> getCandidates() {
+        return candidates;
+    }
+
+    public void setCandidates(List<String> candidates) {
+        this.candidates = candidates;
+    }
+
+    public List<Integer> getAnsNums() {
+        return ansNums;
+    }
+
+    public void setAnsNums(List<Integer> ansNums) {
+        this.ansNums = ansNums;
+    }
+
+    public String getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(String analysis) {
+        this.analysis = analysis;
+    }
 }

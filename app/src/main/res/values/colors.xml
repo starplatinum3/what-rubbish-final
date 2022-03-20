@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gameBackground">#ecf0f3</color>
     <color name="textColor">#000046</color>
+    <color name="colorAccent">#FFBB86FC</color>
 
 
     <style name="TabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">

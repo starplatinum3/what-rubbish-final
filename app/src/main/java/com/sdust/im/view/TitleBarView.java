@@ -11,7 +11,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -36,7 +35,8 @@ public class TitleBarView extends RelativeLayout {
 	}
 	
 	private void initView(){
-		LayoutInflater.from(mContext).inflate(R.layout.common_title_bar, this);
+		//LayoutInflater.from(mContext).inflate(R.layout.common_title_bar, this);
+		LayoutInflater.from(mContext).inflate(R.layout.common_title_bar_im, this);
 		btnLeft=(Button) findViewById(R.id.title_btn_left);
 		btnRight=(Button) findViewById(R.id.title_btn_right);
 		tv_center=(TextView) findViewById(R.id.title_txt);

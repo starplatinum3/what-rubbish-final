@@ -887,8 +887,12 @@ public class MyView2 extends SurfaceView implements Callback, Runnable {
         //List<Bitmap> rubbishBitmaps = initRubbishBitmaps();
 
 
-        Rubbish build = Rubbish.builder().typeId(1L).build();
-        Rubbish type2 = Rubbish.builder().typeId(2L).build();
+        Rubbish build = new Rubbish();
+        build.setTypeId(1L);
+        //Rubbish build = Rubbish.builder().typeId(1L).build();
+        Rubbish type2 = new Rubbish();
+        type2.setTypeId(2L);
+        //Rubbish type2 = Rubbish.builder().typeId(2L).build();
         //哪里来的数据呢 数据库吗
 //        Enemy rubbish = new VRubbish( rubbishBitmaps,build);
 //        //rubbish.se
@@ -1278,8 +1282,10 @@ public class MyView2 extends SurfaceView implements Callback, Runnable {
         bitmapsVTrashBin.add(BitmapUtil.getBitmap(context,R.mipmap.recycle));
         //vTrashBin = new VTrashBin(bitmapsVTrashBin);
 
-        RubbishType build = RubbishType.builder().id(1L).build();
-        vTrashBin = new VTrashBin(bitmapsVTrashBin,build);
+        RubbishType rubbishType = new RubbishType();
+        rubbishType.setId(1L);
+        //RubbishType build = RubbishType.builder().id(1L).build();
+        vTrashBin = new VTrashBin(bitmapsVTrashBin,rubbishType);
         //this.vTrashBin = new Mario(32, 32, marioSmallBitmaps);
         //this.vTrashBin.setVisiable(true);
         //this.vTrashBin.setPosition(0, 330);

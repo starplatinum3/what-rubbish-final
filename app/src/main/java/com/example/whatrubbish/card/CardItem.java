@@ -28,6 +28,70 @@ public class CardItem {
     String  picUrl;
     String  url;
 
+    public int getmTextResource() {
+        return mTextResource;
+    }
+
+    public void setmTextResource(int mTextResource) {
+        this.mTextResource = mTextResource;
+    }
+
+    public int getmTitleResource() {
+        return mTitleResource;
+    }
+
+    public void setmTitleResource(int mTitleResource) {
+        this.mTitleResource = mTitleResource;
+    }
+
+    public int getHeadImgRes() {
+        return headImgRes;
+    }
+
+    public void setHeadImgRes(int headImgRes) {
+        this.headImgRes = headImgRes;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public  CardItem(){}
 
     public CardItem(int title, int text) {

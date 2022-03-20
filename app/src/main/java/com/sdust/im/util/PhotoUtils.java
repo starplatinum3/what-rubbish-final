@@ -30,18 +30,53 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 
 import com.example.whatrubbish.R;
+//import com.google.android.gms.common.internal.Constants;
 import com.sdust.im.activity.imagefactory.ImageFactoryActivity;
 import com.sdust.im.activity.imagefactory.ImageFactoryFliter.FilterType;
 
+//import butterknife.internal.Constants;
+
+//import org.apache.logging.log4j.util.Constants;
+
 public class PhotoUtils {
+
+	static  Context context;
+	//private static final String IMAGE_PATH = context.getExternalFilesDir(null).toString()
+	//		+ File.separator
+	//		+ "immomo" + File.separator + "Images" + File.separator;
+
+	private static String IMAGE_PATH =null;
+
+	 public  static  String  makeImagePath(Context context){
+	  return context.getExternalFilesDir(null).toString()
+				+ File.separator
+				+ "immomo" + File.separator + "Images" + File.separator;
+	}
+
+	public static Context getContext() {
+		return context;
+	}
+
+	public static void setContext(Context context) {
+		PhotoUtils.context = context;
+	}
+
+	//void initContext(context){
+	//	context=context
+	//}
+	//context.getExternalFilesDir(null);
 	// 图片在SD卡中的缓存路径
-	private static final String IMAGE_PATH = Environment
-			.getExternalStorageDirectory().toString()
-			+ File.separator
-			+ "immomo" + File.separator + "Images" + File.separator;
+	//private static final String IMAGE_PATH = Environment
+	//		.getExternalStorageDirectory().toString()
+	//		+ File.separator
+	//		+ "immomo" + File.separator + "Images" + File.separator;
+	//Constants.SDCardConstants.getDir(context) + File.separator;
+	//openFileOutput
+	//Constants
 	// 相册的RequestCode
 	public static final int INTENT_REQUEST_CODE_ALBUM = 0;
 	// 照相的RequestCode
@@ -70,16 +105,95 @@ public class PhotoUtils {
 	 * @return 照相后图片的路径
 	 */
 	public static String takePicture(Activity activity) {
+		//FileUtils.createDirFile(IMAGE_PATH);
+		////Android10之后
+		////File externalFilesDir = context.getExternalFilesDir(null).toString();
+		////sdDir = context.getExternalFilesDir(null);//获取应用所在根目录/Android/data/your.app.name/file/ 也可以根据沙盒机制传入自己想传的参数，存放在指定目录
+		//Log.i("IMAGE_PATH", "takePicture: "+IMAGE_PATH);
+		//Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		//String path = IMAGE_PATH + UUID.randomUUID().toString() + "jpg";
+		//Log.i("path", "takePicture: "+path);
+		//File file = FileUtils.createNewFile(path);
+		//if(file==null){
+		//	Log.i("file", "takePicture: null ");
+		//}
+		//Log.i("file", "takePicture: exists "+file.exists());
+		//if (file != null) {
+		//	intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+		//}
+		//activity.startActivityForResult(intent, INTENT_REQUEST_CODE_CAMERA);
+		//return path;
+
+		return  takePictureDataPath(activity);
+	}
+
+	public static String takePictureSDCard(Activity activity) {
 		FileUtils.createDirFile(IMAGE_PATH);
+		//Android10之后
+		//File externalFilesDir = context.getExternalFilesDir(null).toString();
+		//sdDir = context.getExternalFilesDir(null);//获取应用所在根目录/Android/data/your.app.name/file/ 也可以根据沙盒机制传入自己想传的参数，存放在指定目录
+		Log.i("IMAGE_PATH", "takePicture: "+IMAGE_PATH);
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		String path = IMAGE_PATH + UUID.randomUUID().toString() + "jpg";
+		Log.i("path", "takePicture: "+path);
 		File file = FileUtils.createNewFile(path);
+		if(file==null){
+			Log.i("file", "takePicture: null ");
+		}
+		Log.i("file", "takePicture: exists "+file.exists());
 		if (file != null) {
 			intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
 		}
 		activity.startActivityForResult(intent, INTENT_REQUEST_CODE_CAMERA);
 		return path;
 	}
+
+	public static String takePicture(Activity activity,String path) {
+		//FileUtils.createDirFile(IMAGE_PATH);
+		////Android10之后
+		////File externalFilesDir = context.getExternalFilesDir(null).toString();
+		////sdDir = context.getExternalFilesDir(null);//获取应用所在根目录/Android/data/your.app.name/file/ 也可以根据沙盒机制传入自己想传的参数，存放在指定目录
+		//Log.i("IMAGE_PATH", "takePicture: "+IMAGE_PATH);
+		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		//String path = IMAGE_PATH + UUID.randomUUID().toString() + "jpg";
+		Log.i("path", "takePicture: "+path);
+		File file = FileUtils.createNewFile(path);
+		if(file==null){
+			Log.i("file", "takePicture: null ");
+		}
+		Log.i("file", "takePicture: exists "+file.exists());
+		if (file != null) {
+			intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+		}
+		activity.startActivityForResult(intent, INTENT_REQUEST_CODE_CAMERA);
+		return path;
+	}
+
+	public static String takePictureDataPath(Activity activity) {
+		String imagePath = makeImagePath(activity);
+		//activity.getExternalFilesDir(null).toPath()
+		IMAGE_PATH=imagePath;
+		//String IMAGE_PATH=imagePath;
+		FileUtils.createDirFile(IMAGE_PATH);
+		//Android10之后
+		//File externalFilesDir = context.getExternalFilesDir(null).toString();
+		//sdDir = context.getExternalFilesDir(null);//获取应用所在根目录/Android/data/your.app.name/file/ 也可以根据沙盒机制传入自己想传的参数，存放在指定目录
+		Log.i("IMAGE_PATH", "takePicture: "+IMAGE_PATH);
+		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		String path = IMAGE_PATH + UUID.randomUUID().toString() + "jpg";
+		Log.i("path", "takePicture: "+path);
+		File file = FileUtils.createNewFile(path);
+		if(file==null){
+			Log.i("file", "takePicture: null ");
+		}
+		Log.i("file", "takePicture: exists "+file.exists());
+		if (file != null) {
+			intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+		}
+		activity.startActivityForResult(intent, INTENT_REQUEST_CODE_CAMERA);
+		return path;
+	}
+
 
 	/**
 	 * 裁剪图片
@@ -122,6 +236,7 @@ public class PhotoUtils {
 	 * 删除图片缓存目录
 	 */
 	public static void deleteImageFile() {
+		//makeImagePath()
 		File dir = new File(IMAGE_PATH);
 		if (dir.exists()) {
 			FileUtils.delFolder(IMAGE_PATH);
@@ -540,6 +655,9 @@ public class PhotoUtils {
 	 * byte[]转换成Bitmap
 	 */
 	public static Bitmap getBitmap(byte[] data) {
+		if(data==null){
+			return null;
+		}
 		return BitmapFactory.decodeByteArray(data, 0, data.length);// 从字节数组解码位图
 	}
 

@@ -103,8 +103,11 @@ public class login extends Activity {
 
         ThreadPoolManager.getInstance().execute(new FutureTask<>(new Thread(()->{
             try {
-              User userForm= User.builder().
-                        username(username).password(Security.md5(password)).build();
+                User userForm = new User();
+                userForm.setUsername(username);
+                userForm.setPassword(Security.md5(password));
+                //User userForm= User.builder().
+                //        username(username).password(Security.md5(password)).build();
                 JsonObject listRes = HttpUtil.post(Bus.baseDbUrl + "/user/list",userForm);
                 Log.d("listRes", "loginHttp: listRes "+listRes);
                 int code = listRes.get("code").getAsInt();

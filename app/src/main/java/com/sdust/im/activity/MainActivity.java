@@ -55,7 +55,8 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main_im);
 		mContext=this;
 		System.out.println("初始化Main");
 		findView();
@@ -93,8 +94,12 @@ public class MainActivity extends FragmentActivity {
 		});
 		
 		app_change.setOnClickListener(new OnClickListener() {
+			//openFileOutput(1);
+
 			@Override
 			public void onClick(View v) {
+				//Context.op
+				//openFileOutput()
 				Intent intent=new Intent(mContext, LoginActivity.class);
 				startActivity(intent);
 				((Activity)mContext).overridePendingTransition(R.anim.activity_up, R.anim.fade_out);

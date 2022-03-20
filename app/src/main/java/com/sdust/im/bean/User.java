@@ -53,6 +53,7 @@ public class User implements Serializable {
 	}
 
 	public void setFriendList(ArrayList<User> friendList) {
+		//这个数据怎么获得的 socket 在哪里
 		this.friendList = friendList;
 	}
 

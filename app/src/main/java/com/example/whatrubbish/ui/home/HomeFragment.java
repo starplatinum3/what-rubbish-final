@@ -24,6 +24,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 //import com.android.soundrecorder.SoundRecorder;
 import com.bn.tl.anzhi.BasketBall_Shot_Activity;
+import com.example.compose.ComposeActivity;
+import com.example.compose.ComposeActivityKt;
 import com.example.whatrubbish.LoginActivity;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.RegionSettingActivity;
@@ -32,6 +34,7 @@ import com.example.whatrubbish.achievement.AchievementActivity;
 import com.example.whatrubbish.achievement.AchievementActivitySelf;
 //import com.example.whatrubbish.activity.MyAppActivity;
 import com.example.whatrubbish.activity.NoBottomNavActivity;
+import com.example.whatrubbish.activity.WsTestActivity;
 import com.example.whatrubbish.constant.MoveConstant;
 import com.example.whatrubbish.databinding.FragmentHomeBinding;
 import com.example.whatrubbish.fragment.CollectRubFragment;
@@ -248,7 +251,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btnToTrashDetect.setOnClickListener(v -> {
           ActivityUtil.startActivity(activity, com.example.trash_detective.Activity.MainActivity.class);
         });
+        binding.btnToWelcomeActivityIm.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, com.sdust.im.activity.MainActivity.class);
+        });
+        binding.btnToLoginActivityIm.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, com.sdust.im.activity.LoginActivity.class);
+        });
 
+        binding.btnToWsTest.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, WsTestActivity.class);
+        });
+
+        binding.btnToWsLogin.setOnClickListener(v -> {
+            //ActivityUtil.startActivity(activity, ComposeActivityKt.class);
+            ActivityUtil.startActivity(activity, ComposeActivity.class);
+        });
 
         return root;
     }

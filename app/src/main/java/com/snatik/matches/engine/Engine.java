@@ -231,36 +231,39 @@ public class Engine extends EventObserverAdapter {
         mPlayingGame.boardArrangment = boardArrangment;
     }
 
-    void initImgsToBean(int cnt, String typeStr, int typeId,
-                        List<Rubbish >rubbishes,List<RubbishType>rubbishTypes) {
-        for (int i = 0; i <= cnt; i++) {
-            //String  imgUrl=URI_DRAWABLE + String.format("dry_%d", i);
-            //根据url 获得 bitmap
-            //有垃圾桶的 有垃圾的
-            String imgUrlRubbish = URI_DRAWABLE + String.format("%s_%d", typeStr, i);
-            String imgUrlTrashBin = URI_DRAWABLE + String.format("bin_%s", typeStr);
-            Rubbish build = Rubbish.builder().typeId((long) typeId).imgUrl(imgUrlRubbish).build();
-            rubbishes.add(build);
-            RubbishType build1 = RubbishType.builder().id((long) typeId).imgUrl(imgUrlTrashBin).build();
-            rubbishTypes.add(build1);
-            //rubbishes.add(new MRubbish(rubId,imgUrl,10000+rubId));
-            //rubbishes.add(new MRubbish(rubId,imgUrl,offset+rubId));
-            ////trashBins.add(new MTrashBin(rubId+offset,imgUrl,offset+rubId));
-            //trashBins.add(new MTrashBin(rubId+offset,imgUrlTrashBin,offset+rubId));
-
-            //MRubbish mRubbish = new MRubbish(rubId, imgUrl, typeId);
-            //MRubbish mRubbish = new MRubbish(rubId, imgUrl, typeId+offset);
-            //MRubbish mRubbish = new MRubbish(typeId, imgUrlRubbish, typeId+offset);
-            //mRubbish.setImgUrlTrashBin(imgUrlTrashBin);
-            ////mRubbish.se
-            ////rubbishes.add(new MRubbish(rubId, imgUrl, typeId));
-            //rubbishes.add(mRubbish);
-            ////trashBins.add(new MTrashBin(typeId,imgUrlTrashBin,offset+rubId));
-            //trashBins.add(new MTrashBin(typeId + offset, imgUrlTrashBin, offset + rubId));
-            //MTrashBin 的 ttpe id 是不需要的吧
-            rubId++;
-        }
-    }
+    //void initImgsToBean(int cnt, String typeStr, int typeId,
+    //                    List<Rubbish >rubbishes,List<RubbishType>rubbishTypes) {
+    //    for (int i = 0; i <= cnt; i++) {
+    //        //String  imgUrl=URI_DRAWABLE + String.format("dry_%d", i);
+    //        //根据url 获得 bitmap
+    //        //有垃圾桶的 有垃圾的
+    //        String imgUrlRubbish = URI_DRAWABLE + String.format("%s_%d", typeStr, i);
+    //        String imgUrlTrashBin = URI_DRAWABLE + String.format("bin_%s", typeStr);
+    //        //Rubbish build = Rubbish.builder().typeId((long) typeId).imgUrl(imgUrlRubbish).build();
+    //        Rubbish rubbish = new Rubbish();
+    //        rubbish.setTypeId((long) typeId);
+    //        rubbish.setImgUrl(imgUrlRubbish);
+    //        rubbishes.add(rubbish);
+    //        RubbishType build1 = RubbishType.builder().id((long) typeId).imgUrl(imgUrlTrashBin).build();
+    //        rubbishTypes.add(build1);
+    //        //rubbishes.add(new MRubbish(rubId,imgUrl,10000+rubId));
+    //        //rubbishes.add(new MRubbish(rubId,imgUrl,offset+rubId));
+    //        ////trashBins.add(new MTrashBin(rubId+offset,imgUrl,offset+rubId));
+    //        //trashBins.add(new MTrashBin(rubId+offset,imgUrlTrashBin,offset+rubId));
+    //
+    //        //MRubbish mRubbish = new MRubbish(rubId, imgUrl, typeId);
+    //        //MRubbish mRubbish = new MRubbish(rubId, imgUrl, typeId+offset);
+    //        //MRubbish mRubbish = new MRubbish(typeId, imgUrlRubbish, typeId+offset);
+    //        //mRubbish.setImgUrlTrashBin(imgUrlTrashBin);
+    //        ////mRubbish.se
+    //        ////rubbishes.add(new MRubbish(rubId, imgUrl, typeId));
+    //        //rubbishes.add(mRubbish);
+    //        ////trashBins.add(new MTrashBin(typeId,imgUrlTrashBin,offset+rubId));
+    //        //trashBins.add(new MTrashBin(typeId + offset, imgUrlTrashBin, offset + rubId));
+    //        //MTrashBin 的 ttpe id 是不需要的吧
+    //        rubId++;
+    //    }
+    //}
 
     void initImgs(int cnt, String typeStr, int typeId) {
         for (int i = 0; i <= cnt; i++) {

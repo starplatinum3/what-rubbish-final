@@ -13,10 +13,12 @@ import com.sdust.im.bean.ChatEntity;
 import com.sdust.im.bean.MessageTabEntity;
 import com.sdust.im.bean.User;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class ImDB {
 	public static final String DB_NAME = "im_local";
@@ -26,6 +28,7 @@ public class ImDB {
 	private SQLiteDatabase db;
 
 	private ImDB(Context context) {
+		Log.i("get db", "ImDB: ");
 		ImOpenHelper imOpenHelper = new ImOpenHelper(context, DB_NAME, null,
 				VERSION);
 		db = imOpenHelper.getWritableDatabase();
@@ -48,6 +51,7 @@ public class ImDB {
 
 	}
 
+	@SuppressLint("Range")
 	public List<User> getAllFriend() {
 		List<User> friends = new ArrayList<User>();
 		int id = user.getId();

@@ -8,10 +8,13 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask; 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -47,11 +50,21 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_register);
+		//setContentView(R.layout.activity_register);
+
+		StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+		StrictMode.setVmPolicy(builder.build());
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			builder.detectFileUriExposure();
+		}
+
+		setContentView(R.layout.activity_register_im);
 		initViews();
 		mCurrentStep = initStep();
 		initEvents();
 		initBackDialog();
+
+
 	}
 
 	@Override
@@ -128,9 +141,15 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 				if (cursor != null) {
 					int column_index = cursor
 							.getColumnIndexOrThrow(MediaColumns.DATA);
+					Log.i("column_index", "onActivityResult: "+column_index);
 					if (cursor.getCount() > 0 && cursor.moveToFirst()) {
 						String path = cursor.getString(column_index);
+						Log.i("path", "onActivityResult: "+path);
 						Bitmap bitmap = BitmapFactory.decodeFile(path);
+						if(bitmap==null){
+							Log.i("bitmap", "onActivityResult: null");
+							return;
+						}
 						if (PhotoUtils.bitmapIsLarge(bitmap)) {
 							PhotoUtils.cropPhoto(this, this, path);
 						} else {
@@ -144,7 +163,12 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 		case PhotoUtils.INTENT_REQUEST_CODE_CAMERA:
 			if (resultCode == RESULT_OK) {
 				String path = mStepPhoto.getTakePicturePath();
+				Log.i("path", "onActivityResult: "+path);
 				Bitmap bitmap = BitmapFactory.decodeFile(path);
+				if(bitmap==null){
+					Log.i("bitamp", "onActivityResult: no bitmap");
+					return;
+				}
 				if (PhotoUtils.bitmapIsLarge(bitmap)) {
 					PhotoUtils.cropPhoto(this, this, path);
 				} else {

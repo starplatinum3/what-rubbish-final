@@ -8,5 +8,10 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+   <Button
+       android:text="登录页"
+       android:id="@+id/toLogin"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"></Button>
 
 </LinearLayout>

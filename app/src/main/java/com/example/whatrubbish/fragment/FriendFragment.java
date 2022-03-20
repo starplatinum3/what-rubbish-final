@@ -81,7 +81,10 @@ public class FriendFragment extends Fragment {
     @SuppressLint("WrongConstant")
     void addFriend(String username) throws IOException {
         //HttpUtil.post(Bus.baseDbUrl+Bus.userList, User.builder().username(username))
-        JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByUsernameLike", User.builder().username(username).build());
+        //User build = User.builder().username(username).build();
+        User build = new User();
+        build.setUsername(username);
+        JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByUsernameLike", build);
         JsonArray dataArr = post.get("data").getAsJsonArray();
 
         //JsonObject post = HttpUtil.post(Bus.baseDbUrl + Bus.cityFindByPicResNotNull, new City());

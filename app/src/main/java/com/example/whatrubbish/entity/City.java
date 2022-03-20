@@ -45,4 +45,44 @@ public class City implements  Cloneable{
         return city;
 //        return super.clone();
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPicRes() {
+        return picRes;
+    }
+
+    public void setPicRes(String picRes) {
+        this.picRes = picRes;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
+    public Integer getFragFullNeed() {
+        return fragFullNeed;
+    }
+
+    public void setFragFullNeed(Integer fragFullNeed) {
+        this.fragFullNeed = fragFullNeed;
+    }
 }

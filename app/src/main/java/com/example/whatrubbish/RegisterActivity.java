@@ -126,8 +126,11 @@ public class RegisterActivity extends AppCompatActivity {
             JsonObject post = null;
             try {
 
+                User user = new User();
+                user.setPhone(phoneStr);
 
-                JsonObject listRes = HttpUtil.post(Bus.baseDbUrl + "/user/list", User.builder().phone(phoneStr).build());
+                JsonObject listRes = HttpUtil.post(Bus.baseDbUrl + "/user/list",user);
+                //JsonObject listRes = HttpUtil.post(Bus.baseDbUrl + "/user/list", User.builder().phone(phoneStr).build());
                 JsonArray asJsonArray = listRes.get(Bus.contentMark).getAsJsonArray();
                 if(asJsonArray.size() >= 1){
                     runOnUiThread(()->{
@@ -137,8 +140,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
 
-                User build = User.builder().
-                        password(Security.md5(passwordStr)).username(phoneStr).phone(phoneStr).build();
+                User build = new User();
+                //user1.setPhone();
+                build.setPassword(Security.md5(passwordStr));
+                build.setUsername(phoneStr);
+                build.setPhone(phoneStr);
+                //User build = User.builder().
+                //        password(Security.md5(passwordStr)).username(phoneStr).phone(phoneStr).build();
                 Log.d("build", "registerHttp: build"+build);
 
                 post = HttpUtil.post(Bus.baseDbUrl + "/user/save", build);

@@ -38,10 +38,16 @@ public class MainActivity extends FragmentActivity {
 			//有垃圾桶的 有垃圾的
 			String imgUrlRubbish = URI_DRAWABLE + String.format("%s_%d", typeStr, i);
 			String imgUrlTrashBin = URI_DRAWABLE + String.format("bin_%s", typeStr);
-			Rubbish build = Rubbish.builder().typeId((long) typeId).imgUrl(imgUrlRubbish).build();
-			rubbishes.add(build);
-			RubbishType build1 = RubbishType.builder().id((long) typeId).imgUrl(imgUrlTrashBin).build();
-			rubbishTypes.add(build1);
+			Rubbish rubbish = new Rubbish();
+			rubbish.setTypeId((long) typeId);
+			rubbish.setImgUrl(imgUrlRubbish);
+			//Rubbish build = Rubbish.builder().typeId((long) typeId).imgUrl(imgUrlRubbish).build();
+			rubbishes.add(rubbish);
+			RubbishType rubbishType = new RubbishType();
+			rubbishType.setId((long) typeId);
+			rubbishType.setImgUrl(imgUrlTrashBin);
+			//RubbishType build1 = RubbishType.builder().id((long) typeId).imgUrl(imgUrlTrashBin).build();
+			rubbishTypes.add(rubbishType);
 			//rubbishes.add(new MRubbish(rubId,imgUrl,10000+rubId));
 			//rubbishes.add(new MRubbish(rubId,imgUrl,offset+rubId));
 			////trashBins.add(new MTrashBin(rubId+offset,imgUrl,offset+rubId));

@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Log;
 
 public class FileUtils {
 	
@@ -34,7 +35,10 @@ public class FileUtils {
 	public static void createDirFile(String path) {
 		File dir = new File(path);
 		if (!dir.exists()) {
-			dir.mkdirs();
+			//安卓不能创建目录
+			boolean mkdirsOk = dir.mkdirs();
+			Log.i("mkdirs", "createDirFile: "+path);
+			Log.i("mkdirsOk", "createDirFile: "+mkdirsOk);
 		}
 	}
 

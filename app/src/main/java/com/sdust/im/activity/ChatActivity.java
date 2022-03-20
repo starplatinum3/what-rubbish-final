@@ -43,7 +43,8 @@ public class ChatActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_chat);
+		//setContentView(R.layout.activity_chat);
+		setContentView(R.layout.activity_chat_im);
 		Intent intent = getIntent();
 		friendName = intent.getStringExtra("friendName");
 		friendId = intent.getIntExtra("friendId", 0);

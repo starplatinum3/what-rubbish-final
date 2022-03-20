@@ -152,6 +152,7 @@ public class StepPhoto extends RegisterStep implements OnClickListener {
 			break;
 
 		case R.id.reg_photo_layout_takepicture:
+			//PhotoUtils.setContext(this);
 			mTakePicturePath = PhotoUtils.takePicture(mActivity);
 			break;
 		}

@@ -9,6 +9,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 //import android.support.v4.app.Fragment;
 
 import com.sdust.im.activity.ChatActivity;
@@ -45,6 +46,7 @@ public class ApplicationData {
 	}
 
 	public static ApplicationData getInstance() {
+		Log.i("getInstance", "getInstance: ApplicationData");
 		if (mInitData == null) {
 			mInitData = new ApplicationData();
 		}
@@ -52,6 +54,7 @@ public class ApplicationData {
 	}
 
 	private ApplicationData() {
+		//这里不用初始化 db？
 
 	}
 
@@ -62,10 +65,13 @@ public class ApplicationData {
 
 	public void loginMessageArrived(Object tranObject) {
 
+		Log.i("TAG", "loginMessageArrived: ");
 		mReceivedMessage = (TranObject) tranObject;
 		Result loginResult = mReceivedMessage.getResult();
+		Log.i("loginResult", "loginMessageArrived: "+loginResult);
 		if (loginResult == Result.LOGIN_SUCCESS) {
 			mUser = (User) mReceivedMessage.getObject();
+			//这里是空的？
 			mFriendList = mUser.getFriendList();// 根据从服务器得到的信息，设置好友是否在线
 			mUserPhoto = PhotoUtils.getBitmap(mUser.getPhoto());
 			List<User> friendListLocal = ImDB.getInstance(mContext)

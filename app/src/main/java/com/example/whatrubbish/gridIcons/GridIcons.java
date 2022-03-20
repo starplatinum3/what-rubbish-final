@@ -41,7 +41,91 @@ public class GridIcons {
     Activity activity;
     int spanCount = 5;
 
-//    gridview 每个 item 之间的 margin
+    public static String getTAG() {
+        return TAG;
+    }
+
+    public RecyclerView getRv() {
+        return rv;
+    }
+
+    public void setRv(RecyclerView rv) {
+        this.rv = rv;
+    }
+
+    public RvAdapter getRvAdapter() {
+        return rvAdapter;
+    }
+
+    public void setRvAdapter(RvAdapter rvAdapter) {
+        this.rvAdapter = rvAdapter;
+    }
+
+    public int getRecyclerViewId() {
+        return recyclerViewId;
+    }
+
+    public void setRecyclerViewId(int recyclerViewId) {
+        this.recyclerViewId = recyclerViewId;
+    }
+
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+
+    public TextView getTvShow() {
+        return tvShow;
+    }
+
+    public void setTvShow(TextView tvShow) {
+        this.tvShow = tvShow;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public List<IconButton> getIconButtons() {
+        return iconButtons;
+    }
+
+    public void setIconButtons(List<IconButton> iconButtons) {
+        this.iconButtons = iconButtons;
+    }
+
+    public IconButton getSelectedBtn() {
+        return selectedBtn;
+    }
+
+    public void setSelectedBtn(IconButton selectedBtn) {
+        this.selectedBtn = selectedBtn;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
+    public int getSpanCount() {
+        return spanCount;
+    }
+
+    public void setSpanCount(int spanCount) {
+        this.spanCount = spanCount;
+    }
+
+    //    gridview 每个 item 之间的 margin
 
     /**
      * @param context     目前感觉不一定需要 但是 如果有操作 也许需要把

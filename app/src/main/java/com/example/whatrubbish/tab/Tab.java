@@ -35,6 +35,46 @@ public class Tab {
     ViewPager viewPager;
     TabLayout tabLayout;
 
+    public List<String> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(List<String> titles) {
+        this.titles = titles;
+    }
+
+    public List<Fragment> getFragments() {
+        return fragments;
+    }
+
+    public void setFragments(List<Fragment> fragments) {
+        this.fragments = fragments;
+    }
+
+    public FragmentActivity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(FragmentActivity activity) {
+        this.activity = activity;
+    }
+
+    public ViewPager getViewPager() {
+        return viewPager;
+    }
+
+    public void setViewPager(ViewPager viewPager) {
+        this.viewPager = viewPager;
+    }
+
+    public TabLayout getTabLayout() {
+        return tabLayout;
+    }
+
+    public void setTabLayout(TabLayout tabLayout) {
+        this.tabLayout = tabLayout;
+    }
+
     public void tabInit() {
 
         for (String title : titles) {
