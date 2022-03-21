@@ -57,7 +57,7 @@ dependencies {
 
 
     implementation 'org.java-websocket:Java-WebSocket:1.5.2'
-
+    implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
 
 //    flappy cow
     implementation 'androidx.appcompat:appcompat:1.1.0'

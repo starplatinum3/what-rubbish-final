@@ -1,0 +1,34 @@
+package com.example.whatrubbish.entity;
+
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+//@JsonIgnoreProperties(ignoreUnknown = true)
+public class BaseEntity<T> {
+
+    /**
+     * 说明
+     */
+    private String remarks;
+
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date createDate;
+
+    private String createBy;
+
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date updateDate;
+
+    private String updateBy;
+
+    //@TableLogic(value="0",delval="1")
+    private String delFlag;
+
+    public void preInsert() {
+        this.createDate = new Date();
+        this.updateDate = new Date();
+        this.delFlag = "0";
+    }
+}

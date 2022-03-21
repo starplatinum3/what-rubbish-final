@@ -1,41 +1,40 @@
 package com.example.compose
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ejlchina.okhttps.OkHttps.newBuilder
-import com.ejlchina.okhttps.internal.HttpClient
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.theme.ComposeTheme
 import com.example.whatrubbish.Bus
-import com.example.whatrubbish.dto.Problem
+import com.example.whatrubbish.entity.ImUser
+import com.example.whatrubbish.service.UserServiceKt
 import com.example.whatrubbish.util.HttpUtil
 import com.example.whatrubbish.util.JsonUtil
 import com.example.whatrubbish.util.ThreadPoolFactory
-import com.example.whatrubbish.util.ThreadPoolManager
+import okhttp3.*
 //import com.facebook.stetho.json.ObjectMapper
-import com.google.gson.JsonObject
-import java.nio.file.attribute.AclEntry.newBuilder
-import java.util.concurrent.FutureTask
-import kotlin.math.log
 //import com.mashape.unirest.http.ObjectMapper
 //import com.example.httputil.HttpUtil
-import kotlin.reflect.KProperty
-import com.google.gson.Gson
-import com.squareup.okhttp.OkHttpClient
-import okhttp3.FormBody
-import okhttp3.Request
 import java.io.IOException
 
 
@@ -110,21 +109,327 @@ fun textFeildTest(){
 fun Content() {
 //    compose 居中
     ComposeTheme {
-        Column(  modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(),
+//        https://blog.csdn.net/unreliable_narrator/article/details/122544446
+        Column(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .fillMaxHeight(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
             // A surface container using the 'background' color from the theme
-            Surface(color = MaterialTheme.colors.background) {
-                Greeting("Android")
-            }
-            login()
+//            Surface(color = MaterialTheme.colors.background) {
+//                Greeting("Android")
+//            }
+//            login()
+//            HelloCompose()
+            MainView()
         }
 
 
     }
 }
+
+val first_screen="first_screen"
+val login_screen="login_screen"
+@Composable
+fun MainView(){
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = login_screen){
+//        composable("first_screen"){
+//            FirstScreen(navController = navController)
+//        }
+
+        composable(login_screen){
+            LoginScreen(navController = navController)
+        }
+        composable("ChatScreen"){
+            ChatScreen(navController = navController)
+        }
+
+
+        composable("second_screen"){
+            SecondScreen(navController = navController)
+        }
+        composable("third_screen"){
+            ThirdScreen(navController = navController)
+        }
+    }
+}
+//https://juejin.cn/post/6983968223209193480
+
+@Composable
+fun FirstScreen(navController: NavController){
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.Blue),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(onClick = {
+            navController.navigate("second_screen")
+        }) {
+            Text(text = "I am First 点击我去Second")
+        }
+    }
+}
+
+//https://stackoverflow.com/questions/64675386/how-to-get-activity-in-compose
+//这个不行
+fun Context.getActivity(): AppCompatActivity? {
+    var currentContext = this
+    while (currentContext is ContextWrapper) {
+        if (currentContext is AppCompatActivity) {
+            return currentContext
+        }
+        currentContext = currentContext.baseContext
+    }
+    return null
+}
+
+@Composable
+fun LoginScreen(navController: NavController){
+
+    var username = remember {
+        mutableStateOf("18358502222")
+    }
+    var password = remember {
+        mutableStateOf("2222")
+    }
+
+    val activity = LocalContext.current as Activity
+    val context = LocalContext.current
+    Column(modifier = Modifier
+        .fillMaxSize(),
+//        .background(Color.Blue),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        TextField(
+            value = username.value,
+            onValueChange = { username.value = it }
+        )
+//        compose preview 更新很慢
+//        https://www.coder.work/article/7327856
+//        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.height(4.dp))
+        TextField(
+            value = password.value,
+            onValueChange = { password.value = it }
+        )
+//        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.height(4.dp))
+        Button(onClick = {
+
+            val okHttpClient = OkHttpClient()
+            //RequestBody:FormBody，表单键值对
+            //okhttp3.RequestBody formBody = new FormBody.Builder()
+            //        .add("username", "hfy")
+            //        .add("password", "qaz")
+            //        .build();
+
+            //RequestBody:FormBody，表单键值对
+            //okhttp3.RequestBody formBody = new FormBody.Builder()
+            //        .add("username", "hfy")
+            //        .add("password", "qaz")
+            //        .build();
+
+//            kotlin compose 获取 activity
+//            getAc
+
+
+
+           val usernameStr=username.value
+           val passwordStr=password.value
+            val formBody = FormBody.Builder()
+                .add("client_id","v-client")
+                .add("client_secret","v-client-ppp")
+                .add("grant_type","password")
+                .add("scope","select")
+                .add("username",usernameStr)
+                .add("password",passwordStr).build()
+            val getRequest: Request =
+                Request.Builder() //.url("https://api.github.com/markdown/raw")
+                    .url(Bus.baseDbUrl+"/oauth/token") //.addHeader()
+                    .post(formBody)
+                    .build()
+
+
+            val newCall = okHttpClient.newCall(getRequest)
+//            Callback.
+//            kotlin okhttp3 callback
+//            newCall.enqueue(object :Callback{
+//                override fun onFailure(call: Call, e: IOException) {
+//                    TODO("Not yet implemented")
+//                }
+//
+//                override fun onResponse(call: Call, response: Response) {
+//                    TODO("Not yet implemented")
+//                }
+//
+//            })
+
+//            https://www.jianshu.com/p/9fe3ba7cdf88
+            newCall.enqueue( object : Callback{
+
+                override fun onResponse(call: Call?, response: Response?) {
+                    var responseData = response?.body()?.let {
+                        it.string()
+                    }
+
+                    if (responseData != null) {
+                        val token = JsonUtil.strToJsonObject(responseData)
+                        Bus.token = token
+//                        navigation.
+//                        navController.navigate("second_screen")
+                        Log.i(" Bus.token", "onResponse: ${ Bus.token}")
+//                        val activity = context.getActivity()
+                        if(activity==null){
+                            Log.i("activity", "onResponse: null")
+                            return
+                        }
+
+                        userInit(activity ,navController)
+
+//                        context.getActivity()?.runOnUiThread {
+//                            activity.runOnUiThread {
+////                            没走
+//                            Log.i("navigate", "onResponse: ChatScreen ")
+//                            navController.navigate("ChatScreen")
+//                        }
+
+                    }
+
+
+//                    showResponse(responseData)
+//                    parseJsonWithGson(responseData!!)
+                }
+
+                override fun onFailure(call: Call?, e: IOException?) {
+                    e?.printStackTrace()
+                }
+            } )
+
+        }) {
+//            Text(text = "I am First login 点击我去 聊天")
+            Text(text = "登录获取 ws token")
+        }
+    }
+}
+
+fun  userInit(activity: Activity,navController: NavController){
+    UserServiceKt.userInit().enqueue(object :Callback{
+        override fun onFailure(call: Call, e: IOException) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onResponse(call: Call, response: Response) {
+//            TODO("Not yet implemented")
+            val toString = response.body()?.string()
+//            val toString = response.body().toString()
+            Log.i("user init data", "onResponse: $toString")
+            val  json= toString?.let { JsonUtil.strToJsonObject(it) }
+//            json.
+//            Bus.curUser
+
+           val me= json?.get("me")
+            if (me != null) {
+              val meObj=  me.asJsonObject
+//                Bus. curImUserObj=me.asJsonObject
+//                Bus. curImUserObj[]
+
+//                val fromJson = JsonUtil.fromJson<ImUser>(meObj)
+                val fromJson = JsonUtil.fromJson<ImUser>( meObj.toString())
+                Bus. curImUser=fromJson
+                Log.i(" Bus. curImUser", "onResponse: "+ Bus. curImUser)
+            }
+//            https://www.jianshu.com/p/3c85ad975a82
+//            JsonObjec
+
+//            val  gson= Gson()
+//            gson.to(me.asJsonObject)
+//            Gson kotlin 转化为 实体
+           val friends= json?.get("friends")
+            if (friends != null) {
+//                Bus.friends=friends.asJsonObject
+                Bus.friends=friends.asJsonArray
+                Log.i(" Bus. friends", "onResponse: "+ Bus. friends)
+            }
+
+           val groups= json?.get("groups")
+            if (groups != null) {
+                Bus.groups=groups.asJsonArray
+                Log.i(" Bus. groups", "onResponse: "+ Bus. groups)
+            }
+            Log.i("me", "onResponse: $me")
+            Log.i("friends", "onResponse: $friends")
+            Log.i("groups", "onResponse: $groups")
+
+
+            activity.runOnUiThread {
+//                            没走
+                Log.i("navigate", "onResponse: ChatScreen ")
+                navController.navigate("ChatScreen")
+            }
+        }
+
+    })
+}
+//val login_screen="login_screen"
+
+@Composable
+fun ChatScreen(navController: NavController){
+    Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        TextField(value = "1", onValueChange ={} )
+        Button(onClick = {
+            navController.navigate("third_screen")
+        }) {
+            Text(text = "I am Second 点击我去Third")
+        }
+        Button(onClick = {
+//            "/api/user/init",
+//            Request.Builder().url(Bus.baseDbUrl+"/api/user/chatUserList")
+//                .
+//            navController.navigate("third_screen")
+        }) {
+            Text(text = "发送")
+        }
+        Button(onClick = {
+            navController.navigate(login_screen)
+        }) {
+            Text(text = "返回login")
+        }
+    }
+}
+
+@Composable
+fun SecondScreen(navController: NavController){
+    Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        Button(onClick = {
+            navController.navigate("third_screen")
+        }) {
+            Text(text = "I am Second 点击我去Third")
+        }
+    }
+}
+@Composable
+fun ThirdScreen(navController: NavController){
+    Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        Button(onClick = {
+            navController.navigate("first_screen")
+        }) {
+            Text(text = "I am Third 点击我去first")
+        }
+    }
+}
+
 
 
 //@Throws(IOException::class)
@@ -218,7 +523,7 @@ fun  doLogin(username:String,password:String){
 //        I/post: login: post  {"access_token":"93b4d6f2-0216-4b44-9377-a449ccf8081b","token_type":"bearer","refresh_token":"d58b02ad-2da8-45d9-81ac-744a8e408c8b","expires_in":2000,"scope":"select"}
 
         val strToJsonObject = JsonUtil.strToJsonObject(post3)
-       val access_token= strToJsonObject?.get("access_token")?.asString
+//       val access_token= strToJsonObject?.get("access_token")?.asString
         Bus.token=strToJsonObject
 //        Request.Builder().url()
 //        okhttp3.Request req =
@@ -229,7 +534,7 @@ fun  doLogin(username:String,password:String){
 //                    .post(formBody)
 //                    .build();
 //        Authorization: "bearer " + access_token
-        HttpUtil.post3("",access_token)
+//        HttpUtil.post3("",access_token)
     }
 //            ThreadPoolManager.getInstance().execute(   FutureTask(){
 //                var post:JsonObject = HttpUtil.post(Bus.baseDbUrl + "/oauth/token",  form);
@@ -255,6 +560,47 @@ fun  doLogin(username:String,password:String){
 //            println(response.body())
 //            username.value
 }
+
+@Composable
+fun HelloCompose() {
+    // 创建NavController
+    val navController = rememberNavController()
+    // 用NavHost将NavController和导航图相关联，startDestination指定起始的可组合项
+    NavHost(navController = navController, startDestination = "first_page") {
+        // 给FirstPage可组合项指定路径
+        composable("first_page") { FirstPage(navController) }
+        // 给SecondPage可组合项指定路径
+        composable("second_page") { SecondPage(navController) }
+        // 给ThirdPage可组合项指定路径
+        //composable("third_page") { ThirdPage(navController) }
+    }
+}
+
+/**
+ *FirstPage可组合项
+ */
+@Composable
+fun FirstPage(navController: NavController) {
+    Column {
+        Text(text = "FirstPage页面")
+        Button(onClick = {
+            // 导航到SecondPage可组合项
+            navController.navigate("second_page")
+        }) {
+            Text(text = "去SecondPage")
+        }
+    }
+}
+
+/**
+ * SecondPage可组合项
+ */
+@Composable
+fun SecondPage(navController: NavController) {
+    Text(text = "SecondPage页面")
+}
+
+
 //@Preview()
 @Composable
 fun login(){
@@ -265,9 +611,9 @@ fun login(){
         mutableStateOf("")
     }
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(),
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .fillMaxHeight(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

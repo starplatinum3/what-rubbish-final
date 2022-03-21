@@ -4,10 +4,12 @@ import android.content.Context;
 
 import com.ejlchina.okhttps.GsonMsgConvertor;
 import com.ejlchina.okhttps.HTTP;
+import com.example.whatrubbish.entity.ImUser;
 import com.example.whatrubbish.entity.Rubbish;
 import com.example.whatrubbish.entity.RubbishType;
 import com.example.whatrubbish.entity.User;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -18,13 +20,19 @@ public class Bus {
     //public static  int maxPoint=5;
     public static List<Rubbish> rubbishes;
     public static   List<RubbishType>rubbishTypes;
-
+    public static String   chat_users_url= "/api/user/chatUserList";
     public static Context context;
     public static JsonObject token;
     public static  int maxPoint=50;
     //public static  int maxPoint=30;
     public static String packageName =  "com.example.whatrubbish";
     public static User curUser;
+    public static ImUser curImUser;
+    public static JsonObject curImUserObj;
+    //public static JsonObject friends;
+    public static JsonArray friends;
+    //public static JsonObject groups;
+    public static JsonArray groups;
     public static int stagesLen = 4;
 
     //   public  static  long[] stages=new  long[stagesLen];

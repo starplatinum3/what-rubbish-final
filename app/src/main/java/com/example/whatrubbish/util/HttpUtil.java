@@ -209,6 +209,101 @@ public class HttpUtil {
         return post(url, jsonBody, client);
     }
 
+    public static String postWithToken(String url,   okhttp3.RequestBody formBody) throws IOException {
+        okhttp3.OkHttpClient okHttpClient=new okhttp3.OkHttpClient();
+        String access_token = Bus.token.get("access_token").getAsString();
+
+        //RequestBody:FormBody，表单键值对
+        //okhttp3.RequestBody formBody = new FormBody.Builder()
+        //        .add("username", "hfy")
+        //        .add("password", "qaz")
+        //        .build();
+
+        okhttp3.Request getRequest = new
+                okhttp3.Request.Builder()
+                //.url("https://api.github.com/markdown/raw")
+                .url(url)
+                .addHeader("Authorization","bearer "+access_token)
+                .post(formBody)
+                .build();
+
+
+
+        //Call call = okHttpClient.newCall(getRequest);
+        okhttp3.Response response = okHttpClient.newCall(getRequest).execute();
+        if (response.isSuccessful()) {
+            return response.body().string();
+        } else {
+            throw new IOException("Unexpected code " + response);
+        }
+        //response.body().
+
+        //call.enqueue(new Callback() {
+        //    @Override
+        //    public void onFailure(Call call, IOException e) {
+        //    }
+        //
+        //    @Override
+        //    public void onResponse(Call call, okhttp3.Response response) throws IOException {
+        //        Log.i("onResponse", "okHttpPost enqueue: \n onResponse:"+ response.toString() +"\n body:" +response.body().string());
+        //    }
+        //
+        //
+        //});
+    }
+
+    public static Call post3RetCall(String url,   okhttp3.RequestBody formBody) throws IOException {
+        okhttp3.OkHttpClient okHttpClient=new okhttp3.OkHttpClient();
+        //RequestBody:FormBody，表单键值对
+        //okhttp3.RequestBody formBody = new FormBody.Builder()
+        //        .add("username", "hfy")
+        //        .add("password", "qaz")
+        //        .build();
+
+        okhttp3.Request getRequest = new
+                okhttp3.Request.Builder()
+                //.url("https://api.github.com/markdown/raw")
+                .url(url)
+                //.addHeader()
+                .post(formBody)
+                .build();
+
+
+
+        Call call = okHttpClient.newCall(getRequest);
+        //call.enqueue(new Callback() {
+        //    @Override
+        //    public void onFailure(Call call, IOException e) {
+        //
+        //    }
+        //
+        //    @Override
+        //    public void onResponse(Call call, okhttp3.Response response) throws IOException {
+        //
+        //    }
+        //});
+        return  call;
+        //okhttp3.Response response = okHttpClient.newCall(getRequest).execute();
+        //if (response.isSuccessful()) {
+        //    return response.body().string();
+        //} else {
+        //    throw new IOException("Unexpected code " + response);
+        //}
+        //response.body().
+
+        //call.enqueue(new Callback() {
+        //    @Override
+        //    public void onFailure(Call call, IOException e) {
+        //    }
+        //
+        //    @Override
+        //    public void onResponse(Call call, okhttp3.Response response) throws IOException {
+        //        Log.i("onResponse", "okHttpPost enqueue: \n onResponse:"+ response.toString() +"\n body:" +response.body().string());
+        //    }
+        //
+        //
+        //});
+    }
 
     public static String post3(String url,   okhttp3.RequestBody formBody) throws IOException {
         okhttp3.OkHttpClient okHttpClient=new okhttp3.OkHttpClient();
@@ -253,6 +348,7 @@ public class HttpUtil {
     public static String post(String url, String jsonBody, OkHttpClient client) throws IOException {
         //OkHttpClient client = new OkHttpClient();
         RequestBody body = RequestBody.create(JSON, jsonBody);
+        //RequestBody.
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)

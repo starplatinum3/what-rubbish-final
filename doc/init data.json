@@ -1,0 +1,54 @@
+{
+  "me": {
+    "remarks": null,
+    "createDate": null,
+    "createBy": null,
+    "updateDate": null,
+    "updateBy": null,
+    "delFlag": "0",
+    "id": "1505521356073209858",
+    "avatar": "http://10.0.2.2:8889/img/default-user.png",
+    "name": "2222",
+    "sign": null,
+    "mobile": "18358502222",
+    "email": null,
+    "password": null,
+    "loginName": "18358502222",
+    "deptId": null,
+    "depts": null
+  },
+  "groups": [
+    {
+      "remarks": null,
+      "createDate": null,
+      "createBy": null,
+      "updateDate": null,
+      "updateBy": null,
+      "delFlag": null,
+      "id": "e83018ca92cb441aa93484af2deb8456",
+      "name": "V-IM 讨论",
+      "avatar": "/img/group-img.png",
+      "master": null
+    }
+  ],
+  "friends": [
+    {
+      "remarks": null,
+      "createDate": null,
+      "createBy": null,
+      "updateDate": null,
+      "updateBy": null,
+      "delFlag": null,
+      "id": "cb0c145a6c104497942525f8c984f9d9",
+      "avatar": "/img/user (2).png",
+      "name": "管理员",
+      "sign": "我爱吃肉",
+      "mobile": "13699988999",
+      "email": "zhangsan@163.com",
+      "password": null,
+      "loginName": null,
+      "deptId": null,
+      "depts": null
+    }
+  ]
+}
