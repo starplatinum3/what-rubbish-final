@@ -25,6 +25,7 @@ import com.example.whatrubbish.repository.UserRepository;
 import com.example.whatrubbish.span.CustomUrlSpan;
 import com.example.whatrubbish.util.HttpUtil;
 import com.example.whatrubbish.util.ThreadPoolManager;
+import com.example.whatrubbish.util.ToastUtil;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -66,6 +67,12 @@ public class PersonalSettingActivity extends AppCompatActivity {
         binding = ActivityPersonalSettingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //initDatabase();
+        if(Bus.curUser==null){
+            ToastUtil.show(this,"没有登录");
+            return;
+        }
+        binding.edNickName.setText(Bus.curUser.getNickname());
+        binding.etAddr.setText(Bus.curUser.getAddress());
 
         binding.btnUpdate.setOnClickListener(v->{
             String  edNickNameStr = binding.edNickName.getText().toString();
@@ -100,6 +107,15 @@ public class PersonalSettingActivity extends AppCompatActivity {
         try {
             JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/update", Bus.curUser);
             Log.d("post", "updateUser: "+post);
+            if (post.get("code").getAsInt()== Bus.codeError) {
+                this.runOnUiThread(()->{
+                    ToastUtil.show(this,"修改失败 "+post.get("msg"));
+                });
+                return;
+            }
+            this.runOnUiThread(()->{
+                ToastUtil.show(this,"修改成功 "+post.get("msg"));
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }

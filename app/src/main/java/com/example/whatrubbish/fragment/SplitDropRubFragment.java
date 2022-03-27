@@ -65,6 +65,7 @@ public class SplitDropRubFragment extends Fragment {
     //    return super.onKeyDown(keyCode, event);
     //}
     //@SuppressLint("JavascriptInterface")
+    @SuppressLint("SetJavaScriptEnabled")
     void initWeb() {
         WebView webview=   binding.Toweb;
 
@@ -83,9 +84,11 @@ public class SplitDropRubFragment extends Fragment {
     //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
     @JavascriptInterface
     public String  getCurUser() {
+        //他需要token 吗
         Log.i("qcl0228", "js调用了安卓的方法");
         String json = Bus.gson.toJson(Bus.curUser);
         //return Bus.curUser;
+        //或者拿到账号密码直接登陆得了
         Log.i("json", "getCurUser: "+json);
         return json;
     }

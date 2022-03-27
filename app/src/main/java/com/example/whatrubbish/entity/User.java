@@ -39,6 +39,7 @@ public class User implements Cloneable{
     String phone;
     String address;
     Long cityId;
+    String imUserId;
 
     public Long getId() {
         return id;

@@ -342,8 +342,9 @@ public class RegionSettingSlideFragment extends Fragment implements View.OnClick
                 ImageFragment imageFragment = new ImageFragment();
 
                 //String picRes = city.getPicRes();
-                int picResInt = Integer.parseInt(picRes);
-                imageFragment.setImgId(picResInt);
+                //int picResInt = Integer.parseInt(picRes);
+                //imageFragment.setImgId(picResInt);
+                imageFragment.setImgUrl(picRes);
                 mFragment.add(new TextFragment(name));
                 mImgFragments.add(imageFragment);
                 i++;

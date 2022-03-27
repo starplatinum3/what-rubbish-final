@@ -311,6 +311,7 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
                 //
 
                 try {
+                    //来点爬虫
                     Bus.curUser.addPoint(1);
                     Log.d("Bus.curUser", "setAdapter: " + Bus.curUser);
                     JsonObject post = HttpUtil.post(Bus.baseDbUrl + Bus.userSave, Bus.curUser);

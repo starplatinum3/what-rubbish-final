@@ -11,11 +11,27 @@ import com.example.whatrubbish.entity.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.sdust.im.util.MyWebSocketClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
+import lombok.val;
+
+@Data
 public class Bus {
+
+    //MyWebSocketClient myWebSocketClient=    MyWebSocketClient.getInstance();
+    public static MyWebSocketClient myWebSocketClient;
+
+
+
+
+
+    //public static class ChatType{
+    //
+    //}
     //public static String packageName =  "com.example.smlj";
     //public static  int maxPoint=5;
     public static List<Rubbish> rubbishes;
@@ -27,6 +43,8 @@ public class Bus {
     //public static  int maxPoint=30;
     public static String packageName =  "com.example.whatrubbish";
     public static User curUser;
+    public static User curFriend;
+    public static User loginForm;
     public static ImUser curImUser;
     public static JsonObject curImUserObj;
     //public static JsonObject friends;
@@ -34,6 +52,7 @@ public class Bus {
     //public static JsonObject groups;
     public static JsonArray groups;
     public static int stagesLen = 4;
+    public static String nowFriendId =null;
 
     //   public  static  long[] stages=new  long[stagesLen];
 //   public  static  long[] stages={1,2,3,4};
@@ -55,7 +74,7 @@ public class Bus {
 //        String url = "http://" + ip + ":8889/rubbishInfo/save";
 //    String baseDbUrl = "http://" + dbIp + ":8889/rubbishInfo/list";
     public static final String baseDbUrl = "http://" + dbIp + ":8889";
-    public static final String baseWsUrl = "http://" + dbIp + ":9326";
+    public static final String baseWsUrl = "ws://" + dbIp + ":9326";
 //    public static final String tianapiBaseUrl = "http://api.tianapi.com/lajifenlei/index";
 //    public static final String tianapiBaseUrl = "http://api.tianapi.com/lajifenleinews/index?key={APIKEY}&num={num}";
     public static final String tianapiBaseUrl = "http://api.tianapi.com/lajifenlei/index?key={APIKEY}&word={word}";

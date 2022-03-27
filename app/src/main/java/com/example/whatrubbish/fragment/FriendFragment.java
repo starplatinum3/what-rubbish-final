@@ -51,6 +51,7 @@ public class FriendFragment extends Fragment {
         binding = FragmentFriendBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //binding.
         ThreadPoolManager.run(new Thread(()->{
             try {
                 addFriend("1");

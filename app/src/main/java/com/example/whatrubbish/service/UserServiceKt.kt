@@ -7,7 +7,7 @@ import java.io.IOException
 
 class UserServiceKt {
     companion object{
-        fun userInit(): Call {
+        fun userInit(): Call? {
             val okHttpClient = OkHttpClient()
 
 //            val usernameStr=username.value
@@ -20,8 +20,13 @@ class UserServiceKt {
 //                .add("scope","select")
 //                .add("username",usernameStr)
 //                .add("password",passwordStr).build()
-           val access_token= Bus.token["access_token"].asString
+            val access_tokenJson = Bus.token["access_token"];
+            if (access_tokenJson==null) {
+                return null
+            }
+           val access_token= Bus.token["access_token"]?.asString
             Log.i("access_token", "userInit: $access_token ")
+//            有token 不用账号密码
             val getRequest: Request =
                 Request.Builder() //.url("https://api.github.com/markdown/raw")
                     .url(Bus.baseDbUrl+"/api/user/init") //.addHeader()

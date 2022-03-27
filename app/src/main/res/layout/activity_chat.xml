@@ -7,8 +7,11 @@
     android:background="#f3f3f3"
     android:orientation="vertical">
 
-    <include layout="@layout/common_titlebar" />
+<!--    <include android:id="@+id/common_title_bar" layout="@layout/common_titlebar" />-->
+<!--    id 必须一样吗-->
+    <include android:id="@+id/common_titlebar" layout="@layout/common_titlebar" />
 
+    viewbind include 找不到
     <LinearLayout
         android:id="@+id/llContent"
         android:layout_width="match_parent"

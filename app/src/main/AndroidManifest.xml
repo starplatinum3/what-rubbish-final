@@ -197,6 +197,8 @@
         <activity android:name="com.example.compose.ComposeActivity" />
         <activity android:name="com.example.trash_detective.Activity.MainActivity" />
         <activity android:name="com.example.trash_detective.Activity.CameraActivity" />
+        <activity android:name=".wanandroid.WanandroidActivity" />
+        <activity android:name=".activity.SearchFriendActivity" />
 <!--        <activity android:name="com.android.soundrecorder.SoundRecorder" />-->
         <activity android:name="com.suramire.androidgame25.MainActivity"
             android:screenOrientation="landscape" />
@@ -238,6 +240,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".achievement.AchievementActivity" />
         <activity android:name=".activity.PersonalSettingActivity" />
+        <activity android:name=".activity.PersonSettingActivity" />
         <activity
             android:name="com.example.compx202_finalproject.MainActivity"
             android:theme="@style/Theme.COMPX202FinalProject" />

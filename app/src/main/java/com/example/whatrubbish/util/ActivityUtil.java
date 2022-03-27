@@ -11,4 +11,11 @@ public class ActivityUtil {
         Intent intent = new Intent(activity,cls);
         activity.startActivity(intent);
     }
+    public  static   void startActivityOnUiThread(Activity activity, Class<?> cls){
+      activity.runOnUiThread(()->{
+          startActivity(activity,cls);
+      });
+
+    }
+
 }

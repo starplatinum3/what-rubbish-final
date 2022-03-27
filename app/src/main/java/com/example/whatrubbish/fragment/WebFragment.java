@@ -1,6 +1,7 @@
 package com.example.whatrubbish.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,7 @@ public class WebFragment extends Fragment {
         //browser.loadUrl("http://www.baidu.com");
         //browser.loadUrl("https://www.baidu.com");
         //browser.loadUrl("http://www.baidu.com");
+        Log.i("url", "initWeb: "+url);
         browser.loadUrl(url);
 
         //设置可自由缩放网页

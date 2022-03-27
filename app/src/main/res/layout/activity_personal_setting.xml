@@ -66,77 +66,77 @@
 
         app:layout_constraintTop_toBottomOf="tvWhatRub"
 
-        <TextView
-            android:id="@+id/tvPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_38"
+<!--        <TextView-->
+<!--            android:id="@+id/tvPhone"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/dp_38"-->
 
-            android:layout_marginBottom="@dimen/dp_5"
-            android:text="电话号码"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/llTitle"
-            app:layout_goneMarginBottom="@dimen/dp_5" />
+<!--            android:layout_marginBottom="@dimen/dp_5"-->
+<!--            android:text="电话号码"-->
+<!--            android:textColor="@color/white"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/llTitle"-->
+<!--            app:layout_goneMarginBottom="@dimen/dp_5" />-->
         <!--        https://blog.csdn.net/u014714188/article/details/98501449-->
         <!--                    android:col="@color/white"-->
-        <EditText
+<!--        <EditText-->
 
-            android:id="@+id/etPhone"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_48"
+<!--            android:id="@+id/etPhone"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_48"-->
 
-            android:layout_marginTop="@dimen/dp_5"
-            android:background="@drawable/round_corners_bg"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPhone" />
+<!--            android:layout_marginTop="@dimen/dp_5"-->
+<!--            android:background="@drawable/round_corners_bg"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tvPhone" />-->
 
         <!--        android:layout_width="42dp"-->
-        <TextView
-            android:id="@+id/tvCode"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_20"
+<!--        <TextView-->
+<!--            android:id="@+id/tvCode"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_20"-->
 
-            android:layout_marginTop="@dimen/dp_18"
+<!--            android:layout_marginTop="@dimen/dp_18"-->
 
-            android:layout_marginBottom="@dimen/dp_5"
-            android:text="验证码"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etPhone" />
+<!--            android:layout_marginBottom="@dimen/dp_5"-->
+<!--            android:text="验证码"-->
+<!--            android:textColor="@color/white"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/etPhone" />-->
 
 
         只有下面这个是 app:layout_constraintTop_toBottomOf="@id/tvCode"
         所以他的 android:layout_marginTop="@dimen/dp_5" 才会生效
 
-        <LinearLayout
-            android:id="@+id/llCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llCode"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
 
-            android:layout_marginTop="@dimen/dp_5"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCode">
+<!--            android:layout_marginTop="@dimen/dp_5"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tvCode">-->
 
-            <EditText
+<!--            <EditText-->
 
-                android:layout_width="@dimen/dp_180"
-                android:layout_height="@dimen/dp_48"
-                android:background="@drawable/round_corners_bg" />
-
-
-
-            <Button
-                android:layout_width="@dimen/dp_90"
-                android:layout_height="@dimen/dp_40"
-                android:layout_marginStart="@dimen/dp_14"
-                android:background="@drawable/sp_fillet"
-                android:text="发送验证码"
-                android:textColor="@color/white" />
+<!--                android:layout_width="@dimen/dp_180"-->
+<!--                android:layout_height="@dimen/dp_48"-->
+<!--                android:background="@drawable/round_corners_bg" />-->
 
 
-        </LinearLayout>
+
+<!--            <Button-->
+<!--                android:layout_width="@dimen/dp_90"-->
+<!--                android:layout_height="@dimen/dp_40"-->
+<!--                android:layout_marginStart="@dimen/dp_14"-->
+<!--                android:background="@drawable/sp_fillet"-->
+<!--                android:text="发送验证码"-->
+<!--                android:textColor="@color/white" />-->
+
+
+<!--        </LinearLayout>-->
 
         <TextView
             android:id="@+id/tvNickName"
@@ -150,13 +150,14 @@
             app:layout_constraintTop_toBottomOf="@id/llCode" />
         <!--        https://blog.csdn.net/u014714188/article/details/98501449-->
         <!--                    android:col="@color/white"-->
+        android:inputType="textPassword"
         <EditText
             android:id="@+id/edNickName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"
             android:layout_marginTop="@dimen/dp_5"
             android:background="@drawable/round_corners_bg"
-            android:inputType="textPassword"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNickName" />
 
@@ -172,13 +173,14 @@
             app:layout_constraintTop_toBottomOf="@id/etPassword" />
         <!--        https://blog.csdn.net/u014714188/article/details/98501449-->
         <!--                    android:col="@color/white"-->
+        android:inputType="textPassword"
         <EditText
             android:id="@+id/etAddr"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"
             android:layout_marginTop="@dimen/dp_5"
             android:background="@drawable/round_corners_bg"
-            android:inputType="textPassword"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPasswordAgain" />
 

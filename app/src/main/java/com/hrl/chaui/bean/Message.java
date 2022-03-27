@@ -13,6 +13,7 @@ public  class Message {
      private MsgBody body;
      private MsgSendStatus sentStatus;
      private String senderId;
+     //left or right ？
      private String targetId;
      private long sentTime;
 

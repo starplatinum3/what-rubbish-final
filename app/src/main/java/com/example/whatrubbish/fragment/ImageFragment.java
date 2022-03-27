@@ -1,6 +1,7 @@
 package com.example.whatrubbish.fragment;
 
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.databinding.FragmentHomeBinding;
 import com.example.whatrubbish.databinding.FragmentImageBinding;
+import com.example.whatrubbish.util.DrawUtil;
 
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +28,15 @@ public class ImageFragment extends Fragment {
 
     FragmentImageBinding binding;
     int imgId;
+    String imgUrl;
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public int getImgId() {
         return imgId;
@@ -51,7 +62,9 @@ public class ImageFragment extends Fragment {
         View root = binding.getRoot();
 //        View view = inflater.inflate(R.layout.father_fragment,null);
         try{
-            binding.imageView.setImageResource(imgId);
+            //DrawUtil.loadImageChoose(getActivity(),imgId,binding.imageView);
+            DrawUtil.loadImageChoose(getActivity(),imgUrl,binding.imageView);
+            //binding.imageView.setImageResource(imgId);
         }catch (Resources.NotFoundException e){
             Log.i(TAG,e.getMessage());
             binding.imageView.setImageResource(R.mipmap.beijing);

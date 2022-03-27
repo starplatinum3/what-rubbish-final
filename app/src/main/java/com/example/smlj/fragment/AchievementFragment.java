@@ -15,16 +15,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.smlj.FmPagerAdapter;
 import com.example.smlj.TabFragment;
 import com.example.smlj.geren;
 import com.example.smlj.paiming;
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.activity.PersonalSettingActivity;
 import com.example.whatrubbish.databinding.ActivityAchievementBinding;
 import com.example.whatrubbish.databinding.FragmentCollectRubBinding;
 import com.example.whatrubbish.databinding.FragmentTextBinding;
 import com.example.whatrubbish.databinding.PaimingitemBinding;
+import com.example.whatrubbish.util.ActivityUtil;
+import com.example.whatrubbish.util.DrawUtil;
 import com.example.whatrubbish.util.ThreadPoolManager;
 import com.example.whatrubbish.util.ToastUtil;
 import com.google.android.material.tabs.TabLayout;
@@ -52,7 +58,10 @@ public class AchievementFragment extends Fragment {
     void setPointCnt() {
         if (Bus.curUser == null) {
             //Bus.httpDb
-            ToastUtil.show(getActivity(), "当前没有用户登录 请登录");
+            getActivity().runOnUiThread(()->{
+                ToastUtil.show(getActivity(), "当前没有用户登录 请登录");
+            });
+
 
             return;
         }
@@ -83,8 +92,33 @@ public class AchievementFragment extends Fragment {
         View root = binding.getRoot();
         tabLayout = binding.tablayout;
         viewPager = binding.mViewPager;
+        //binding. avatar.set
+        if(Bus.curUser!=null){
+            String avatarUrl = Bus.curUser.getAvatarUrl();
+            if(avatarUrl!=null){
+                //String imgUrl="https://cdn2.jianshu.io/assets/default_avatar/7-0993d41a595d6ab6ef17b19496eb2f21.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240";
+                //String imgUrlFailed="http://img5.duitang.com/uploads/item/201506/07/20150607110911_kY5cP.jpeg";
+                Glide.with(this)
+                        .load(avatarUrl)
+                        .apply(RequestOptions.bitmapTransform(new CircleCrop()))
+                        .into(binding.avatar);
+            }
+        }
 
+        binding.  setting.setOnClickListener(v->{
+            //SettingAct
+            //PersonalSettingActivity
+            ActivityUtil.startActivity(getActivity(), PersonalSettingActivity.class);
+        });
+        //可以
+        //String imgErCi="http://starplatinumora.top/images/0d301eb2419d479db005a5980d4d165c.jpg";
+        //Glide.with(this)
+        //        .load(imgErCi)
+        //        .apply(RequestOptions.bitmapTransform(new CircleCrop()))
+        //        .into(binding.avatar);
 
+        //方形的
+        //DrawUtil.loadImage(getActivity(),"https://cdn2.jianshu.io/assets/default_avatar/7-0993d41a595d6ab6ef17b19496eb2f21.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240",binding.avatar);
         tabInit();
         //
 

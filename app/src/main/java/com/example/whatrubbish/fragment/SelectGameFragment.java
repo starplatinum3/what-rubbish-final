@@ -86,6 +86,7 @@ public class SelectGameFragment extends Fragment {
     //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
     @JavascriptInterface
     public User getCurUser() {
+        //可以传给js im 的话 也可以用他的账号密码登陆  但是这里的密码是md5 的
         Log.i("qcl0228", "js调用了安卓的方法");
         return Bus.curUser;
     }

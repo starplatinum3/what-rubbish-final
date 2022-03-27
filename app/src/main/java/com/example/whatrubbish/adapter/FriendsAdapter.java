@@ -101,6 +101,10 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.VH>{
     void addFriend(User user) throws IOException {
         //new Friendship()
         Friendship build = new Friendship();
+        if(Bus.curUser==null){
+            ToastUtil.show(activity,"用户没有登录");
+            return;
+        }
         build.setSomeOneId(Bus.curUser.getId());
         build.setFriendId(user.getId());
         //Friendship build = Friendship.builder().someOneId(Bus.curUser.getId()).friendId(user.getId()).build();
@@ -110,7 +114,10 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.VH>{
         Log.d("post", "addFriend: "+post);
         //int code = post.get("code").getAsInt();
         String  msg = post.get("msg").getAsString();
-        ToastUtil.show(activity,msg);
+        getActivity().runOnUiThread(()->{
+            ToastUtil.show(activity,msg);
+        });
+
         //if(code==200){
         //    ToastUtil.show(activity,"添加成功");
         //}else{

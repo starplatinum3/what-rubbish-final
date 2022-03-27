@@ -43,6 +43,7 @@ public class ChatAdapter extends BaseQuickAdapter<Message,BaseViewHolder> {
             protected int getItemType(Message entity) {
               boolean isSend = entity.getSenderId().equals(ChatActivity.mSenderId);
                if (MsgType.TEXT==entity.getMsgType()) {
+                   //是send 出去的还是拿到的
                     return isSend ? TYPE_SEND_TEXT : TYPE_RECEIVE_TEXT;
                 }else if(MsgType.IMAGE==entity.getMsgType()){
                      return isSend ? TYPE_SEND_IMAGE : TYPE_RECEIVE_IMAGE;

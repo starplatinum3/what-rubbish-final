@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_main);
         //占位
+        //怎么传入 appdatabse
         //val navController = navHostFragment.getNavController();
        NavController  navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(binding.navView, navController);

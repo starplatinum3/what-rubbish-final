@@ -215,13 +215,19 @@ public class RegionSettingActivity extends FragmentActivity {
             if(Bus.curUser!=null){
                 Bus.curUser.setCityId(cityNow.getId());
             }
-            repository.getUserRepository().update(Bus.curUser);
+            Log.i(TAG, "onCreate:  Bus.curUser  "+ Bus.curUser);
+            //repository.getUserRepository().update(Bus.curUser);
             ThreadPoolManager.getInstance().execute(new FutureTask<>(new Thread(()->{
                 try {
                     //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/save", Bus.curUser);
                     JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/updateCity", Bus.curUser);
                     //int id = post.get("id").getAsInt();
                     //int msg = post.get("msg").getAsInt();
+                    Log.i(TAG, "onCreate: post res "+post);
+
+                    // TODO: 2021/12/20 保存这个用户的新鲜血液 。。 信息
+                    //ActivityUtil.startActivity(this,MainActivity.class);
+                    ActivityUtil.startActivityOnUiThread(this,MainActivity.class);
 
                 }catch (Exception e){
                     e.printStackTrace();
@@ -230,8 +236,7 @@ public class RegionSettingActivity extends FragmentActivity {
 
             }),null),null);
 
-            // TODO: 2021/12/20 保存这个用户的新鲜血液 。。 信息
-            ActivityUtil.startActivity(this,MainActivity.class);
+
 
         });
 

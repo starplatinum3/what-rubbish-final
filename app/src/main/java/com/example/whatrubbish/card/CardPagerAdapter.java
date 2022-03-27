@@ -119,6 +119,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter{
                 return;
             }
 //            传送了 url 让他去 显示
+//            去显示数据 爬虫吗
             mySendValue.  onCardViewClicked( cardItem.getUrl());
             //MySendValue
             Log.d("Bus.curUser", "instantiateItem: "+Bus.curUser);

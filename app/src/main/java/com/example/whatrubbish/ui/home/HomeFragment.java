@@ -41,6 +41,7 @@ import com.example.whatrubbish.fragment.CollectRubFragment;
 import com.example.whatrubbish.fragment.SplitDropRubFragment;
 import com.example.whatrubbish.neteasecloudmusictab.fragment.AchievementFragment;
 import com.example.whatrubbish.util.ActivityUtil;
+import com.example.whatrubbish.wanandroid.WanandroidActivity;
 import com.hurteng.stormplane.object.GameGoods;
 import com.suramire.androidgame25.MainActivity;
 //import com.example.whatrubbish.tabLayout.TabLayoutActivity;
@@ -266,7 +267,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             //ActivityUtil.startActivity(activity, ComposeActivityKt.class);
             ActivityUtil.startActivity(activity, ComposeActivity.class);
         });
-
+        binding.btnToWannaAndroid.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, WanandroidActivity.class);
+        });
         return root;
     }
 

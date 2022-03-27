@@ -1,9 +1,12 @@
 package com.example.whatrubbish.util
 
+import com.alibaba.fastjson.JSONObject
 import com.example.whatrubbish.entity.ImUser
 import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.google.gson.internal.Primitives
 import com.google.gson.reflect.TypeToken
+import java.util.*
 
 class JsonUtil {
 
@@ -32,6 +35,13 @@ class JsonUtil {
                 null
             }
         }
+        fun  objToStr( obj: Any): String? {
+          return  JSONObject.toJSONString(obj)
+        }
+
+
+
+
 
 //        inline fun <reified T> jsonToJsonObj(json: ): T? {
 //            return try {

@@ -12,6 +12,7 @@ import com.example.whatrubbish.dao.ArticleDao;
 import com.example.whatrubbish.dao.BasketDao;
 import com.example.whatrubbish.dao.CardDao;
 import com.example.whatrubbish.dao.CardGameDao;
+import com.example.whatrubbish.dao.ChatDao;
 import com.example.whatrubbish.dao.CityDao;
 import com.example.whatrubbish.dao.ColeFragGameNowDao;
 import com.example.whatrubbish.dao.ColeFragGameStatDao;
@@ -53,9 +54,14 @@ import com.example.whatrubbish.entity.SignInHonor;
 import com.example.whatrubbish.entity.SignInStd;
 import com.example.whatrubbish.entity.User;
 import com.example.whatrubbish.entity.WikiHistory;
+import com.example.whatrubbish.im.Chat;
 
 
-@Database(entities = {Article.class, Basket.class, Card.class, CardGame.class, City.class, ColeFragGameNow.class, ColeFragGameStat.class, Friendship.class, Game.class, GameHonor.class, GameRecord.class, Place.class, Present.class, PsnExchgRec.class, Rubbish.class, RubbishType.class, RubTyCoresp.class, ShootGame.class, SignInHonor.class, SignInStd.class, User.class, WikiHistory.class}, version = 2, exportSchema = false)
+@Database(entities = {Article.class, Basket.class, Card.class, CardGame.class, City.class,
+        ColeFragGameNow.class, ColeFragGameStat.class, Friendship.class, Game.class, GameHonor.class,
+        GameRecord.class, Place.class, Present.class, PsnExchgRec.class, Rubbish.class,
+        RubbishType.class, RubTyCoresp.class, ShootGame.class, SignInHonor.class,
+        SignInStd.class, User.class, WikiHistory.class, Chat.class}, version = 3, exportSchema = false)
 @TypeConverters({RoomConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -71,6 +77,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CardGameDao cardGameDao();
 
     public abstract CityDao cityDao();
+    public abstract ChatDao chatDao();
 
     public abstract ColeFragGameNowDao coleFragGameNowDao();
 

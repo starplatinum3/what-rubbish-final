@@ -7,9 +7,12 @@
         android:title="@string/title_home" />
     android:icon="@drawable/ic_home_black_24dp"
     android:title="@string/title_home"
+    android:icon="@mipmap/group_1"
+    android:icon="@drawable/ic_home_black_24dp"
+    android:icon="@mipmap/home"
     <item
         android:id="@+id/navigation_main"
-        android:icon="@mipmap/group_1"
+        android:icon="@mipmap/home"
         android:title="首页" />
 
     <!--    <item-->
@@ -22,20 +25,27 @@
     <!--        android:title="@string/title_dashboard" />-->
     item 设置 icon 大小
     android:iconTint=""
+    android:icon="@mipmap/group_2"
+    android:icon="@mipmap/wiki"
+    android:icon="@mipmap/wiki_128"
+    android:icon="@mipmap/find"
     <item
         android:id="@+id/navigation_wiki"
-        android:icon="@mipmap/group_2"
+        android:icon="@mipmap/browse"
         android:title="百科" />
 
     <!--    <item-->
     <!--        android:id="@+id/navigation_notifications"-->
     <!--        android:icon="@drawable/ic_notifications_black_24dp"-->
     <!--        android:title="@string/title_notifications" />-->
-
+    android:icon="@mipmap/group_3"
+    android:icon="@mipmap/message"
+    android:icon="@mipmap/feedback"
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@mipmap/group_3"
+        android:icon="@mipmap/notification"
         android:title="消息" />
+<!--    显示不出啊-->
 
     android:alphabeticModifiers=""
     <!--    <item-->
@@ -43,10 +53,12 @@
     <!--        android:id="@+id/navigation_personal"-->
     <!--        android:icon="@drawable/ic_notifications_black_24dp"-->
     <!--        android:title="个人" />-->
-
+    android:icon="@mipmap/group_4"
+    android:icon="@mipmap/personal"
+    android:icon="@mipmap/mine"
     <item
         android:id="@+id/navigation_personal"
-        android:icon="@mipmap/group_4"
+        android:icon="@mipmap/user"
         android:title="个人" />
 
 </menu>

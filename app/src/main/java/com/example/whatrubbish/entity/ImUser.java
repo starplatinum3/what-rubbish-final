@@ -4,11 +4,13 @@ import java.io.Serializable;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@ToString
 public class ImUser  extends BaseEntity<ImUser> implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,5 +42,6 @@ public class ImUser  extends BaseEntity<ImUser> implements Serializable {
 
 
     private Integer rubUserId;
+    private Integer cityId;
 
 }

@@ -26,16 +26,23 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.theme.ComposeTheme
 import com.example.whatrubbish.Bus
+import com.example.whatrubbish.constant.MessageInfoType
 import com.example.whatrubbish.entity.ImUser
+import com.example.whatrubbish.im.SendInfo
+import com.example.whatrubbish.im.SendMsg
 import com.example.whatrubbish.service.UserServiceKt
 import com.example.whatrubbish.util.HttpUtil
 import com.example.whatrubbish.util.JsonUtil
 import com.example.whatrubbish.util.ThreadPoolFactory
+import com.sdust.im.util.MyWebSocketClient
 import okhttp3.*
+import org.java_websocket.client.WebSocketClient
 //import com.facebook.stetho.json.ObjectMapper
 //import com.mashape.unirest.http.ObjectMapper
 //import com.example.httputil.HttpUtil
 import java.io.IOException
+import java.lang.StringBuilder
+import java.util.*
 
 
 //Compose fragment
@@ -319,7 +326,7 @@ fun LoginScreen(navController: NavController){
 }
 
 fun  userInit(activity: Activity,navController: NavController){
-    UserServiceKt.userInit().enqueue(object :Callback{
+    UserServiceKt.userInit()?.enqueue(object :Callback{
         override fun onFailure(call: Call, e: IOException) {
             TODO("Not yet implemented")
         }
@@ -378,12 +385,36 @@ fun  userInit(activity: Activity,navController: NavController){
 }
 //val login_screen="login_screen"
 
+//信息的类型 MSG_PING 心跳 、MSG_READY 链接就绪  MSG_MESSAGE 消息
+//val MessageInfoType = mapof{
+//    MSG_PING to "0",
+//    MSG_READY: "1",
+//    MSG_MESSAGE: "2"
+//};
+//kotlin interface
 @Composable
 fun ChatScreen(navController: NavController){
+//    var webSocketClient: WebSocketClient? = null
+    var webSocketClient: WebSocketClient
+    val sb = StringBuilder()
+    val activity = LocalContext.current as Activity
+//    myWebSocketClient
+    val myWebSocketClient=    MyWebSocketClient.getInstance()
+    var showMessage = remember {
+//        Bus
+        mutableStateOf("这里显示log")
+    }
+    var sendMessage = remember {
+        mutableStateOf("这里输入发送的消息")
+    }
+//    println(1)
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        TextField(value = "1", onValueChange ={} )
+//        TextField(value = "1", onValueChange ={} )
+
+        Text(text = "这里输入发送的消息")
+        TextField(value = sendMessage.value, onValueChange ={} )
         Button(onClick = {
             navController.navigate("third_screen")
         }) {
@@ -394,6 +425,102 @@ fun ChatScreen(navController: NavController){
 //            Request.Builder().url(Bus.baseDbUrl+"/api/user/chatUserList")
 //                .
 //            navController.navigate("third_screen")
+            //String host="localhost";
+            //String host="starplatinumora.top";
+            val host = Bus.dbIp
+
+            val port = "9326"
+            //URI serverURI = URI.create("ws://192.168.1.199:8887");
+            //URI serverURI = URI.create("ws://192.168.1.199:8887");
+//            val uriStr = String.format("ws://%s:%s", host, port)
+            Log.i("Bus.token", "ChatScreen: ${Bus.token}")
+//            val uriStr = String.format("ws://%s:%s?token=%s", host, port, Bus.token.asString)
+            val uriStr = String.format("ws://%s:%s?token=%s", host, port, Bus.token["access_token"].asString)
+//            "?token=" + StoreUtils.getAccessToken()
+            Log.i("uriStr", "ChatScreen: $uriStr")
+
+//          val myWebSocketClient=    MyWebSocketClient.getInstance()
+
+
+//            val serverURI = URI.create(uriStr)
+//
+//            webSocketClient = object : WebSocketClient(serverURI) {
+//                override fun onOpen(handshakedata: ServerHandshake) {
+//                    Log.i("webSocketClient", "onOpen: ")
+//                    sb.append("onOpen at time：")
+//                    sb.append(Date())
+//                    sb.append("服务器状态：")
+//                    sb.append(handshakedata.httpStatusMessage)
+//                    sb.append("\n")
+//                    showMessage.value=sb.toString()
+////                    showMessage.setText(sb.toString())
+//                    webSocketClient.send(sendMessage.value)
+//                }
+//
+//                override fun onMessage(message: String) {
+//                    Log.i("webSocketClient", "onMessage: $message")
+//                    val handlerMessage = Message.obtain()
+//                    handlerMessage.obj = message
+////                    handler.sendMessage(handlerMessage)
+//                }
+//
+//                override fun onClose(code: Int, reason: String, remote: Boolean) {
+//                    Log.i("webSocketClient", "onClose: ")
+//                    sb.append("onClose at time：")
+//                    sb.append(Date())
+//                    sb.append("\n")
+//                    sb.append("onClose info:")
+//                    sb.append(code)
+//                    sb.append(reason)
+//                    sb.append(remote)
+//                    sb.append("\n")
+//
+//                    showMessage.value=sb.toString()
+//                }
+//
+//                override fun onError(ex: Exception) {
+//                    Log.i("webSocketClient", "onError: ")
+//                    sb.append("onError at time：")
+//                    sb.append(Date())
+//                    sb.append("\n")
+//                    sb.append(ex)
+//                    sb.append("\n")
+//                    showMessage.value=sb.toString()
+////                    showMessage.setText(sb.toString())
+//                }
+//            }
+////            ToastUtil.show(this, "开始连接")
+//            ToastUtil.show(activity, "开始连接")
+//            Log.i("start connect", "onCreate: start ")
+//            webSocketClient.connect()
+//            还没有链接成功
+//            webSocketClient.send("2")
+        }) {
+            Text(text = "建立连接")
+        }
+        Button(onClick = {
+            Log.i("发送", "ChatScreen: 发送 ${sendMessage.value}")
+
+
+            val sendInfo= SendInfo()
+            sendInfo.code=MessageInfoType.MSG_MESSAGE
+            sendInfo.message=com.example.whatrubbish.im.Message()
+            sendInfo.message.username=Bus.curUser.username
+            sendInfo.message.content=sendMessage.value
+//            jsonOBject 转化str
+//            JSONObject.toJSONString(sendInfo)
+            Log.i("sendInfo", "ChatScreen: $sendInfo")
+            val sendString = JsonUtil.objToStr(sendInfo)
+//            myWebSocketClient.sendStr(sendInfo.toString())
+            myWebSocketClient.sendStr(sendString)
+//            JsonUtil.
+//            MessageInfoType.MSG_MESSAGE
+//            MessageInfoType.M
+           val sendMsg=  SendMsg()
+            sendMsg.chatId="1"
+//            还是这个问题 chatid哪里来的
+//            朋友里来的 有朋友的列表
+//           todo 先要load 朋友的列表
         }) {
             Text(text = "发送")
         }
@@ -402,6 +529,9 @@ fun ChatScreen(navController: NavController){
         }) {
             Text(text = "返回login")
         }
+        Text(text = "这里显示log")
+        TextField(value = showMessage.value, onValueChange ={} )
+//        TextField(value = showMessage, onValueChange = {})
     }
 }
 
