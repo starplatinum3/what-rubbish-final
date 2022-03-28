@@ -69,6 +69,7 @@ dependencies {
 //    runtimeOnly 'androidx.paging:paging-compose:1.0.0-alpha13'
 //    runtimeOnly 'androidx.paging:paging-compose:1.0.0-alpha12'
 
+    implementation 'com.github.LRH1993:recyclerview_helper:V1.0.3'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

@@ -24,6 +24,7 @@ import com.example.smlj.geren;
 import com.example.smlj.paiming;
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.activity.AbsActivity;
 import com.example.whatrubbish.activity.PersonalSettingActivity;
 import com.example.whatrubbish.databinding.ActivityAchievementBinding;
 import com.example.whatrubbish.databinding.FragmentCollectRubBinding;
@@ -103,6 +104,11 @@ public class AchievementFragment extends Fragment {
                         .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                         .into(binding.avatar);
             }
+            String nickname = Bus.curUser.getNickname();
+            if(nickname!=null){
+                binding. tvNickName.setText(nickname);
+            }
+
         }
 
         binding.  setting.setOnClickListener(v->{
@@ -132,6 +138,11 @@ public class AchievementFragment extends Fragment {
 
         });
         ThreadPoolManager.run(thread);
+
+        binding.avatar.setOnClickListener(v -> {
+            //开始游戏
+            ActivityUtil.startActivity(getActivity(), AbsActivity.class);
+        });
         return root;
     }
 

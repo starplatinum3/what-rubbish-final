@@ -28,6 +28,7 @@ import com.example.whatrubbish.MainActivity;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.constant.ChatType;
 import com.example.whatrubbish.constant.MessageInfoType;
+import com.example.whatrubbish.constant.MessageTargetType;
 import com.example.whatrubbish.databinding.ActivityChatBinding;
 import com.example.whatrubbish.databinding.ActivityRegionSettingBinding;
 import com.example.whatrubbish.db.AppDatabase;
@@ -507,8 +508,12 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
         sendInfo.message.content = sendMessage;
         //朋友应该是imuser 类型吧
         sendInfo.message.chatId = Bus.curFriend.getId() + "";
+        sendInfo.message.fromId = Bus.curUser.getId() + "";
+        sendInfo.message.type = MessageTargetType.FRIEND;
+        //MessageInfoType.Companion.getMSG_MESSAGE()
 //            jsonOBject 转化str
 //            JSONObject.toJSONString(sendInfo)
+//        他这里绑定的接收消息是。。 根据token吗
         Log.i("sendInfo", "ChatScreen: " + sendInfo);
         String sendString = JsonUtil.Companion.objToStr(sendInfo);
 //            myWebSocketClient.sendStr(sendInfo.toString())

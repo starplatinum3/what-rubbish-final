@@ -33,7 +33,10 @@ import com.example.whatrubbish.RegisterActivity;
 import com.example.whatrubbish.achievement.AchievementActivity;
 import com.example.whatrubbish.achievement.AchievementActivitySelf;
 //import com.example.whatrubbish.activity.MyAppActivity;
+import com.example.whatrubbish.activity.AbsActivity;
+import com.example.whatrubbish.activity.GameStageActivity;
 import com.example.whatrubbish.activity.NoBottomNavActivity;
+import com.example.whatrubbish.activity.RecMsgActivity;
 import com.example.whatrubbish.activity.WsTestActivity;
 import com.example.whatrubbish.constant.MoveConstant;
 import com.example.whatrubbish.databinding.FragmentHomeBinding;
@@ -145,8 +148,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         //ObjectAnimator.ofFloat(binding.btnToRegister, MoveConstant.translationX, 0, 200, -200,0).;
 
         //可以同时 这是相对于 自己本来的位置吗
-        ObjectAnimator.ofFloat(binding.btnToRegister, MoveConstant.translationX, 0, 200, -200, 0).setDuration(2000).start();
-        ObjectAnimator.ofFloat(binding.btnToRegister, MoveConstant.translationY, 0, 200, -200, 0).setDuration(2000).start();
+        //ObjectAnimator.ofFloat(binding.btnToRegister, MoveConstant.translationX, 0, 200, -200, 0).setDuration(2000).start();
+        //ObjectAnimator.ofFloat(binding.btnToRegister, MoveConstant.translationY, 0, 200, -200, 0).setDuration(2000).start();
 //————————————————
 //        版权声明：本文为CSDN博主「钉某人」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 //        原文链接：https://blog.csdn.net/xiaochuanding/article/details/73290917
@@ -270,6 +273,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btnToWannaAndroid.setOnClickListener(v -> {
             ActivityUtil.startActivity(activity, WanandroidActivity.class);
         });
+        binding.btnToRecMsgActivity.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, RecMsgActivity.class);
+        });
+        binding.btnToGameStageActivity.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, GameStageActivity.class);
+        });
+        binding.btnToAbsActivity.setOnClickListener(v -> {
+            Log.i("AbsActivity", "onCreateView: start");
+            ActivityUtil.startActivity(activity, AbsActivity.class);
+        });
+
+
         return root;
     }
 

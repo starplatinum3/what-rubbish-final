@@ -23,6 +23,7 @@ import com.example.whatrubbish.dao.GameRecordDao;
 import com.example.whatrubbish.dao.PlaceDao;
 import com.example.whatrubbish.dao.PresentDao;
 import com.example.whatrubbish.dao.PsnExchgRecDao;
+import com.example.whatrubbish.dao.RecMsgDao;
 import com.example.whatrubbish.dao.RubbishDao;
 import com.example.whatrubbish.dao.RubbishTypeDao;
 import com.example.whatrubbish.dao.RubTyCorespDao;
@@ -46,6 +47,7 @@ import com.example.whatrubbish.entity.GameRecord;
 import com.example.whatrubbish.entity.Place;
 import com.example.whatrubbish.entity.Present;
 import com.example.whatrubbish.entity.PsnExchgRec;
+import com.example.whatrubbish.entity.RecMsg;
 import com.example.whatrubbish.entity.Rubbish;
 import com.example.whatrubbish.entity.RubbishType;
 import com.example.whatrubbish.entity.RubTyCoresp;
@@ -56,12 +58,15 @@ import com.example.whatrubbish.entity.User;
 import com.example.whatrubbish.entity.WikiHistory;
 import com.example.whatrubbish.im.Chat;
 
+//import cn.chenjianlink.android.alarmclock.dao.LogInfoDao;
+//import cn.chenjianlink.android.alarmclock.model.LogInfo;
+//, LogInfo.class
 
 @Database(entities = {Article.class, Basket.class, Card.class, CardGame.class, City.class,
         ColeFragGameNow.class, ColeFragGameStat.class, Friendship.class, Game.class, GameHonor.class,
         GameRecord.class, Place.class, Present.class, PsnExchgRec.class, Rubbish.class,
         RubbishType.class, RubTyCoresp.class, ShootGame.class, SignInHonor.class,
-        SignInStd.class, User.class, WikiHistory.class, Chat.class}, version = 3, exportSchema = false)
+        SignInStd.class, User.class, WikiHistory.class, Chat.class, RecMsg.class}, version = 3, exportSchema = false)
 @TypeConverters({RoomConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -69,7 +74,7 @@ public abstract class AppDatabase extends RoomDatabase {
     static String dbFileName = "whatRubbish.db";
 
     public abstract ArticleDao articleDao();
-
+    //public abstract LogInfoDao logInfoDao();
     public abstract BasketDao basketDao();
 
     public abstract CardDao cardDao();
@@ -80,6 +85,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract ChatDao chatDao();
 
     public abstract ColeFragGameNowDao coleFragGameNowDao();
+
+    public abstract RecMsgDao recMsgDao();
 
     public abstract ColeFragGameStatDao coleFragGameStatDao();
 

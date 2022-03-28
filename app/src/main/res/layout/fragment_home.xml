@@ -214,6 +214,24 @@
             android:layout_height="wrap_content"
             android:text="btnToWannaAndroid"
             app:layout_constraintTop_toBottomOf="@id/btnToWsLogin" />
+        <Button
+            android:id="@+id/btnToRecMsgActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToRecMsgActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToWannaAndroid" />
+        <Button
+            android:id="@+id/btnToGameStageActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToGameStageActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToRecMsgActivity" />
+        <Button
+            android:id="@+id/btnToAbsActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="toAbsActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToGameStageActivity" />
 
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->

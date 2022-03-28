@@ -332,6 +332,7 @@ public class login extends Activity {
                     ActivityUtil.startActivity(login.this, MainActivity.class);
                 }
                 Bus.myWebSocketClient= MyWebSocketClient.getInstance();
+                Bus.myWebSocketClient.setContext(login.this);
 
             }
         };

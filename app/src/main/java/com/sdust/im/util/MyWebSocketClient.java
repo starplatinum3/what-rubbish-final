@@ -1,8 +1,12 @@
 package com.sdust.im.util;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.whatrubbish.Bus;
+import com.example.whatrubbish.dao.RecMsgDao;
+import com.example.whatrubbish.db.AppDatabase;
+import com.example.whatrubbish.entity.RecMsg;
 
 import org.java_websocket.enums.ReadyState;
 import org.java_websocket.handshake.ServerHandshake;
@@ -11,7 +15,10 @@ import org.slf4j.LoggerFactory;
  
 import java.net.URI;
 import java.net.URISyntaxException;
- 
+import java.util.Date;
+
+//import cn.chenjianlink.android.alarmclock.model.LogInfo;
+
 /**
  * websocket client 客户端端控制
  */
@@ -33,7 +40,17 @@ public class MyWebSocketClient extends org.java_websocket.client.WebSocketClient
  
     private int sendFlag = 0;
     private String result = null;
- 
+
+    Context context;
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
     static {
         try {
             instance = new MyWebSocketClient(wsUrl);
@@ -90,10 +107,26 @@ public class MyWebSocketClient extends org.java_websocket.client.WebSocketClient
     }
  
     @Override
-    public void onMessage(String s) {
-        result = s;
+    public void onMessage(String received) {
+        result = received;
         sendFlag = 0;
-        logger.debug(" ws 接收服务器推送的消息！！" + s);
+        logger.debug(" ws 接收服务器推送的消息！！" + received);
+        //后台监听的消息 怎么发送 就是存下来吧
+        //PoolT
+        //new RecMsgDao();
+        //ws 安卓 想要储存数据
+
+        AppDatabase database = AppDatabase.getDatabase(context);
+        RecMsg recMsg = new RecMsg();
+        recMsg.setMsg(received);
+        recMsg.setDate(new Date());
+        database.recMsgDao().insert(recMsg);
+
+
+        //LogInfo logInfo = new LogInfo(null);
+        //logInfo.setContent(received);
+        //logInfo.setDate(new Date());
+        //database.logInfoDao().insert(logInfo);
     }
  
     @Override

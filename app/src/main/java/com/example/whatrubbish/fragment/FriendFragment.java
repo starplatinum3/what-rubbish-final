@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,8 +27,10 @@ import com.example.whatrubbish.databinding.FragmentFriendBinding;
 import com.example.whatrubbish.entity.User;
 import com.example.whatrubbish.gridIcons.DividerGridItemDecoration;
 import com.example.whatrubbish.util.HttpUtil;
+import com.example.whatrubbish.util.ThreadPoolFactory;
 import com.example.whatrubbish.util.ThreadPoolManager;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.io.IOException;
@@ -51,14 +55,49 @@ public class FriendFragment extends Fragment {
         binding = FragmentFriendBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //EditText 点击
+        //binding.edName.
+        //binding.btnSearch.setOnClickListener(v -> {
+        binding.btnSearchNick.setOnClickListener(v -> {
+            ThreadPoolManager.run(new Thread(()->{
+                try {
+                    //昵称
+                    String name = binding.edName.getText().toString();
+                    addFriend(name);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }));
+        });
+
+        binding.btnSearch.setOnClickListener(v -> {
+            ThreadPoolFactory.getExecutorService().execute(()->{
+                try {
+                    //昵称
+                    //String name = binding.edName.getText().toString();
+                    String name = binding.edUsername.getText().toString();
+                    addFriendByUsername(name);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        });
         //binding.
-        ThreadPoolManager.run(new Thread(()->{
+        //ThreadPoolManager.run(new Thread(()->{
+        //    try {
+        //        addFriend("1");
+        //    } catch (Exception e) {
+        //        e.printStackTrace();
+        //    }
+        //}));
+        ThreadPoolFactory.getExecutorService().execute(()->{
             try {
-                addFriend("1");
-            } catch (Exception e) {
+                initFriends();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-        }));
+        });
+
         return root;
     }
 
@@ -77,6 +116,28 @@ public class FriendFragment extends Fragment {
         void onBtnToMainClick();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    void initFriends() throws IOException {
+        User build = new User();
+        //build.setUsername(username);
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByUsernameLike", build);
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByNicknameLike", build);
+
+        String format = String.format("/user/list?pageNumber=%s&pageSize=%s", "0", "20");
+        JsonObject post = HttpUtil.post(Bus.baseDbUrl +format, build);
+        JsonElement data = post.get("data");
+        JsonObject asJsonObject = data.getAsJsonObject();
+        JsonArray dataArr = asJsonObject.get("content").getAsJsonArray();
+        //JsonArray dataArr = post.get("data").getAsJsonArray();
+
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + Bus.cityFindByPicResNotNull, new City());
+        //JsonArray asJsonArray = post.get(Bus.contentMark).getAsJsonArray();
+        User[] users = Bus.gson.fromJson(dataArr, User[].class);
+        activity.runOnUiThread(() -> {
+            setStrAdapter(users);
+        });
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("WrongConstant")
@@ -84,8 +145,11 @@ public class FriendFragment extends Fragment {
         //HttpUtil.post(Bus.baseDbUrl+Bus.userList, User.builder().username(username))
         //User build = User.builder().username(username).build();
         User build = new User();
-        build.setUsername(username);
-        JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByUsernameLike", build);
+        //build.setUsername(username);
+        build.setNickname(username);
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByUsernameLike", build);
+        JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByNicknameLike", build);
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/list", build);
         JsonArray dataArr = post.get("data").getAsJsonArray();
 
         //JsonObject post = HttpUtil.post(Bus.baseDbUrl + Bus.cityFindByPicResNotNull, new City());
@@ -95,6 +159,27 @@ public class FriendFragment extends Fragment {
             setStrAdapter(users);
         });
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @SuppressLint("WrongConstant")
+    void addFriendByUsername(String username) throws IOException {
+        //HttpUtil.post(Bus.baseDbUrl+Bus.userList, User.builder().username(username))
+        //User build = User.builder().username(username).build();
+        User build = new User();
+        build.setUsername(username);
+        JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByUsernameLike", build);
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/findByNicknameLike", build);
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/user/list", build);
+        JsonArray dataArr = post.get("data").getAsJsonArray();
+
+        //JsonObject post = HttpUtil.post(Bus.baseDbUrl + Bus.cityFindByPicResNotNull, new City());
+        //JsonArray asJsonArray = post.get(Bus.contentMark).getAsJsonArray();
+        User[] users = Bus.gson.fromJson(dataArr, User[].class);
+        activity.runOnUiThread(() -> {
+            setStrAdapter(users);
+        });
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("WrongConstant")

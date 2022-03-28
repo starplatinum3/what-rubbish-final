@@ -120,8 +120,16 @@
         <activity android:name="com.example.smlj.logo"/>
         <activity android:name=".activity.NoBottomNavActivity"/>
         <activity android:name="com.richard.hitball.MainActivity"/>
+        <activity android:name=".activity.RecMsgActivity"/>
+        <activity android:name=".activity.GameStageActivity"/>
+        <activity android:name=".activity.AbsActivity"
+            android:screenOrientation="landscape"
+          />
+        android:screenOrientation="portrait"
+<!--        landscape-->
         <activity android:name="com.example.androidteris.MainActivity"/>
         <activity android:name="com.bn.tl.anzhi.BasketBall_Shot_Activity"/>
+<!--        <activity android:name=".logInfo.LogInfoActivity"/>-->
         <activity android:name="com.quchen.flappycow.MainActivity"
             android:exported="true">
             <intent-filter>

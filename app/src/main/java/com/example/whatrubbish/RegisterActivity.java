@@ -1,5 +1,6 @@
 package com.example.whatrubbish;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +29,7 @@ import com.example.whatrubbish.db.Repository;
 import com.example.whatrubbish.entity.User;
 import com.example.whatrubbish.repository.UserRepository;
 import com.example.whatrubbish.span.CustomUrlSpan;
+import com.example.whatrubbish.util.ActivityUtil;
 import com.example.whatrubbish.util.HttpUtil;
 import com.example.whatrubbish.util.JsonJavaUtil;
 import com.example.whatrubbish.util.JsonUtil;
@@ -211,12 +213,18 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.i("code", "onResponse: code "+code);
 
                     Log.i("jsonObject", "onResponse: "+jsonObject);
+                    ToastUtil.showOnUiThread(RegisterActivity.this,jsonObject.get("msg").getAsString());
                 }catch (Exception e){
                     //只是一条消息
                     //true 就是注册成功
                     //string.equals("true")
                             if("true".equals(string)){
-                                ToastUtil.showOnUiThread(RegisterActivity.this,"注册成功 "+phoneStr);
+                                //ToastUtil.showOnUiThread(RegisterActivity.this,"注册成功 "+phoneStr);
+
+                                RegisterActivity.this.runOnUiThread(()->{
+                                    ToastUtil.show(RegisterActivity.this,"注册成功 "+phoneStr);
+                                    ActivityUtil.startActivity(RegisterActivity.this,login.class);
+                                });
                             }else{
 
                             }

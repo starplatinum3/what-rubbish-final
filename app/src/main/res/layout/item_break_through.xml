@@ -1,0 +1,71 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            android:background="@mipmap/ic_to_confirm_head"
+            <FrameLayout
+                android:id="@+id/framlay_head"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:background="@mipmap/message">
+                android:src="@mipmap/ic_head"
+                <ImageView
+                    android:id="@+id/iv_head"
+                    android:layout_width="@dimen/x30"
+                    android:layout_height="@dimen/x30"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/x5"
+                    android:src="@mipmap/message" />
+
+
+            </FrameLayout>
+            <View
+                android:id="@+id/view_line_up"
+                android:layout_width="@dimen/x5"
+                android:layout_height="@dimen/x50"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorBlue"></View>
+        </FrameLayout>
+
+        android:background="@drawable/shape_round_blue_stroke_deep"
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/y30"
+            android:background="@drawable/shape_btn_bg"
+            android:gravity="center"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10"
+            android:text="第一关"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp" />
+
+        <View
+            android:id="@+id/view_line_down"
+            android:layout_width="@dimen/x5"
+            android:layout_height="@dimen/x20"
+            android:layout_gravity="bottom|center"
+            android:background="@color/colorBlue"></View>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_line_right"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/x15"
+        android:layout_weight="1"
+        android:background="@color/colorBlue"></View>
+
+</LinearLayout>

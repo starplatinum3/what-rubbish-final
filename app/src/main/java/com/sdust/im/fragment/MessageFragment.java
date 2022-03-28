@@ -11,6 +11,7 @@ import com.sdust.im.bean.ApplicationData;
 import com.sdust.im.bean.MessageTabEntity;
 import com.sdust.im.databse.ImDB;
 import com.sdust.im.global.Result;
+import com.sdust.im.util.MyWebSocketClient;
 import com.sdust.im.view.SlideCutListView;
 import com.sdust.im.view.SlideCutListView.RemoveDirection;
 import com.sdust.im.view.SlideCutListView.RemoveListener;

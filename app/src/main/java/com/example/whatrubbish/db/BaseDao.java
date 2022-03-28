@@ -60,6 +60,7 @@ public interface BaseDao<T> {
 
     @Delete
     void delete(T t);
+    //AppDatabase
 
 //    @Query("DELETE FROM author")
 //    void clearAll();

@@ -10,7 +10,8 @@
     <color name="gameBackground">#ecf0f3</color>
     <color name="textColor">#000046</color>
     <color name="colorAccent">#FFBB86FC</color>
-
+    <color name="colorBlue">#3498db</color>
+    <color name="colorWhite">#FFFFFFFF</color>
 
     <style name="TabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
         <item name="android:textAllCaps">false</item>
