@@ -232,7 +232,30 @@
             android:layout_height="wrap_content"
             android:text="toAbsActivity"
             app:layout_constraintTop_toBottomOf="@id/btnToGameStageActivity" />
-
+        <Button
+            android:id="@+id/btnToCardActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToCardActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToAbsActivity" />
+        <Button
+            android:id="@+id/btnToCardListActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToCardListActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToCardActivity" />
+        <Button
+            android:id="@+id/btnToCardComposeActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToCardComposeActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToCardListActivity" />
+        <Button
+            android:id="@+id/btnToPageUpdateMainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToPageUpdateMainActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToCardComposeActivity" />
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->

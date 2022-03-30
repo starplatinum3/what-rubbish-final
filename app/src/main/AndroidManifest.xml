@@ -128,7 +128,11 @@
         android:screenOrientation="portrait"
 <!--        landscape-->
         <activity android:name="com.example.androidteris.MainActivity"/>
+        <activity android:name=".activity.CardActivity"/>
         <activity android:name="com.bn.tl.anzhi.BasketBall_Shot_Activity"/>
+        <activity android:name=".activity.CardListActivity"/>
+        <activity android:name=".activity.CardComposeActivity"/>
+        <activity android:name="com.arjinmc.viewpagerupdatedemo.PageUpdateMainActivity"/>
 <!--        <activity android:name=".logInfo.LogInfoActivity"/>-->
         <activity android:name="com.quchen.flappycow.MainActivity"
             android:exported="true">

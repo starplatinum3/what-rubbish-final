@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center">
+    app:layout_constraintTop_toBottomOf="@+id/ViewPager"
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="347dp"
+        android:layout_height="399dp"
+        android:layout_gravity="center"
+        android:background="@drawable/greenback1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+  />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPagerChosen"
+        android:layout_width="347dp"
+        android:layout_height="399dp"
+        android:layout_gravity="center"
+        android:background="@drawable/greenback1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+</LinearLayout>

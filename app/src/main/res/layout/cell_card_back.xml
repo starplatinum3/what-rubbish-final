@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    app:layout_anchorGravity="center"
+    android:foregroundGravity="center"
+
+ >
+    android:layout_margin="20dp"
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/purple_200"-->
+<!--        android:gravity="center"-->
+<!--        android:text="反面"-->
+<!--        android:textColor="@color/colorAccent"-->
+<!--        android:textSize="30sp" />-->
+    android:layout_height="@dimen/dp_400"
+    android:scaleX="0.4"
+    android:scaleY="0.4"
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_gravity="center"
+        android:layout_width="@dimen/dp_250"
+        android:layout_height="@dimen/dp_400"
+        android:background="@mipmap/monster_ys"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_x="38dp"
+        android:layout_y="42dp"
+
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="50dp"
+
+        android:layout_marginTop="16dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginTop="64dp"
+        android:layout_x="47dp"
+        android:layout_y="149dp"
+
+        android:layout_marginEnd="44dp"
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="199dp"
+            android:layout_height="23dp"
+
+            android:layout_marginTop="16dp"
+            android:text="标题"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <ImageView
+            android:id="@+id/tv_content"
+            android:layout_width="179dp"
+            android:layout_height="203dp"
+
+            android:layout_marginTop="64dp"
+            android:src="@drawable/miku_fang"
+            android:text="主要"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:layout_x="37dp"
+        android:layout_y="614dp"
+
+
+        android:layout_marginBottom="28dp"
+
+        <TextView
+            android:id="@+id/tv_descrip"
+            android:layout_width="191dp"
+            android:layout_height="60dp"
+
+            android:layout_marginBottom="28dp"
+            android:text="描述"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

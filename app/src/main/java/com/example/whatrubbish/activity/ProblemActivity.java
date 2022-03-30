@@ -170,6 +170,8 @@ public class ProblemActivity extends AppCompatActivity {
                         //ToastUtil.show(ProblemActivity.this,"没有登录 请登录");
                         //finishActivity(1);
                         finish();
+                        //送出一张卡片
+                        ActivityUtil.startActivity(ProblemActivity.this,CardActivity.class);
                         //ActivityUtil.startActivity(this, CollectRubFragment);
                     } catch (Exception e) {
                         e.printStackTrace();

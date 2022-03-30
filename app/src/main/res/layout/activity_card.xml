@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center">
+    app:layout_constraintTop_toBottomOf="@+id/ViewPager"
+
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/mViewPager"-->
+<!--        android:layout_width="347dp"-->
+<!--        android:layout_height="399dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:background="@drawable/greenback1"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--  />-->
+    android:background="@color/green_bg"
+    android:layout_width="wrap_content"
+    android:layout_width="wrap_content"
+    android:background="@color/green_bg"
+    <FrameLayout
+
+
+        android:foregroundGravity="center"
+        android:id="@+id/main_fl_container"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="@dimen/dp_500">
+
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="@dimen/dp_300"
+        android:layout_height="@dimen/dp_300"
+        android:layout_height="@dimen/dp_350"
+        android:layout_height="@dimen/dp_400"
+        android:layout_height="@dimen/dp_350"
+        <include
+            android:layout_gravity="center"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="@dimen/dp_400"
+
+            layout="@layout/cell_card_front" />
+
+        <include
+            android:layout_gravity="center"
+            android:layout_width="@dimen/dp_250"
+
+            android:layout_height="@dimen/dp_400"
+            layout="@layout/cell_card_back" />
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="@dimen/dp_300"
+
+    </FrameLayout>
+<!--    <FrameLayout-->
+<!--        android:id="@+id/main_fl_container"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:gravity="center">-->
+
+<!--    </LinearLayout>-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recycler_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--    </androidx.recyclerview.widget.RecyclerView>-->
+
+</LinearLayout>

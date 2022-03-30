@@ -23,6 +23,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 //import com.android.soundrecorder.SoundRecorder;
+import com.arjinmc.viewpagerupdatedemo.PageUpdateMainActivity;
 import com.bn.tl.anzhi.BasketBall_Shot_Activity;
 import com.example.compose.ComposeActivity;
 import com.example.compose.ComposeActivityKt;
@@ -34,6 +35,9 @@ import com.example.whatrubbish.achievement.AchievementActivity;
 import com.example.whatrubbish.achievement.AchievementActivitySelf;
 //import com.example.whatrubbish.activity.MyAppActivity;
 import com.example.whatrubbish.activity.AbsActivity;
+import com.example.whatrubbish.activity.CardActivity;
+import com.example.whatrubbish.activity.CardComposeActivity;
+import com.example.whatrubbish.activity.CardListActivity;
 import com.example.whatrubbish.activity.GameStageActivity;
 import com.example.whatrubbish.activity.NoBottomNavActivity;
 import com.example.whatrubbish.activity.RecMsgActivity;
@@ -283,7 +287,22 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Log.i("AbsActivity", "onCreateView: start");
             ActivityUtil.startActivity(activity, AbsActivity.class);
         });
-
+        binding.btnToCardActivity.setOnClickListener(v -> {
+            Log.i("CardActivity", "onCreateView: start");
+            ActivityUtil.startActivity(activity, CardActivity.class);
+        });
+        binding.btnToCardListActivity.setOnClickListener(v -> {
+            Log.i("CardActivity", "onCreateView: start");
+            ActivityUtil.startActivity(activity, CardListActivity.class);
+        });
+        binding.btnToCardComposeActivity.setOnClickListener(v -> {
+            Log.i("CardActivity", "onCreateView: start");
+            ActivityUtil.startActivity(activity, CardComposeActivity.class);
+        });
+        binding.btnToPageUpdateMainActivity.setOnClickListener(v -> {
+            Log.i("PageUpdateMainActivity", "onCreateView: start");
+            ActivityUtil.startActivity(activity, PageUpdateMainActivity.class);
+        });
 
         return root;
     }
