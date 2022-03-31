@@ -174,7 +174,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             NormalViewHolder holder = (NormalViewHolder) viewHolder;
 
 
-            User friend = friends[position - 1];
+
             //这个类型的friend 也没事吧 反正只要都用这个就行？
             //friend
             Log.i("namelist", "onBindViewHolder: "+namelist);
@@ -184,8 +184,13 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.content.setText(contentlist.get(position - 1));
             holder.time.setText(timelist.get(position - 1));
             //holder.touxiang.setImageResource(touxianglist.get(position - 1));
-            String avatarUrl = avatarList.get(position - 1);
-            DrawUtil.loadImage(activity,avatarUrl, holder.touxiang);
+            if(mockDataYes){
+                holder.touxiang.setImageResource(touxianglist.get(position - 1));
+            }else{
+                String avatarUrl = avatarList.get(position - 1);
+                DrawUtil.loadImage(activity,avatarUrl, holder.touxiang);
+            }
+
             if (position == 1) {
                 holder.mark.setImageResource(R.mipmap.mark19);//置顶
                 if (flag == 0) {
@@ -200,29 +205,15 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 //第一个消息
 
             }
+
+            //if(mockDataYes==false){
+            //    User friend = friends[position - 1];
+            //
+            //}
+
             holder.touxiang.setOnClickListener(v->{
 
-                ThreadPoolFactory.getExecutorService().execute(()->{
-                    //Chat chat=new Chat();
-                    ////chat.setAvatar();
-                    //chat.setUserId(Bus.curUser.getId()+"");
-                    //try {
-                    //    List<Chat> select = RoomUtil.select(appDatabase.chatDao(), chat);
-                    //} catch (IllegalAccessException e) {
-                    //    e.printStackTrace();
-                    //}
-                    //activity.runOnUiThread(()->{
-                    //    ActivityUtil.startActivity(activity, SplashActivity.class);
-                    //});
-                    Bus.nowFriendId=friend.getId()+"";
-                    Bus.curFriend=friend;
-                    Log.i("Bus.nowFriendId", "onBindViewHolder: "+ Bus.nowFriendId);
-
-                    //怎么传递呢 通过statis 吗 还是 budle ？ static一般都说不好？ 但是不就是eventBus 吗
-                    ActivityUtil.startActivityOnUiThread(activity,SplashActivity.class);
-                    //todo 需要传递 userid
-
-                });
+             startChat(position);
 
             });
             //holder.
@@ -237,6 +228,39 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     }
 
+    void startChat(int position){
+        if(mockDataYes){
+            ActivityUtil.startActivity(activity,SplashActivity.class);
+            return;
+        }
+        ThreadPoolFactory.getExecutorService().execute(()->{
+            //Chat chat=new Chat();
+            ////chat.setAvatar();
+            //chat.setUserId(Bus.curUser.getId()+"");
+            //try {
+            //    List<Chat> select = RoomUtil.select(appDatabase.chatDao(), chat);
+            //} catch (IllegalAccessException e) {
+            //    e.printStackTrace();
+            //}
+            //activity.runOnUiThread(()->{
+            //    ActivityUtil.startActivity(activity, SplashActivity.class);
+            //});
+
+
+
+            User friend = friends[position - 1];
+            Bus.nowFriendId=friend.getId()+"";
+            Bus.curFriend=friend;
+            Log.i("Bus.nowFriendId", "onBindViewHolder: "+ Bus.nowFriendId);
+
+            //怎么传递呢 通过statis 吗 还是 budle ？ static一般都说不好？ 但是不就是eventBus 吗
+            ActivityUtil.startActivityOnUiThread(activity,SplashActivity.class);
+            //todo 需要传递 userid
+
+        });
+
+
+    }
     User[] friends;
 
     public User[] getFriends() {
@@ -289,7 +313,12 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     }
 
+    boolean mockDataYes=true;
     public void init() {
+        if(mockDataYes){
+            mockData();
+            return;
+        }
         //ThreadPoolExecutor.
         //ThreadPoolManager.getInstance().execute(()->{
         //    JsonObject post = HttpUtil.post(Bus.baseDbUrl + "/friendship/listFriend", Bus.curUser);
@@ -364,7 +393,10 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-
+        //加1 是因为头不是数据
+        if(mockDataYes){
+            return namelist.size()+1;
+        }
         if(friends==null){
             return 1;
         }

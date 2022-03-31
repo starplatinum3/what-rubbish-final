@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -23,10 +24,12 @@ import com.arjinmc.viewpagerupdatedemo.PageUpdateMainActivity;
 import com.example.smlj.FmPagerAdapter;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.adapter.CardPagerAdapter;
+import com.example.whatrubbish.adapter.ViewPageAdapter;
 import com.example.whatrubbish.databinding.ActivityCardBinding;
 import com.example.whatrubbish.databinding.ActivityCardComposeBinding;
 import com.example.whatrubbish.entity.Card;
 import com.example.whatrubbish.fragment.CardFragment;
+import com.example.whatrubbish.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +51,11 @@ public class CardComposeActivity extends AppCompatActivity {
 
         //flipCard();
         initCards();
+
+        binding.btnCompose.setOnClickListener(v -> {
+
+            //融合
+        });
     }
 
     private ViewPageAdapter adapter;
@@ -57,8 +65,15 @@ public class CardComposeActivity extends AppCompatActivity {
         fragmentList = new ArrayList<>();
         fragmentChosenList = new ArrayList<>();
         cards=new ArrayList<>();
-        cards.add(new Card());
-        cards.add(new Card());
+        Card card = new Card();
+        card.setStar(1);
+
+        Card card2 = new Card();
+        card2.setStar(1);
+
+        cards.add(card);
+        cards.add(card2);
+        //先前端能拿来看吧
         chosenCards=new ArrayList<>();
         adapter = new ViewPageAdapter(getSupportFragmentManager());
         adapterChosen = new ViewPageAdapter(getSupportFragmentManager());
@@ -91,8 +106,23 @@ public class CardComposeActivity extends AppCompatActivity {
 
     }
 
+    void moveCheckStart(Card remove ){
+        Integer star = remove.getStar();
+        //View view = chosenList.get(0);
+        Card card = chosenCards.get(0);
+        if(card.getStar()==null){
+            ToastUtil.show(this,"不一样的星 不能移动进来");
+            return;
+        }
+        if(card.getStar().equals(star)){
+            chosenCards.add(remove);
+        }else{
+            ToastUtil.show(this,"不一样的星 不能移动进来");
+        }
+    }
 
     void moveToChosen(int index){
+
         //fragmentList.
         //Card card = cards.get(index);
         Card remove = cards.remove(index);
@@ -100,8 +130,25 @@ public class CardComposeActivity extends AppCompatActivity {
         ////cardFragment.se
         //cardFragment.setCard(remove);
         //chosenList.add(card);
-        chosenCards.add(remove);
+        if(chosenCards.size()==0){
+
+            chosenCards.add(remove);
+
+        }else{
+            moveCheckStart(remove);
+            //Integer star = remove.getStar();
+            ////View view = chosenList.get(0);
+            //Card card = chosenCards.get(0);
+            //if(card.getStar().equals(star)){
+            //    chosenCards.add(remove);
+            //}else{
+            //    ToastUtil.show(this,"不一样的星 不能移动进来");
+            //}
+        }
+
         updateData();
+
+
     }
 
     void mockCards(){
@@ -153,10 +200,12 @@ public class CardComposeActivity extends AppCompatActivity {
             fragmentList.add(cardFragment);
         }
         //adapter = new ViewPageAdapter(getSupportFragmentManager());
-        adapter = new ViewPageAdapter(getSupportFragmentManager());
+        //adapter = new ViewPageAdapter(getSupportFragmentManager());
+        adapter = new ViewPageAdapter(getSupportFragmentManager(),
+                ViewPageAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,fragmentList);
         binding.mViewPager.setAdapter(adapter);
 
-        //updateChosen();
+        updateChosen();
 
         //fragmentChosenList.clear();
         //fragmentChosenList=new ArrayList<>();
@@ -214,7 +263,9 @@ public class CardComposeActivity extends AppCompatActivity {
         //数据清空了 重新来吗
 
 
-        adapterChosen = new ViewPageAdapter(getSupportFragmentManager());
+                //adapterChosen = new ViewPageAdapter(getSupportFragmentManager());
+        adapterChosen = new ViewPageAdapter(getSupportFragmentManager(),
+                ViewPageAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,fragmentChosenList);
         binding.mViewPagerChosen.setAdapter(adapterChosen);
     }
 
@@ -223,32 +274,32 @@ public class CardComposeActivity extends AppCompatActivity {
     private List<Fragment> fragmentChosenList;
 
     //FragmentPagerAdapter fragment 点击
-    private class ViewPageAdapter extends FragmentPagerAdapter {
-
-        //这里引用的列表 一样的
-       //List<Fragment> fragmentList = new ArrayList<>();
-        public ViewPageAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return fragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return fragmentList.size();
-        }
-
-        @Override
-        public int getItemPosition(Object object) {
-            return POSITION_NONE;
-        }
-
-        //clic
-
-    }
+    //private class ViewPageAdapter extends FragmentPagerAdapter {
+    //
+    //    //这里引用的列表 一样的
+    //   //List<Fragment> fragmentList = new ArrayList<>();
+    //    public ViewPageAdapter(FragmentManager fm) {
+    //        super(fm);
+    //    }
+    //
+    //    @Override
+    //    public Fragment getItem(int position) {
+    //        return fragmentList.get(position);
+    //    }
+    //
+    //    @Override
+    //    public int getCount() {
+    //        return fragmentList.size();
+    //    }
+    //
+    //    @Override
+    //    public int getItemPosition(Object object) {
+    //        return POSITION_NONE;
+    //    }
+    //
+    //    //clic
+    //
+    //}
 
     private class ViewPageListener implements ViewPager.OnPageChangeListener {
 

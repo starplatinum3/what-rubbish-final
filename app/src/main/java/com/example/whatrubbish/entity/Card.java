@@ -14,6 +14,8 @@ public class Card {
     String describe;
     String  imgUrl;
     String recogLabel;
+    Integer star;
+    //1星合成2 星
 //    卡片
 //            id
 //    名字

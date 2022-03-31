@@ -35,6 +35,7 @@ import com.example.whatrubbish.util.ThreadPoolFactory;
 import com.example.whatrubbish.util.ToastUtil;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.hrl.chaui.activity.ChatActivity;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -109,6 +110,7 @@ public class MessagesFragment extends Fragment {
     }
 
     void initData(){
+
         if(Bus.curUser==null){
             Log.i("没有登录", "initData: 没有登录");
             initRecyclerView(activity);

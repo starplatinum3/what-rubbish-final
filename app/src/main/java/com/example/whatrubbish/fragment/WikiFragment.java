@@ -540,7 +540,9 @@ public class WikiFragment extends Fragment {
         //这里的name 叫什么其实无所谓，因为我name 不显示，这样才能变成一个只显示图标的样式
         String name[] = {"时钟", "信号", "宝箱", "秒钟", "大象", "FF", "记事本", "书签", "印象", "商店", "主题", "迅雷"};
 
-        int icons[] = new int[]{R.mipmap.xunzhang_6, R.mipmap.xunzhang_1, R.mipmap.xunzhang_5, R.mipmap.xunzhang_7};
+        //int icons[] = new int[]{R.mipmap.xunzhang_6, R.mipmap.xunzhang_1, R.mipmap.xunzhang_5, R.mipmap.xunzhang_7};
+        int icons[] = new int[]{R.mipmap.xunzhang_6, R.mipmap.xunzhang_1, R.mipmap.xunzhang_5, R.mipmap.xunzhang_7
+                ,R.mipmap.xunzhang_2,R.mipmap.xunzhang_3};
         //icons[0]=
         //for (int i = 0; i < icons.length; i++) {
         //    icons[i] = R.drawable.miku_fang;

@@ -19,16 +19,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
   />
-
+    android:layout_width="347dp"
+    android:layout_height="399dp"
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/mViewPagerChosen"
         android:layout_width="347dp"
-        android:layout_height="399dp"
+        android:layout_height="@dimen/dp_300"
         android:layout_gravity="center"
         android:background="@drawable/greenback1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+    android:id="@+id/btn_compose"
+    <Button
+       android:id="@+id/btn_compose"
+        android:text="合成"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></Button>
 
 </LinearLayout>

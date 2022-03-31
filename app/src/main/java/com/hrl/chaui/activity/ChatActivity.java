@@ -183,20 +183,25 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         });
 
-        //common_toolbar_title.
-        CharSequence text = common_toolbar_title.getText();
-        //CharSequence text = binding.commonTitlebar.commonToolbarTitle.getText();
-        Log.i("text", "initChatUi: " + text);
-        Log.i("Bus.curFriend", "onCreate: " + Bus.curFriend);
-        //binding.commonTitlebar.commonToolbarTitle.setText(Bus.curFriend.getNickname());
-        //setText Te
-        //TextView  setText 无效
-        common_toolbar_title.setText(Bus.curFriend.getNickname());
-        CharSequence textSeted = common_toolbar_title.getText();
-        //CharSequence textSeted = binding.commonTitlebar.commonToolbarTitle.getText();
-        Log.i("textSeted", "initChatUi: " + textSeted);
+        if(mockDataYes==false){
+            //if(mo)
+            //common_toolbar_title.
+            CharSequence text = common_toolbar_title.getText();
+            //CharSequence text = binding.commonTitlebar.commonToolbarTitle.getText();
+            Log.i("text", "initChatUi: " + text);
+            Log.i("Bus.curFriend", "onCreate: " + Bus.curFriend);
+            //binding.commonTitlebar.commonToolbarTitle.setText(Bus.curFriend.getNickname());
+            //setText Te
+            //TextView  setText 无效
+            common_toolbar_title.setText(Bus.curFriend.getNickname());
+            CharSequence textSeted = common_toolbar_title.getText();
+            //CharSequence textSeted = binding.commonTitlebar.commonToolbarTitle.getText();
+            Log.i("textSeted", "initChatUi: " + textSeted);
+        }
+
     }
 
+    boolean mockDataYes=true;
     public void back(View view) {
         Intent intent = new Intent(ChatActivity.this, MainActivity.class);
         startActivity(intent);
@@ -316,7 +321,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @Override
     public void onRefresh() {
-        httpGetMsgList();
+        //httpGetMsgList();
+        mockRefresh();
 
     }
 
@@ -450,30 +456,35 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
         mRvChat.scrollToPosition(mAdapter.getItemCount() - 1);
         //模拟2秒后发送成功
         //mMessgae.getBody()
-        TextMsgBody body = (TextMsgBody) mMessgae.getBody();
-        String message = body.getMessage();
-        ThreadPoolFactory.getExecutorService().execute(() -> {
-            sendMsgWs(message);
-            updateMsgAdapter(mMessgae);
-        });
 
 
-        //new Handler().postDelayed(new Runnable() {
-        //    public void run() {
-        //        int position = 0;
-        //        mMessgae.setSentStatus(MsgSendStatus.SENT);
-        //        //更新单个子条目
-        //        for (int i = 0; i < mAdapter.getData().size(); i++) {
-        //            Message mAdapterMessage = mAdapter.getData().get(i);
-        //            //发送的消息 他的数据要变化 其他的不用变吗
-        //            //他不是最后吗？不一定的吗 还是一定是最后呢
-        //            if (mMessgae.getUuid().equals(mAdapterMessage.getUuid())) {
-        //                position = i;
-        //            }
-        //        }
-        //        mAdapter.notifyItemChanged(position);
-        //    }
-        //}, 2000);
+        if(mockDataYes){
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    int position = 0;
+                    mMessgae.setSentStatus(MsgSendStatus.SENT);
+                    //更新单个子条目
+                    for (int i = 0; i < mAdapter.getData().size(); i++) {
+                        Message mAdapterMessage = mAdapter.getData().get(i);
+                        //发送的消息 他的数据要变化 其他的不用变吗
+                        //他不是最后吗？不一定的吗 还是一定是最后呢
+                        if (mMessgae.getUuid().equals(mAdapterMessage.getUuid())) {
+                            position = i;
+                        }
+                    }
+                    mAdapter.notifyItemChanged(position);
+                }
+            }, 2000);
+        }else{
+            TextMsgBody body = (TextMsgBody) mMessgae.getBody();
+            String message = body.getMessage();
+            ThreadPoolFactory.getExecutorService().execute(() -> {
+                sendMsgWs(message);
+                updateMsgAdapter(mMessgae);
+            });
+        }
+
+
 
 
     }
