@@ -38,5 +38,11 @@
         android:text="合成"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></Button>
-
+    <VideoView
+        android:visibility="gone"
+        android:foregroundGravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/video_view"
+        android:layout_width="@dimen/dp_422"
+        android:layout_height="@dimen/dp_240" />
 </LinearLayout>

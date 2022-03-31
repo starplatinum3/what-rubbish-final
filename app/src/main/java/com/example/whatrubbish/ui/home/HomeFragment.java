@@ -41,6 +41,7 @@ import com.example.whatrubbish.activity.CardListActivity;
 import com.example.whatrubbish.activity.GameStageActivity;
 import com.example.whatrubbish.activity.NoBottomNavActivity;
 import com.example.whatrubbish.activity.RecMsgActivity;
+import com.example.whatrubbish.activity.VideoActivity;
 import com.example.whatrubbish.activity.WsTestActivity;
 import com.example.whatrubbish.constant.MoveConstant;
 import com.example.whatrubbish.databinding.FragmentHomeBinding;
@@ -302,6 +303,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btnToPageUpdateMainActivity.setOnClickListener(v -> {
             Log.i("PageUpdateMainActivity", "onCreateView: start");
             ActivityUtil.startActivity(activity, PageUpdateMainActivity.class);
+        });
+        binding.btnToVideoActivity.setOnClickListener(v -> {
+            Log.i("PageUpdateMainActivity", "onCreateView: start");
+            ActivityUtil.startActivity(activity, VideoActivity.class);
         });
 
         return root;

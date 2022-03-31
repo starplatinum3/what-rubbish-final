@@ -256,6 +256,12 @@
             android:layout_height="wrap_content"
             android:text="btnToPageUpdateMainActivity"
             app:layout_constraintTop_toBottomOf="@id/btnToCardComposeActivity" />
+        <Button
+            android:id="@+id/btnToVideoActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToVideoActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToPageUpdateMainActivity" />
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->

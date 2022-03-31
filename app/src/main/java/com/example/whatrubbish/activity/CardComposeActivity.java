@@ -4,6 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -54,7 +58,50 @@ public class CardComposeActivity extends AppCompatActivity {
 
         binding.btnCompose.setOnClickListener(v -> {
 
+            binding.btnCompose.setVisibility(View.GONE);
+            binding.mViewPager.setVisibility(View.GONE);
+            binding.mViewPagerChosen.setVisibility(View.GONE);
             //融合
+            playVideo();
+        });
+    }
+
+    void playVideo(){
+
+        VideoView videoView =  binding.videoView;
+        videoView.setVisibility(View.VISIBLE);
+        //VideoView 放完了
+        //VideoView 去除 黑边
+        //VideoView videoView = findViewById(R.id.video_view);
+        //videoView.setVideoPath("http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8");  // 香港卫视地址
+        //videoView.setVideoURI(Uri.parse("android.resource://com.leapfrog.mergelayoutswithevents/raw/videoplayback");
+        //VideoView 播放 raw
+        binding.getRoot().setBackgroundColor(Color.BLACK);
+        int drawingCacheBackgroundColor = binding.getRoot().getDrawingCacheBackgroundColor();
+        //1280
+        //720
+        //360
+        //640
+
+        //240
+        //426
+        String uri = "android.resource://" + getPackageName() + "/" + R.raw.open_card;
+        Uri parse = Uri.parse(uri);
+        videoView.setVideoURI(parse);
+        //videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/raw/open_card.mp4"));
+        videoView.start();
+        videoView.   setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                //finish();
+                //回去的时候 两个已经拼好了吗
+                videoView.setVisibility(View.GONE);
+                binding.btnCompose.setVisibility(View.VISIBLE);
+                binding.mViewPager.setVisibility(View.VISIBLE);
+                binding.mViewPagerChosen.setVisibility(View.VISIBLE);
+                binding.getRoot().setBackgroundColor(drawingCacheBackgroundColor);
+
+            }
         });
     }
 

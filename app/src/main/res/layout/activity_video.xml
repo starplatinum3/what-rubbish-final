@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/black"
+>
+    android:layout_width="@dimen/dp_400"
+    android:layout_height="@dimen/dp_300"
+    <VideoView
+        android:foregroundGravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/video_view"
+        android:layout_width="@dimen/dp_422"
+        android:layout_height="@dimen/dp_240" />
+<!--    ————————————————-->
+<!--    版权声明：本文为CSDN博主「@删库跑路」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+<!--    原文链接：https://blog.csdn.net/zhangkaiyazky/article/details/98590911-->
+</LinearLayout>
