@@ -1,5 +1,6 @@
 package com.example.whatrubbish.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,9 +9,13 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.whatrubbish.Bus;
+import com.example.whatrubbish.R;
 import com.example.whatrubbish.databinding.ActivityAbsBinding;
 import com.example.whatrubbish.databinding.ActivityGameStageBinding;
+import com.example.whatrubbish.databinding.FragmentHolderBinding;
+import com.example.whatrubbish.fragment.SplitDropRubFragment;
 import com.example.whatrubbish.util.ActivityUtil;
+import com.suramire.androidgame25.MainActivity;
 
 import java.util.StringJoiner;
 
@@ -33,12 +38,39 @@ public class AbsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
+        Activity activity=this;
         //Bus
         binding.iv1.setOnClickListener(v -> {
             //飞机游戏
             ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
         });
 
+        binding.iv2.setOnClickListener(v -> {
+            //记忆游戏
+            ActivityUtil.startActivity(this, com.snatik.matches.MainActivity.class);
+        });
+        binding.iv3.setOnClickListener(v -> {
+            //小鸟飞游戏
+            ActivityUtil.startActivity(activity, com.quchen.flappycow.MainActivity.class);
+        });
+
+        binding.iv4.setOnClickListener(v -> {
+            //FragmentHolderBinding
+            //ActivityHo
+            //HolderAc
+            //天上掉垃圾
+            //String url = "http://139.196.8.79:8890/";
+            //SplitDropRubFragment splitDropRubFragment = new SplitDropRubFragment(url);
+            ////activity budle
+            //ActivityUtil.startActivity(activity, FragmentHolderActivity.class);
+            ActivityUtil.startActivity(activity, SplitDropRubActivity.class);
+
+        });
+
+        binding.iv5.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity,com.suramire.androidgame25.MainActivity.class);
+            Log.v("btnToSuperMaria", "btnToSuperMaria");
+        });
 
         //Context context= this;
         //for (int i = 0; i < 14; i++) {

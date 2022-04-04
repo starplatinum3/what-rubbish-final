@@ -262,6 +262,12 @@
             android:layout_height="wrap_content"
             android:text="btnToVideoActivity"
             app:layout_constraintTop_toBottomOf="@id/btnToPageUpdateMainActivity" />
+        <Button
+            android:id="@+id/btnToRotate3dActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btnToRotate3dActivity"
+            app:layout_constraintTop_toBottomOf="@id/btnToVideoActivity" />
 
 <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--            android:id="@+id/bottomNav"-->

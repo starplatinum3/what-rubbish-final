@@ -60,6 +60,12 @@ dependencies {
 //    runtimeOnly 'androidx.paging:paging-runtime-ktx:3.1.1'
     implementation 'androidx.paging:paging-runtime-ktx:3.1.1'
 
+
+    implementation 'com.plattysoft.leonids:LeonidsLib:1.3.2'
+
+//    implementation 'com.github.ultimateHandsomeBoy666:Particle:0.1.1'
+    implementation 'com.github.ultimateHandsomeBoy666:Particle:0.1.2'
+//    https://juejin.cn/post/6986667003884863519
 //    implementation "androidx.paging:paging-runtime:3.0.0-beta02"
     implementation "androidx.paging:paging-runtime:3.1.1"
     implementation "androidx.paging:paging-compose:1.0.0-alpha08"

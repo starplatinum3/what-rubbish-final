@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    android:id="@+id/container"
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--        <Button-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="演示"-->
+        <!--            android:onClick="startAnimation"/>-->
+        <Button
+            android:id="@+id/btn_blow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="演示" />
+        <Button
+            android:id="@+id/btn_to_particle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="爆炸单个" />
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+
+        点了没有反应
+        https://blog.csdn.net/qq_29134495/article/details/51400587
+<!--        <TextView-->
+<!--            android:clickable="true"-->
+<!--            android:id="@+id/button"-->
+<!--            android:layout_width="@dimen/dp_220"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:background="@drawable/bg_color"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Hello World!" />-->
+        android:clickable="true"
+        <Button
+
+            android:id="@+id/button"
+            android:layout_width="@dimen/dp_220"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_color"
+            android:gravity="center"
+            android:text="Hello World!" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/front_view"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true" />
+
+            <ImageView
+                android:id="@+id/back_view"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

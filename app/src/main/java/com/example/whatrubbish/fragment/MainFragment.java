@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.LoginActivity;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.activity.AbsActivity;
 import com.example.whatrubbish.activity.TestActivity;
 import com.example.whatrubbish.card.CardItem;
 import com.example.whatrubbish.card.CardPagerAdapter;
@@ -427,7 +428,9 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         //    ActivityUtil.startActivity(activity, TestActivity.class);
         //});
         binding.ivAvatar.setOnClickListener(v->{
-            ActivityUtil.startActivity(activity, TestActivity.class);
+            //ActivityUtil.startActivity(activity, TestActivity.class);
+            //游戏进度图
+            ActivityUtil.startActivity(activity, AbsActivity.class);
         });
         return root;
     }

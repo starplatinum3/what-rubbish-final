@@ -41,6 +41,7 @@ import com.example.whatrubbish.activity.CardListActivity;
 import com.example.whatrubbish.activity.GameStageActivity;
 import com.example.whatrubbish.activity.NoBottomNavActivity;
 import com.example.whatrubbish.activity.RecMsgActivity;
+import com.example.whatrubbish.activity.Rotate3dActivity;
 import com.example.whatrubbish.activity.VideoActivity;
 import com.example.whatrubbish.activity.WsTestActivity;
 import com.example.whatrubbish.constant.MoveConstant;
@@ -119,6 +120,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         });
 
         binding.btnToWxSorting.setOnClickListener(v -> {
+            //天上掉垃圾
             String url = "http://139.196.8.79:8890/";
             activity.getSupportFragmentManager().beginTransaction().
                     replace(R.id.nav_host_fragment_activity_main, new SplitDropRubFragment(url)).
@@ -194,9 +196,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             //ActivityUtil.startActivity(activity,  com.hurteng.stormplane.MainActivity.class);
         });
         binding.btnToMemoGame.setOnClickListener(v -> {
+            //记忆游戏
             ActivityUtil.startActivity(activity, com.snatik.matches.MainActivity.class);
         });
         binding.btnToFlappy.setOnClickListener(v -> {
+            //小鸟飞游戏
             ActivityUtil.startActivity(activity, com.quchen.flappycow.MainActivity.class);
         });
 
@@ -307,6 +311,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btnToVideoActivity.setOnClickListener(v -> {
             Log.i("PageUpdateMainActivity", "onCreateView: start");
             ActivityUtil.startActivity(activity, VideoActivity.class);
+        });
+        binding.btnToRotate3dActivity.setOnClickListener(v -> {
+            ActivityUtil.startActivity(activity, Rotate3dActivity.class);
         });
 
         return root;

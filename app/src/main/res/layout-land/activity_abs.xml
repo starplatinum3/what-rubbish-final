@@ -57,7 +57,7 @@
         tools:visibility="invisible"></ImageView>
 
     <ImageView
-        android:id="@+id/imageView24"
+        android:id="@+id/iv5"
         android:layout_width="46dp"
         android:layout_height="38dp"
         android:layout_x="135dp"

@@ -1,6 +1,8 @@
 package com.snatik.matches.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 
 //imporcom.example.whatrubbish.R;R;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.activity.AbsActivity;
+import com.example.whatrubbish.activity.Rotate3dActivity;
+import com.example.whatrubbish.util.ActivityUtil;
 import com.snatik.matches.common.Shared;
 import com.snatik.matches.events.engine.FlipDownCardsEvent;
 import com.snatik.matches.events.engine.GameWonEvent;
@@ -95,7 +100,19 @@ public class GameFragment extends BaseFragment {
 	public void onEvent(GameWonEvent event) {
 		mTime.setVisibility(View.GONE);
 		mTimeImage.setVisibility(View.GONE);
+		//加一张卡片如何
+		//Activity.
 		PopupManager.showPopupWon(event.gameState);
+
+
+		int waitMs=3000;
+		//int waitMs=1000;
+		new Handler(message -> {
+			//ActivityUtil.startActivity(getActivity(), AbsActivity.class);
+			ActivityUtil.startActivity(getActivity(), Rotate3dActivity.class);
+			return false;
+		}).sendEmptyMessageDelayed(0, waitMs); // 延迟3秒
+
 	}
 
 	@Override
