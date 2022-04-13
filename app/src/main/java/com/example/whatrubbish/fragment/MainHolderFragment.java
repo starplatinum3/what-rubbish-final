@@ -93,7 +93,9 @@ public class MainHolderFragment extends Fragment {
         //getChildFragmentManager().beginTransaction().
         //        replace(R.id.mainHolder, mainFragment).addToBackStack(null).commit();
         getChildFragmentManager().beginTransaction().
-                replace(R.id.mainHolder, new MainFragment()).addToBackStack(null).commit();
+                replace(R.id.mainHolder, new MainFragment()).
+                //addToBackStack(null).
+                commit();
         //getFragmentManager()
         //binding.btnToFriend.setOnClickListener(v->{
         //    Log.d("btnToFriend", "onCreateView: btnToFriend");

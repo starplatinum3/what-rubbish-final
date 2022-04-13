@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.util.DrawUtil;
 import com.example.whatrubbish.util.ThreadPoolManager;
 import com.example.whatrubbish.util.ToastUtil;
 
@@ -71,7 +72,8 @@ class MypaimingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<String> namelist=new ArrayList<>();
     List<String> jifenlist=new ArrayList<>();
-    List<Integer> touxianglist=new ArrayList<>();
+    //List<Integer> touxianglist=new ArrayList<>();
+    List<String> touxianglist=new ArrayList<>();
     private Context context;
     public MypaimingAdapter(Context context) {
         this.context=context;
@@ -122,7 +124,9 @@ class MypaimingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if(position==0){
             holder.paim.setText(String.valueOf(position + 1));
             holder.name.setText(namelist.get(position));
-            holder.touxiang.setImageResource(touxianglist.get(position));
+            //holder.touxiang.setImageResource(touxianglist.get(position));
+            //DrawUtil.loadImageChoose(context,touxianglist.get(position),holder.touxiang);
+            DrawUtil.loadRoundImageChoose(context,touxianglist.get(position),holder.touxiang);
             Thread thread = new Thread(() -> {
                 try{
                     setPointCnt();
@@ -138,7 +142,10 @@ class MypaimingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.paim.setText(String.valueOf(position + 1));
             holder.name.setText(namelist.get(position));
             holder.jifen.setText(jifenlist.get(position));
-            holder.touxiang.setImageResource(touxianglist.get(position));
+            String avatarUrl = touxianglist.get(position);
+            //DrawUtil.loadImageChoose(context,avatarUrl,holder.touxiang);
+            DrawUtil.loadRoundImageChoose(context,avatarUrl,holder.touxiang);
+            //holder.touxiang.setImageResource(touxianglist.get(position));
         }
         else{
             holder.name.setText("");
@@ -177,8 +184,26 @@ class MypaimingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
 
+   //static boolean mockData=true;
+   static boolean mockData=false;
     public  void init(){
-        namelist.add("网友小郑");
+        if (mockData) {
+            namelist.add("网友小郑");
+            touxianglist.add(R.mipmap.touxiang+"");
+        }else{
+
+            if(Bus.curUser==null){
+                namelist.add("网友小郑");
+                touxianglist.add(R.mipmap.touxiang+"");
+            }else{
+                String nickname = Bus.curUser.getNickname();
+                String avatarUrl = Bus.curUser.getAvatarUrl();
+                namelist.add(nickname);
+                touxianglist.add(avatarUrl);
+            }
+
+        }
+
         namelist.add("李薇薇");
         namelist.add("邓佳美");
         namelist.add("王一");
@@ -196,14 +221,22 @@ class MypaimingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         jifenlist.add("8");
         jifenlist.add("5");
         jifenlist.add("2");
-        touxianglist.add(R.mipmap.touxiang);
-        touxianglist.add(R.mipmap.tou1);
-        touxianglist.add(R.mipmap.tou2);
-        touxianglist.add(R.mipmap.tou3);
-        touxianglist.add(R.mipmap.tou4);
-        touxianglist.add(R.mipmap.tou5);
-        touxianglist.add(R.mipmap.tou6);
-        touxianglist.add(R.mipmap.tou7);
+        //touxianglist.add(R.mipmap.touxiang);
+        touxianglist.add(R.mipmap.tou1+"");
+        touxianglist.add(R.mipmap.tou2+"");
+        touxianglist.add(R.mipmap.tou3+"");
+        touxianglist.add(R.mipmap.tou4+"");
+        touxianglist.add(R.mipmap.tou5+"");
+        touxianglist.add(R.mipmap.tou6+"");
+        touxianglist.add(R.mipmap.tou7+"");
+
+        //touxianglist.add(R.mipmap.tou1);
+        //touxianglist.add(R.mipmap.tou2);
+        //touxianglist.add(R.mipmap.tou3);
+        //touxianglist.add(R.mipmap.tou4);
+        //touxianglist.add(R.mipmap.tou5);
+        //touxianglist.add(R.mipmap.tou6);
+        //touxianglist.add(R.mipmap.tou7);
     }
     @Override
     public int getItemCount() {

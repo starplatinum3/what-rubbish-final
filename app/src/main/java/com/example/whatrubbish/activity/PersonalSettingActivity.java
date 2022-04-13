@@ -1,5 +1,6 @@
 package com.example.whatrubbish.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +24,7 @@ import com.example.whatrubbish.db.Repository;
 import com.example.whatrubbish.entity.User;
 import com.example.whatrubbish.repository.UserRepository;
 import com.example.whatrubbish.span.CustomUrlSpan;
+import com.example.whatrubbish.util.ActivityUtil;
 import com.example.whatrubbish.util.HttpUtil;
 import com.example.whatrubbish.util.ThreadPoolManager;
 import com.example.whatrubbish.util.ToastUtil;
@@ -92,6 +94,7 @@ public class PersonalSettingActivity extends AppCompatActivity {
         });
 
         binding.btnGetRank.setOnClickListener(v->{
+            //AbsActivity
 
 
             Thread thread = new Thread(() -> {
@@ -99,6 +102,10 @@ public class PersonalSettingActivity extends AppCompatActivity {
             });
             ThreadPoolManager.run(thread);
 
+        });
+        binding. allReadyHave.setOnClickListener(v->{
+
+            ActivityUtil.startActivity(this,login.class);
         });
 
     }

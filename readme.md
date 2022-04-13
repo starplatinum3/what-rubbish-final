@@ -7,7 +7,7 @@
 文档
 https://acc15t4bm5.feishu.cn/docs/doccnyz8NYb08MCcx5GhcIeeR42
 
-change log
+### change log
 版本号 1.0.0
 readme 改成大写
 2022年1月22日11:18:55
@@ -18,6 +18,12 @@ readme 改成大写
 什么垃圾v1.1  游戏进入界面
 
 BmobSDK_V3.4.5_1111
+
+
+
+占用空间
+
+1.50 GB (1,616,809,984 字节)
 
 最新的项目
 

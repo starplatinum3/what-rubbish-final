@@ -15,6 +15,7 @@ import com.example.whatrubbish.databinding.ActivityAbsBinding;
 import com.example.whatrubbish.databinding.ActivityGameStageBinding;
 import com.example.whatrubbish.databinding.FragmentHolderBinding;
 import com.example.whatrubbish.fragment.SplitDropRubFragment;
+import com.example.whatrubbish.ui.home.HomeFragment;
 import com.example.whatrubbish.util.ActivityUtil;
 import com.suramire.androidgame25.MainActivity;
 
@@ -74,6 +75,13 @@ public class AbsActivity extends AppCompatActivity {
         binding.iv5.setOnClickListener(v -> {
             //飞机游戏
             ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
+        });
+        binding.iv6.setOnClickListener(v -> {
+            //垃圾识别
+            //dete.
+            //HomeFragment
+            ActivityUtil.startActivity(activity, com.example.trash_detective.Activity.MainActivity.class);
+            //ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
         });
 
         //Context context= this;

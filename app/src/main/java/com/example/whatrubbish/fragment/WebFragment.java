@@ -1,5 +1,8 @@
 package com.example.whatrubbish.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.whatrubbish.databinding.FragmentNotificationsBinding;
 import com.example.whatrubbish.databinding.FragmentWebBinding;
 import com.example.whatrubbish.ui.notifications.NotificationsViewModel;
+import com.example.whatrubbish.util.ActivityUtil;
 
 public class WebFragment extends Fragment {
 
@@ -42,7 +46,7 @@ public class WebFragment extends Fragment {
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         initWeb();
-
+        //initWebByBrowser();
         return root;
     }
 
@@ -61,6 +65,11 @@ public class WebFragment extends Fragment {
     //    return super.onKeyDown(keyCode, event);
     //}
 
+    void initWebByBrowser(){
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
     void initWeb(){
 
         WebView browser=   binding.Toweb;
@@ -70,7 +79,10 @@ public class WebFragment extends Fragment {
         //browser.loadUrl("https://www.baidu.com");
         //browser.loadUrl("http://www.baidu.com");
         Log.i("url", "initWeb: "+url);
+        //ActivityUtil.s
         browser.loadUrl(url);
+
+
 
         //设置可自由缩放网页
         browser.getSettings().setSupportZoom(true);

@@ -28,6 +28,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.databinding.ActivityAchievementBinding;
 import com.example.whatrubbish.neteasecloudmusictab.fragment.MainFragment;
 //import com.example.whatrubbish.neteasecloudmusictab.fragment.OneFragment;
 //import com.example.whatrubbish.neteasecloudmusictab.fragment.ThreeFragment;
@@ -56,6 +57,7 @@ public class AchievementActivity extends FragmentActivity
     private ViewPager mviewPager;
     //    private com.example.whatrubbish.neteasecloudmusictab.fragment.OneFragment.MyAdapter myAdapter;
     private AchievementFragment.MyAdapter myAdapter;
+    //ActivityAchievementBinding
 
     private Context mContext;
 

@@ -228,6 +228,18 @@ public class DrawUtil {
 
     }
 
+    public static void loadRoundImageChoose(Context context, String path, ImageView imageView) {
+        try{
+            int intRes = Integer.parseInt(path);
+            imageView.setImageResource(intRes);
+        }catch (Exception e){
+            //loadImage(context,path,imageView);
+            loadImageRoundedCorners(context, path, imageView);
+        }
+
+
+    }
+
 
     //    exportBtn = (Button)findViewById(R.id.setting_export_btn);
 //    addButtonIcon(exportBtn, R.drawable.icon_export, R.string.setting_export);

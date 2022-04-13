@@ -1,6 +1,8 @@
 package com.example.whatrubbish.fragment;
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -333,10 +335,13 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
             //        replace(R.id.mainHolder, new WebFragment(url))
             //        .addToBackStack(null).commit();
 
-            getParentFragmentManager().beginTransaction().
-                    //replace(R.id.nav_host_fragment_activity_main, new FriendFragment())
-                            replace(R.id.mainHolder,new WebFragment(url))
-                    .addToBackStack(null).commit();
+            //一个 fragment 效果不好
+            //getParentFragmentManager().beginTransaction().
+            //        //replace(R.id.nav_host_fragment_activity_main, new FriendFragment())
+            //                replace(R.id.mainHolder,new WebFragment(url))
+            //        .addToBackStack(null).commit();
+
+            initWebByBrowser(url);
 
             //ThreadPoolManager.getInstance().execute(new FutureTask<>(new Thread(()->{
             //    mockInsert();
@@ -361,6 +366,12 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         //这里是可以的啊 为啥别的不行呢
 
         setAdapter(mySendValue);
+    }
+
+    void initWebByBrowser(String url){
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
