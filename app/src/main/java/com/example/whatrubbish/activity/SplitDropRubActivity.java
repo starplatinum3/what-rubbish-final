@@ -32,6 +32,7 @@ public class SplitDropRubActivity extends AppCompatActivity {
         SplitDropRubFragment splitDropRubFragment = new SplitDropRubFragment(url);
         activity.getSupportFragmentManager().beginTransaction().
                 replace(R.id.holder, splitDropRubFragment).
-                addToBackStack(null).commit();
+                //addToBackStack(null).
+                commit();
     }
 }

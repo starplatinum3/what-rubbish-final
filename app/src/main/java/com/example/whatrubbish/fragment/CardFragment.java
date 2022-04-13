@@ -25,6 +25,7 @@ import com.example.whatrubbish.databinding.ItemCardBinding;
 import com.example.whatrubbish.entity.Card;
 import com.example.whatrubbish.entity.User;
 import com.example.whatrubbish.gridIcons.DividerGridItemDecoration;
+import com.example.whatrubbish.util.DrawUtil;
 import com.example.whatrubbish.util.HttpUtil;
 import com.example.whatrubbish.util.ThreadPoolFactory;
 import com.example.whatrubbish.util.ThreadPoolManager;
@@ -37,7 +38,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CardFragment   extends Fragment {
+public class CardFragment extends Fragment {
 
 
     //FragmentFriendBinding binding;
@@ -68,6 +69,7 @@ public class CardFragment   extends Fragment {
         void onCardClicked(int pos);
 
     }
+
     Listener listener;
 
     public Listener getListener() {
@@ -76,6 +78,16 @@ public class CardFragment   extends Fragment {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    boolean defaultStyle = true;
+
+    public boolean isDefaultStyle() {
+        return defaultStyle;
+    }
+
+    public void setDefaultStyle(boolean defaultStyle) {
+        this.defaultStyle = defaultStyle;
     }
 
     @Nullable
@@ -87,10 +99,12 @@ public class CardFragment   extends Fragment {
         binding = ItemCardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+        putStyle();
         //不知道是哪个啊
         //binding.
         root.setOnClickListener(v -> {
-            if(listener==null){
+            if (listener == null) {
                 return;
             }
             listener.onCardClicked(index);
@@ -99,6 +113,15 @@ public class CardFragment   extends Fragment {
         return root;
     }
 
+    void putStyle() {
+        if (defaultStyle) {
+            return;
+        }
+        binding.tvTitle.setText(card.getName());
+        binding.tvDescrip.setText(card.getDescribe());
+        //binding.tvContent.setImageResource(card.getName());
+        DrawUtil.loadImageChoose(getActivity(), card.getImgUrl(), binding.tvContent);
+    }
 
 
 }

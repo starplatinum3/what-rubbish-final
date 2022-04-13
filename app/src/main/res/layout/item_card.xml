@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintTop_toTopOf="parent">
-
+        android:text="标题"
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="199dp"
@@ -33,7 +33,7 @@
             android:layout_marginTop="16dp"
             android:layout_x="38dp"
             android:layout_y="42dp"
-            android:text="标题"
+            android:text="垃圾圣手"
             android:textSize="@dimen/sp_20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
 
         android:layout_marginTop="72dp"
         android:layout_marginEnd="50dp"
-
+        android:src="@drawable/miku_fang"
         <ImageView
             android:id="@+id/tv_content"
             android:layout_width="179dp"
@@ -52,14 +52,15 @@
             android:layout_marginTop="64dp"
             android:layout_x="47dp"
             android:layout_y="149dp"
-            android:src="@drawable/miku_fang"
+            android:src="@mipmap/xunzhang_3"
             android:text="主要"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
         android:layout_marginEnd="44dp"
-
+        android:text="描述"
+        android:textSize="@dimen/sp_20"
         <TextView
             android:id="@+id/tv_descrip"
             android:layout_width="191dp"
@@ -70,8 +71,8 @@
             android:layout_marginBottom="32dp"
             android:layout_x="37dp"
             android:layout_y="614dp"
-            android:text="描述"
-            android:textSize="@dimen/sp_20"
+            android:text="加快30%的垃圾收集速度"
+            android:textSize="@dimen/sp_18"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"></TextView>

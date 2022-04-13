@@ -33,6 +33,7 @@ import com.example.whatrubbish.databinding.ActivityCardBinding;
 import com.example.whatrubbish.databinding.ActivityCardComposeBinding;
 import com.example.whatrubbish.entity.Card;
 import com.example.whatrubbish.fragment.CardFragment;
+import com.example.whatrubbish.util.ActivityUtil;
 import com.example.whatrubbish.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -77,7 +78,7 @@ public class CardComposeActivity extends AppCompatActivity {
         //videoView.setVideoURI(Uri.parse("android.resource://com.leapfrog.mergelayoutswithevents/raw/videoplayback");
         //VideoView 播放 raw
         binding.getRoot().setBackgroundColor(Color.BLACK);
-        int drawingCacheBackgroundColor = binding.getRoot().getDrawingCacheBackgroundColor();
+
         //1280
         //720
         //360
@@ -93,16 +94,27 @@ public class CardComposeActivity extends AppCompatActivity {
         videoView.   setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                //finish();
-                //回去的时候 两个已经拼好了吗
-                videoView.setVisibility(View.GONE);
-                binding.btnCompose.setVisibility(View.VISIBLE);
-                binding.mViewPager.setVisibility(View.VISIBLE);
-                binding.mViewPagerChosen.setVisibility(View.VISIBLE);
-                binding.getRoot().setBackgroundColor(drawingCacheBackgroundColor);
+
+                //unShowVideo(videoView);
+                //Rotate3dActivity.
+                //CardFragment
+                ActivityUtil.startActivity(CardComposeActivity.this,Rotate3dActivity.class);
 
             }
         });
+    }
+
+    void unShowVideo( VideoView videoView){
+        int drawingCacheBackgroundColor = binding.getRoot().getDrawingCacheBackgroundColor();
+        //finish();
+        //回去的时候 两个已经拼好了吗
+        videoView.setVisibility(View.GONE);
+        binding.btnCompose.setVisibility(View.VISIBLE);
+        binding.mViewPager.setVisibility(View.VISIBLE);
+        binding.mViewPagerChosen.setVisibility(View.VISIBLE);
+        binding.getRoot().setBackgroundColor(drawingCacheBackgroundColor);
+        //旋转的 卡片在哪里
+
     }
 
     private ViewPageAdapter adapter;

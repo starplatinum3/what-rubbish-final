@@ -25,7 +25,7 @@ public class Bus {
     //MyWebSocketClient myWebSocketClient=    MyWebSocketClient.getInstance();
     public static MyWebSocketClient myWebSocketClient;
 
-
+    public static JsonObject  detectedTrash;
 
 
 
@@ -67,9 +67,9 @@ public class Bus {
     //public static final String rubClsLocApi ="https://lajifenleiapp.com/sk/{what}?l={loc}";
     public static final String keyRubbish = "keyRubbish";
     public static final String dbIpLocal = "10.0.2.2";
-    public static final String dbIp = "10.0.2.2";
+    //public static final String dbIp = "10.0.2.2";
     //public static final String dbIp = "localhost";
-    //public static final String dbIp = "139.196.8.79";
+    public static final String dbIp = "139.196.8.79";
     //        String url="http://"+ip+":8889/tbAdmin/find?id=1";
 //        String url = "http://" + ip + ":8889/rubbishInfo/save";
 //    String baseDbUrl = "http://" + dbIp + ":8889/rubbishInfo/list";

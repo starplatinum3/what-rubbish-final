@@ -18,9 +18,11 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.LoginActivity;
+import com.example.whatrubbish.MainActivity;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.activity.AbsActivity;
 import com.example.whatrubbish.activity.TestActivity;
+import com.example.whatrubbish.activity.TestBtnsActivity;
 import com.example.whatrubbish.card.CardItem;
 import com.example.whatrubbish.card.CardPagerAdapter;
 import com.example.whatrubbish.card.ShadowTransformer;
@@ -424,14 +426,18 @@ public class MainFragment extends Fragment implements CardPagerAdapter.MySendVal
         Log.d("listener", "onCreateView: "+listener);
         //这里 set的 listener 是空的
         //testSet();
-        //binding.iconTool.setOnClickListener(v->{
-        //    ActivityUtil.startActivity(activity, TestActivity.class);
-        //});
+        binding.iconTool.setOnClickListener(v->{
+            //ActivityUtil.startActivity(activity, TestActivity.class);
+            //ActivityUtil.startActivity(activity, MainActivity.class);
+            ActivityUtil.startActivity(activity, TestBtnsActivity.class);
+            //Main
+        });
         binding.ivAvatar.setOnClickListener(v->{
             //ActivityUtil.startActivity(activity, TestActivity.class);
             //游戏进度图
             ActivityUtil.startActivity(activity, AbsActivity.class);
         });
+        //iconTool
         return root;
     }
 

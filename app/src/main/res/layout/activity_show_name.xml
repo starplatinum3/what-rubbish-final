@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    app:layout_constraintStart_toStartOf="@+id/surface_view"
+    app:layout_constraintStart_toStartOf="@id/tv_name"
+
+    <Button
+        android:id="@+id/back_to_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"
+        android:gravity="top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--        -->
+    <!--    </LinearLayout>-->
+    app:layout_constraintEnd_toEndOf="parent"
+
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+
+    <TextView
+        android:id="@+id/tv_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_133"
+        android:layout_marginTop="188dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="垃圾"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintEnd_toStartOf="@id/tv_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_200"
+        android:foregroundGravity="center"
+        android:gravity="center"
+
+        android:text="垃圾"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintStart_toEndOf="@id/tv_name_title"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+    app:layout_constraintTop_toTopOf="parent"
+
+    app:layout_constraintStart_toStartOf="parent"
+
+    <TextView
+        android:id="@+id/tv_score_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_133"
+        android:layout_marginTop="36dp"
+
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="分数"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintEnd_toStartOf="@id/tv_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_title"></TextView>
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="32dp"
+        android:text="分数"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintStart_toEndOf="@id/tv_score_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"></TextView>
+
+    <TextView
+        android:id="@+id/tv_keyword_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="48dp"
+        android:text="关键词"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_score_title"></TextView>
+
+    <TextView
+        android:id="@+id/tv_keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="50dp"
+        android:text="关键词"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintStart_toEndOf="@+id/tv_keyword_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_score"></TextView>
+
+    <Button
+        android:id="@+id/btn_to_problem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="答题获取卡片"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_keyword_title"></Button>
+    <!--    <com.zwk.trash_detective.Activity.mSurfaceView-->
+    <!--        android:id="@+id/surface_view"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <com.example.trash_detective.Activity.mSurfaceView-->
+
+    <!--        android:id="@+id/surface_view"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

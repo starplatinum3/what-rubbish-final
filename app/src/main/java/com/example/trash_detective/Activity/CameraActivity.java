@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,12 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.camerakit.CameraKitView;
 import com.example.trash_detective.API.AdvancedGeneral;
+import com.example.trash_detective.Bean.Block;
 import com.example.trash_detective.Model.DataFlow;
+import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.util.ActivityUtil;
+import com.example.whatrubbish.util.JsonUtil;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 //import com.example.whatrubbish.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 public class CameraActivity extends AppCompatActivity implements View.OnTouchListener{
     private CameraKitView cameraKitView;
@@ -121,10 +129,22 @@ public class CameraActivity extends AppCompatActivity implements View.OnTouchLis
 
                     String json_data = AdvancedGeneral.advancedGeneral(capturedImage);
                     showToast(json_data);
+                    //展示了json
 
-                    intent = new Intent(context, ShowUpActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    intent.putExtra("blocks", DataFlow.parseBlockData(json_data));
+                    //intent = new Intent(context, ShowUpActivity.class);
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    //ArrayList<Block> blocks = DataFlow.parseBlockData(json_data);
+                    //不用parse了 数据格式不同了
+                    //Log.i("blocks", "run: "+blocks);
+                    ////intent.putExtra("blocks", DataFlow.parseBlockData(json_data));
+                    //intent.putExtra("blocks", blocks);
+                    JsonObject jsonObject = JsonUtil.Companion.strToJsonObject(json_data);
+
+                    JsonArray result = jsonObject.get("result").getAsJsonArray();
+                    JsonObject asJsonObject = result.get(0).getAsJsonObject();
+                    //JsonObject  detectedTrash;
+                    Bus.detectedTrash=asJsonObject;
+
 //                    switch (DataFlow.getCode()) {
 //                        case 1:
 //                            break;
@@ -134,10 +154,14 @@ public class CameraActivity extends AppCompatActivity implements View.OnTouchLis
 //                            break;
 //                    }
                     LoadingDialog.dismiss();
-                    if (intent != null) {
-                        context.startActivity(intent);
-                        finish();
-                    }
+                    ActivityUtil.startActivity(context,ShowNameActivity.class);
+                    //context.startActivity(intent);
+                    finish();
+                    //if (intent != null) {
+                    //    ActivityUtil.startActivity(context,ShowNameActivity.class);
+                    //    //context.startActivity(intent);
+                    //    finish();
+                    //}
                 }catch (Exception e){
                     e.printStackTrace();
                     showToast("连接服务异常");

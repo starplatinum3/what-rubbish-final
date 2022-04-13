@@ -67,10 +67,12 @@ public class Rotate3dActivity extends AppCompatActivity {
         options.inSampleSize = 4;
         imageViews[0] = findViewById(R.id.front_view);
         //imageViews[0].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.ic_jn,options));
-        imageViews[0].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.tuisong_1,options));
+        //imageViews[0].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.tuisong_1,options));
+        imageViews[0].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.monster_rh_lb,options));
         imageViews[1] = findViewById(R.id.back_view);
         //imageViews[1].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.ic_m,options));
-        imageViews[1].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.tuisong_2,options));
+        //imageViews[1].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.tuisong_2,options));
+        imageViews[1].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.clean_hand_zhizun,options));
 
         imageViews[0].setOnClickListener(v->{
             blow(imageViews[0]);
@@ -167,11 +169,13 @@ public class Rotate3dActivity extends AppCompatActivity {
     }
 
     void delayStart(){
+        //AbsActivity
         if(clicked){
             return;
         }
         clicked=true;
-        int waitMs=3000;
+        //int waitMs=3000;
+        int waitMs=1000;
         new Handler(message -> {
             ActivityUtil.startActivity(this,MainActivity.class);
             clicked=false;

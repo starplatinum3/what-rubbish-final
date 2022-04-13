@@ -4,6 +4,9 @@
 文档：错误 程序包android.support.design.wi...
 链接：http://note.youdao.com/noteshare?id=e0525aebe47888e70c5fea891cb1670b&sub=CAC7FEC1D7474FABB943A4A987959933
 
+文档
+https://acc15t4bm5.feishu.cn/docs/doccnyz8NYb08MCcx5GhcIeeR42
+
 change log
 版本号 1.0.0
 readme 改成大写
@@ -11,7 +14,8 @@ readme 改成大写
 尝试整合$ git clone https://gitee.com/starplatinum111/GameHall_Android.git
 之前
 超级玛丽增加不同的垃圾，不是正确的垃圾踩到会扣血
-
+2022年4月11日08:12:22
+什么垃圾v1.1  游戏进入界面
 
 BmobSDK_V3.4.5_1111
 

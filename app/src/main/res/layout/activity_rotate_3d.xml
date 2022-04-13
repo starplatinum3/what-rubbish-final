@@ -16,11 +16,13 @@
         <!--            android:text="演示"-->
         <!--            android:onClick="startAnimation"/>-->
         <Button
+            android:visibility="gone"
             android:id="@+id/btn_blow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="演示" />
         <Button
+            android:visibility="gone"
             android:id="@+id/btn_to_particle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +47,7 @@
         android:clickable="true"
         <Button
 
+            android:visibility="gone"
             android:id="@+id/button"
             android:layout_width="@dimen/dp_220"
             android:layout_height="100dp"

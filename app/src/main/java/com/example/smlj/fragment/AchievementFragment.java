@@ -25,6 +25,7 @@ import com.example.smlj.paiming;
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.R;
 import com.example.whatrubbish.activity.AbsActivity;
+import com.example.whatrubbish.activity.CardComposeActivity;
 import com.example.whatrubbish.activity.PersonalSettingActivity;
 import com.example.whatrubbish.databinding.ActivityAchievementBinding;
 import com.example.whatrubbish.databinding.FragmentCollectRubBinding;
@@ -141,7 +142,9 @@ public class AchievementFragment extends Fragment {
 
         binding.avatar.setOnClickListener(v -> {
             //开始游戏
-            ActivityUtil.startActivity(getActivity(), AbsActivity.class);
+            //ActivityUtil.startActivity(getActivity(), AbsActivity.class);
+            //合成卡牌
+            ActivityUtil.startActivity(getActivity(), CardComposeActivity.class);
         });
         return root;
     }

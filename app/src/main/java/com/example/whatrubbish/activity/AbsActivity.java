@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.whatrubbish.Bus;
 import com.example.whatrubbish.R;
+import com.example.whatrubbish.databinding.ActivityAbsAbsBinding;
 import com.example.whatrubbish.databinding.ActivityAbsBinding;
 import com.example.whatrubbish.databinding.ActivityGameStageBinding;
 import com.example.whatrubbish.databinding.FragmentHolderBinding;
@@ -25,6 +26,8 @@ public class AbsActivity extends AppCompatActivity {
 
     //private ActivityGameStageBinding binding;
     private ActivityAbsBinding binding;
+    //private ActivityAbsAbsBinding binding;
+    //private ActivityAbsAbsBinding binding;
 
 
 
@@ -41,8 +44,9 @@ public class AbsActivity extends AppCompatActivity {
         Activity activity=this;
         //Bus
         binding.iv1.setOnClickListener(v -> {
-            //飞机游戏
-            ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
+            ActivityUtil.startActivity(activity,com.suramire.androidgame25.MainActivity.class);
+            Log.v("btnToSuperMaria", "btnToSuperMaria");
+
         });
 
         binding.iv2.setOnClickListener(v -> {
@@ -68,8 +72,8 @@ public class AbsActivity extends AppCompatActivity {
         });
 
         binding.iv5.setOnClickListener(v -> {
-            ActivityUtil.startActivity(activity,com.suramire.androidgame25.MainActivity.class);
-            Log.v("btnToSuperMaria", "btnToSuperMaria");
+            //飞机游戏
+            ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
         });
 
         //Context context= this;
