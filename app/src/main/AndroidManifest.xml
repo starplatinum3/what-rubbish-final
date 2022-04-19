@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <!--外部存储的写权限-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--外部存储的读权限-->
@@ -55,37 +55,39 @@
         tools:targetApi="m">
 
 
-<!--        <receiver android:name="a.com.example.faservice.BootBroadcastReceiver">-->
-<!--                       -->
-<!--            <intent-filter>-->
-<!--                               -->
-<!--                <action android:name="android.intent.action.BOOT_COMPLETED">-->
-<!--                                    </action>-->
-<!--                               -->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--                           -->
-<!--            </intent-filter>-->
-<!--                   -->
-<!--        </receiver>-->
-<!--               -->
-<!--        <service android:name="a.com.example.faservice.FDService"> </service>-->
-        <meta-data android:value="androidym.com.mww" android:name="FD_CHANNEL" />
+        <!--        <receiver android:name="a.com.example.faservice.BootBroadcastReceiver">-->
+        <!--                       -->
+        <!--            <intent-filter>-->
+        <!--                               -->
+        <!--                <action android:name="android.intent.action.BOOT_COMPLETED">-->
+        <!--                                    </action>-->
+        <!--                               -->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--                           -->
+        <!--            </intent-filter>-->
+        <!--                   -->
+        <!--        </receiver>-->
+        <!--               -->
+        <!--        <service android:name="a.com.example.faservice.FDService"> </service>-->
+        <meta-data
+            android:name="FD_CHANNEL"
+            android:value="androidym.com.mww" />
 
 
-<!--        <service android:name="com.bn.tl.anzhi.GameMonitor"-->
-<!--            android:exported="false">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MonitorService" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
-<!--        <receiver android:name="com.bn.tl.anzhi.GameRecever"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.USER_PRESENT" />-->
-<!--                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
-<!--        -->
+        <!--        <service android:name="com.bn.tl.anzhi.GameMonitor"-->
+        <!--            android:exported="false">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MonitorService" />-->
+        <!--            </intent-filter>-->
+        <!--        </service>-->
+        <!--        <receiver android:name="com.bn.tl.anzhi.GameRecever"-->
+        <!--            android:exported="true">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.USER_PRESENT" />-->
+        <!--                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
+        <!--            </intent-filter>-->
+        <!--        </receiver>-->
+        <!--        -->
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
@@ -105,43 +107,51 @@
         <!--        </activity>-->
 
 
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
-        <activity android:name="com.example.smlj.logo"/>
-        <activity android:name=".activity.NoBottomNavActivity"/>
-        <activity android:name="com.richard.hitball.MainActivity"/>
-        <activity android:name=".activity.RecMsgActivity"/>
-        <activity android:name=".activity.GameStageActivity"/>
-        <activity android:name=".activity.AbsActivity"
-            android:screenOrientation="landscape"
-          />
+        <activity
+            android:name="com.example.smlj.logo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.NoBottomNavActivity" />
+        <activity android:name="com.richard.hitball.MainActivity" />
+        <activity android:name=".activity.RecMsgActivity" />
+        <activity android:name=".activity.GameStageActivity" />
+        <activity
+            android:name=".activity.AbsActivity"
+            android:screenOrientation="landscape" />
         android:screenOrientation="portrait"
-<!--        landscape-->
-        <activity android:name="com.example.androidteris.MainActivity"/>
-        <activity android:name=".activity.CardActivity"/>
-        <activity android:name="com.bn.tl.anzhi.BasketBall_Shot_Activity"/>
-        <activity android:name=".activity.CardListActivity"/>
-        <activity android:name=".activity.CardComposeActivity"/>
-        <activity android:name="com.arjinmc.viewpagerupdatedemo.PageUpdateMainActivity"/>
-        <activity android:name=".activity.VideoActivity"/>
-        <activity android:name=".activity.SplitDropRubActivity"/>
-        <activity android:name=".activity.Rotate3dActivity"/>
-        <activity android:name=".activity.ParticleExamActivity"/>
-        <activity android:name=".activity.ParticleActivity"/>
-        <activity android:name=".activity.TestBtnsActivity"/>
-        <activity android:name="com.example.trash_detective.Activity.ShowNameActivity"/>
-<!--        <activity android:name=".logInfo.LogInfoActivity"/>-->
-        <activity android:name="com.quchen.flappycow.MainActivity"
+        <!--        landscape-->
+        <activity android:name="com.example.androidteris.MainActivity" />
+        <activity android:name=".activity.CardActivity" />
+        <activity android:name="com.bn.tl.anzhi.BasketBall_Shot_Activity" />
+        <activity android:name=".activity.CardListActivity" />
+        <activity android:name=".activity.CardComposeActivity" />
+        <activity android:name="com.arjinmc.viewpagerupdatedemo.PageUpdateMainActivity" />
+        <activity android:name=".activity.VideoActivity" />
+        <activity android:name=".activity.SplitDropRubActivity" />
+        <activity android:name=".activity.Rotate3dActivity" />
+        <activity android:name=".activity.ParticleExamActivity" />
+        <activity android:name=".activity.ParticleActivity" />
+        <activity android:name=".activity.TestBtnsActivity" />
+        <activity android:name="com.example.trash_detective.Activity.ShowNameActivity" />
+        <!--        <activity android:name=".logInfo.LogInfoActivity"/>-->
+        <activity
+            android:name="com.quchen.flappycow.MainActivity"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -150,25 +160,29 @@
         </activity>
 
         <!-- For Google Play Services -->
-        <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
-        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-5615758120938208~8730683579"/>
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5615758120938208~8730683579" />
 
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:label="@string/app_name"-->
-<!--            android:screenOrientation="portrait" >-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name=".MainActivity"-->
+        <!--            android:label="@string/app_name"-->
+        <!--            android:screenOrientation="portrait" >-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
         <activity
             android:name="com.quchen.flappycow.Game"
-            android:label="@string/app_name"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.quchen.flappycow.Game" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -177,9 +191,9 @@
 
         <activity
             android:name="com.quchen.flappycow.About"
+            android:exported="true"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.quchen.flappycow.About" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -187,42 +201,41 @@
         </activity>
 
         <!-- Remove the lines below, if you don't want ads -->
-        <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-<!--        <activity android:name="com.sec.android.ad.AdActivity"-->
-<!--        <activity android:name="com.sec."-->
-<!--            android:configChanges="keyboardHidden|orientation|screenSize"/>-->
+        <!--        <activity android:name="com.sec.android.ad.AdActivity"-->
+        <!--        <activity android:name="com.sec."-->
+        <!--            android:configChanges="keyboardHidden|orientation|screenSize"/>-->
         <!-- Remove the lines above, if you don't want ads -->
 
 
-
         <!--        <activity android:name=".MainActivity" />-->
-<!--        <activity-->
-<!--            android:name="com.example.smlj.logo"-->
-<!--            android:exported="true"-->
-<!--            android:icon="@mipmap/ic_launcher"-->
-<!--            android:label="@string/app_name">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--        <activity-->
+        <!--            android:name="com.example.smlj.logo"-->
+        <!--            android:exported="true"-->
+        <!--            android:icon="@mipmap/ic_launcher"-->
+        <!--            android:label="@string/app_name">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
         <activity android:name="com.example.compose.ComposeActivity" />
         <activity android:name="com.example.trash_detective.Activity.MainActivity" />
         <activity android:name="com.example.trash_detective.Activity.CameraActivity" />
         <activity android:name=".wanandroid.WanandroidActivity" />
         <activity android:name=".activity.SearchFriendActivity" />
-<!--        <activity android:name="com.android.soundrecorder.SoundRecorder" />-->
-        <activity android:name="com.suramire.androidgame25.MainActivity"
+        <!--        <activity android:name="com.android.soundrecorder.SoundRecorder" />-->
+        <activity
+            android:name="com.suramire.androidgame25.MainActivity"
             android:screenOrientation="landscape" />
-
-
 
 
         <!--        <activity-->
@@ -244,15 +257,13 @@
         </activity>
 
         android:theme="@style/AppThemeQmui"
-        <activity
-            android:name="com.hurteng.stormplane.modify.ModifyActivity"
-          />
+        <activity android:name="com.hurteng.stormplane.modify.ModifyActivity" />
         <activity android:name="com.hurteng.stormplane.MainActivity" />
         <activity android:name=".activity.ProblemActivity" />
         <activity android:name=".activity.WsTestActivity" />
 
         <activity android:name=".achievement.AchievementActivitySelf"></activity>
-<!--        <activity android:name="com.example.compose.ComposeActivity"></activity>-->
+        <!--        <activity android:name="com.example.compose.ComposeActivity"></activity>-->
 
         <activity android:name=".RegisterActivity" />
         <activity android:name=".RegionSettingActivity" />
@@ -273,27 +284,39 @@
             android:theme="@style/Theme.COMPX202FinalProject" />
 
 
-<!--        <activity-->
-<!--            android:name="com.example.smlj.login"-->
-<!--            android:windowSoftInputMode="adjustPan" />-->
+        <!--        <activity-->
+        <!--            android:name="com.example.smlj.login"-->
+        <!--            android:windowSoftInputMode="adjustPan" />-->
         <activity
             android:name="com.example.smlj.login"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
 
-        <activity android:name="com.example.smlj.yingdao" />
+        <activity
+            android:name="com.example.smlj.yingdao"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <!--        <activity android:name="com.example.smlj.yingdao" />-->
         <activity android:name="com.hrl.chaui.activity.SplashActivity" />
         <activity android:name="com.hrl.chaui.activity.ChatActivity" />
         <activity android:name=".activity.TestActivity" />
-<!--        记忆游戏-->
-        <activity android:name="com.snatik.matches.MainActivity"
-            android:screenOrientation="landscape"/>
+        <!--        记忆游戏-->
+        <activity
+            android:name="com.snatik.matches.MainActivity"
+            android:screenOrientation="landscape" />
         <!--        <activity android:name="com.example.smlj.achievementActivity"/>-->
         <!--        <activity-->
         <!--            android:name=".tabLayout.TabLayoutActivity"-->
@@ -381,45 +404,38 @@
         <activity
             android:name="com.sdust.im.activity.WelcomeActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity
             android:name="com.sdust.im.activity.register.RegisterActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name="com.sdust.im.activity.SearchFriendActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name="com.sdust.im.activity.LoginActivity"
             android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name="com.sdust.im.activity.FriendSearchResultActivity"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask"></activity>
         <activity
             android:name="com.sdust.im.activity.ChatActivity"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask"></activity>
         <activity
             android:name="com.sdust.im.activity.imagefactory.ImageFactoryActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name="com.sdust.im.activity.MainActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
     </application>
 

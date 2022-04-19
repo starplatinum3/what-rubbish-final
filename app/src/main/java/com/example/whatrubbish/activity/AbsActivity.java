@@ -60,6 +60,7 @@ public class AbsActivity extends AppCompatActivity {
         });
 
         binding.iv4.setOnClickListener(v -> {
+            //Bus
             //FragmentHolderBinding
             //ActivityHo
             //HolderAc
@@ -72,10 +73,11 @@ public class AbsActivity extends AppCompatActivity {
 
         });
 
-        binding.iv5.setOnClickListener(v -> {
-            //飞机游戏
-            ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
-        });
+        //binding.iv5.setOnClickListener(v -> {
+        //    //飞机游戏
+        //    //这里出来之后会没有登录
+        //    ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
+        //});
         binding.iv6.setOnClickListener(v -> {
             //垃圾识别
             //dete.
@@ -83,6 +85,11 @@ public class AbsActivity extends AppCompatActivity {
             ActivityUtil.startActivity(activity, com.example.trash_detective.Activity.MainActivity.class);
             //ActivityUtil.startActivity(this, com.hurteng.stormplane.MainActivity.class);
         });
+        binding.iv7.setOnClickListener(v -> {
+            //愤怒的小鸟鸟
+            ActivityUtil.startActivity(activity,         com.example.compx202_finalproject.MainActivity.class);
+        });
+
 
         //Context context= this;
         //for (int i = 0; i < 14; i++) {
