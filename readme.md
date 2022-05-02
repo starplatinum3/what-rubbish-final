@@ -1,11 +1,13 @@
+### 文档（重要）
+https://acc15t4bm5.feishu.cn/docs/doccnyz8NYb08MCcx5GhcIeeR42
+
+
 虚拟机 Android 10 跑不起来
 
 我手机 Android 9 可以跑
 文档：错误 程序包android.support.design.wi...
 链接：http://note.youdao.com/noteshare?id=e0525aebe47888e70c5fea891cb1670b&sub=CAC7FEC1D7474FABB943A4A987959933
 
-文档
-https://acc15t4bm5.feishu.cn/docs/doccnyz8NYb08MCcx5GhcIeeR42
 
 ### change log
 版本号 1.0.0
